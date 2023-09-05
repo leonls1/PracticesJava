@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package firststeps;
+import java.util.Scanner;
 
 /**
  *
@@ -10,11 +11,12 @@ package firststeps;
  */
 public class FirstSteps {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
+        String name;
+        Scanner sc = new Scanner(System.in);
+        name = sc.nextLine();
+        
     }
     
 }
