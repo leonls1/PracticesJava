@@ -1,30 +1,58 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package firststeps.Tests;
-
-/**
- *
- * @author leon
- */
 public class InheritanceAbstract {
-    abstract class Human{
-    String name;
+
+    public static void main(String[] args) {
+        Human[] array = new Human[5];
+
+        array[0] = new Employee();
+        array[1] = new Employee();
+        array[2] = new Boss();
+        array[3] = new Director();
+        array[4] = new Student();
+
+        for (Human h : array) {
+            h.printSomething();
+        }
+    }
+
+    static class Human {
+        String name;
 
         public String getName() {
             return name;
         }
-        public abstract void printSomething();
+
+        public void printSomething() {
+            System.out.println("I am a Human");
+        }
     }
-    
-    class Employee extends Human(){
+
+    static class Employee extends Human {
 
         @Override
         public void printSomething() {
             System.out.println("I am an employee");
         }
-        
-        
+
+    }
+
+    static class Boss extends Employee {
+        @Override
+        public void printSomething() {
+            System.out.println("I am a Boss");
+        }
+    }
+
+    static final class Director extends Boss {
+        @Override
+        public void printSomething() {
+            System.out.println("I am a Director");
+        }
+    }
+
+    static class Student extends Human {
+        @Override
+        public void printSomething() {
+            System.out.println("I am a student");
+        }
     }
 }
