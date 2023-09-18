@@ -21,7 +21,7 @@ public class LambdaMethods {
         System.out.println(verifyEmptyString.verify(""));
         System.out.println(verifyEmptyString.verify("aso"));
         
-        String[] stringList= new List{"Red", "Green", "Blue", "PINK");
+       // String[] stringList= new List{"Red", "Green", "Blue", "PINK");
         //3.a
         
         

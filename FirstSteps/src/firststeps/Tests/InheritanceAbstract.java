@@ -12,9 +12,16 @@ public class InheritanceAbstract {
         for (Human h : array) {
             h.printSomething();
         }
+        
+        for(Human h: array){
+            h.doSomething();
+        }
+        //a lambda expresion
+        DoingSomething doing = (()-> System.out.println("\n doing something"));
+        doing.doSomething();
     }
 
-    static class Human {
+    static class Human implements DoingSomething,SayHi{
         String name;
 
         public String getName() {
@@ -22,7 +29,16 @@ public class InheritanceAbstract {
         }
 
         public void printSomething() {
-            System.out.println("I am a Human");
+            System.out.println("I am a Human");                       
+        }
+        @Override
+        public void doSomething() {
+            System.out.println("I am Doing something");
+        }
+
+        @Override
+        public void hi() {
+            System.out.println("Hi, I am a human and I can speak");
         }
     }
 
@@ -32,6 +48,11 @@ public class InheritanceAbstract {
         public void printSomething() {
             System.out.println("I am an employee");
         }
+        
+        @Override
+        public void doSomething(){
+            System.out.println("I'm working");
+        }
 
     }
 
@@ -40,6 +61,10 @@ public class InheritanceAbstract {
         public void printSomething() {
             System.out.println("I am a Boss");
         }
+        @Override
+        public void doSomething(){
+            System.out.println("Working very, very hard");
+        }
     }
 
     static final class Director extends Boss {
@@ -47,12 +72,31 @@ public class InheritanceAbstract {
         public void printSomething() {
             System.out.println("I am a Director");
         }
+        
+        @Override
+        public void doSomething(){
+            System.out.println("Working extremely hard... sometimes");
+        }
     }
 
-    static class Student extends Human {
+    static class Student extends Human   {
         @Override
         public void printSomething() {
             System.out.println("I am a student");
         }
+
+        
+    }
+    
+    //iterfaces(in this case i will also aply FuncitionalInterfaces to add some
+//complexity with lambda expresions)
+    @FunctionalInterface
+    interface DoingSomething{
+        void doSomething();
+    }
+    
+    @FunctionalInterface
+    interface SayHi{
+        void hi();
     }
 }
