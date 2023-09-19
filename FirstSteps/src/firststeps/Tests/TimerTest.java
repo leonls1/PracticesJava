@@ -7,7 +7,7 @@ import javax.swing.Timer;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.JOptionPane;
-
+import java.awt.Toolkit;
 //trying a timer with concept of interface at the same time
 public class TimerTest {
     public static void main(String[] args) {
@@ -29,7 +29,10 @@ public class TimerTest {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Te muestro la hora cada 5 seg: "+ ahora );}
+            System.out.println("Te muestro la hora cada 5 seg: "+ ahora );
+            Toolkit.getDefaultToolkit().beep();
+        }
+            
         
     }
     
