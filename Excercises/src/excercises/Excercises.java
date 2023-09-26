@@ -17,18 +17,8 @@ public class Excercises {
      */
     public static void main(String[] args) {
         Interview_excercises methods = new Interview_excercises();
-        System.out.println(methods.solvingPuzzle(10));
-        //8042318513
-        //8042318513
-        
-        
-        //my results
-        //1931173553
-        //2308709041
-        //2308709041
-        
-        
-        //whit Long conversion2023**10 = 6179096441
+
+        System.out.println(methods.threeSum(3));
     }
     
 }
