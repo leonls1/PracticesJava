@@ -107,7 +107,7 @@ Considera a un muchacho que se deleita pintando su tablero de ajedrez.
     public void chessTable(int n) {
         int[][] table = new int[n][n];
         for (int i = 0; i < table.length; i++) {
-            for (int j = 0, j <table[i].length; j++){
+            for (int j = 0; j <table[i].length; j++){
             
         }
         }
