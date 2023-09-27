@@ -17,8 +17,11 @@ public class Excercises {
      */
     public static void main(String[] args) {
         Interview_excercises methods = new Interview_excercises();
+        int[][] mat = methods.chessTable(8);
+        methods.printMatNxN(mat);
 
-        System.out.println(methods.threeSum(3));
     }
+    
+    
     
 }

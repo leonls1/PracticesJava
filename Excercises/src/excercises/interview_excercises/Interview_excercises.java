@@ -5,6 +5,7 @@
 package excercises.interview_excercises;
 
 import java.math.*;
+import java.util.Random;
 
 /**
  *
@@ -104,12 +105,66 @@ Considera a un muchacho que se deleita pintando su tablero de ajedrez.
     siguiendo estas pautas? ¿Qué acontecería si, en vez de un tablero de ajedrez común de 8x8, 
     tuviera uno monumental de 1000x1000?
      */
-    public void chessTable(int n) {
-        int[][] table = new int[n][n];
-        for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j <table[i].length; j++){
-            
+    public int[][] chessTable(int n) {
+        int[][] table = new int[n+1][n];
+        int[] redXcol = new int[n];
+        int[] blueXcol = new int[n];
+
+        for (int i = 0; i < n ; i++) {
+            redXcol[i] = 0;
+            blueXcol[i] = 0;
         }
+
+        Random rand = new Random();
+        int randColor, redXrow, blueXrow;
+
+        for (int i = 0; i < n  ; i++) {
+            redXrow = blueXrow = 0;
+
+            for (int j = 0; j < table[i].length ; j++) {
+                randColor = rand.nextInt(2); //0 = blue, 1 = red
+                if (randColor == 0) {
+                    if ((blueXrow < n/2) && (blueXcol[j] < n/2)) {
+                       table[i][j] = 0;                       
+                       blueXrow++;
+                       blueXcol[j]++;
+                        
+                    } else {
+                        table[i][j] = 1;
+                        redXrow++;
+                        redXcol[j]++;
+                    }
+                } else if ((redXrow < n/2) && (redXcol[j] < n/2)) {
+                    table[i][j] = 1;
+                        redXrow++;
+                        redXcol[j]++;
+                } else {
+                    table[i][j] = 0;                       
+                       blueXrow++;
+                       blueXcol[j]++;
+                }
+
+            }
+        }
+
+        return table;
+    }    
+ 
+    private void paintCell(int nRow, int nCol, int colr, int count, int[] count2, int[][] table) {
+        count++;
+        count2[nCol]++;
+        table[nRow][nCol] = colr;
+    }
+
+    public void printMatNxN(int[][] mat) {
+        String chain = "";
+
+        for (int i = 0; i < mat.length; i++) {
+            System.out.println(chain);
+            chain = "";
+            for (int j = 0; j < mat[i].length; j++) {
+                chain += mat[i][j] + " ";
+            }
         }
     }
 
