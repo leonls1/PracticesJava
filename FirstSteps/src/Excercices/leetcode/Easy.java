@@ -55,7 +55,7 @@ public class Easy {
         return total;      
     }
     
-     public int romanToInt(String s) {
+     /*public int romanToInt(String s) {
         String storage = "";
         char [] arr = s.toCharArray();
         int sum = 0;
@@ -66,6 +66,6 @@ public class Easy {
             
         }
         }
-    }
+    }*/
 
 }
