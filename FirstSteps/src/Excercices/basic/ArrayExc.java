@@ -177,7 +177,7 @@ public class ArrayExc {
     }
     
     //22)Write a Java program to find all pairs of elements in an array whose sum is equal to a specified number.
-    public int [] pairs_equal_sum(int [] arr, int target){
+   /* public int [] pairs_equal_sum(int [] arr, int target){
         int len = arr.length;
         ArrayList<Integer> pair_index = new ArrayList<>();
         
@@ -190,5 +190,5 @@ public class ArrayExc {
             }
             
         }
-    }
+    }*/
 }
