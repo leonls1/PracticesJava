@@ -12,27 +12,26 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
-    private static Scene scene;
-
+    private static Scene scene; //creating a new scene
+            
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) throws IOException{
+        scene = new Scene(loadFXML("primary"), 700, 500);
+        stage.setScene(scene); //loading the scene
+        stage.show(); //showing everything
     }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    
+    
+    
+    private static Parent loadFXML(String primary) throws IOException {
+        
     }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
+    
     public static void main(String[] args) {
         launch();
     }
+
+    
+    
 
 }
