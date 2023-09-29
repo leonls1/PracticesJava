@@ -20,9 +20,7 @@ public class App extends Application {
     public App() {
         System.out.println("LLamando al constructor");
     }
-    
-    
-    
+   
     @Override
     public void init(){
         System.out.println("Se inicia init() apenas instancias la clase App");
@@ -32,12 +30,6 @@ public class App extends Application {
     public void start(Stage stage) throws IOException{
         scene = new Scene(loadFXML("primary"), 700, 500);
         BorderPane root  = new BorderPane();
-        Label label = new Label("Hola mundo");
-        Button btn = new Button();  
-        btn.setText("Un boton");
-        
-        root.getChildren().add(label);
-        root.getChildren().add(btn);
 
         stage.setTitle("My first javaFx");
         stage.setScene(scene); //loading the scene

@@ -1,4 +1,4 @@
-package javafxlayouts;
+package loginfx;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

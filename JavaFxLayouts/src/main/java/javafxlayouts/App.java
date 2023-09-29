@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -19,52 +21,50 @@ import javafx.scene.text.Font;
 
 public class App extends Application {
 
-    private static Scene scene;
+    private static Scene scene;/*
     private static Button btn1 = new Button("Boton 1");
     private static Button btn2 = new Button("Boton 2");
     private static Button btn3 = new Button("Boton 3");
     private static Button btn4 = new Button("Boton 4");
-    private static Button btn5 = new Button("Boton 5");
+    private static Button btn5 = new Button("Boton 5");/*
+    
+    */
+    
+    //labels for my login
     private static BorderPane root = new BorderPane();
-
+    private static Label lTitle = new Label("  Login");
+    private static Label lPass = new Label("Password");
+    private static Label lUser = new Label("User");
+    
+    //textBox for the login
+    private static TextField textUser = new TextField();
+    private static PasswordField textPass = new PasswordField();
+    
+    //aaand the final button to logIn the current user
+    private static  Button btnLogIn = new Button("Enter");
+    
+    
     @Override
     public void start(Stage stage) throws IOException {
         
         scene = new Scene(root, 640, 480);     
-        //setziseButtons();
-        
-        //labels for my login
-        Label lTitle = new Label("  Login");
-        Label lUser = new Label("User");
-        Label lPass = new Label("Password");
-        
-        //changing  label sizes
-        lTitle.setFont(new Font(30));
-        lUser.setFont(new Font(15));
-        lPass.setFont(new Font(15));
-        
-        //textBox for the login
-        TextField textUser = new TextField();
-        PasswordField textPass = new PasswordField();
-        
-        //aaand the final button to logIn the current user
-        Button btnLogIn = new Button("Enter");
-        
+                
         //creating a new container for the nods of logIn component
         VBox columnContainer = new VBox();
         columnContainer.getChildren().addAll(lTitle, lUser, textUser, lPass, textPass, btnLogIn);
         
         // setting in middle the container
         root.setCenter(columnContainer);
+        columnContainer.setAlignment(Pos.CENTER);
         
-        
+        setVBox();
         
         stage.setScene(scene);
         stage.setTitle("Layout_borderLine");
         stage.show();
     }
     
-    
+    /*
     static void setziseButtons(){
         //setting buttons into my borderpane(main layout)
         root.setCenter(btn1); 
@@ -96,7 +96,23 @@ public class App extends Application {
         btn5.setMaxHeight(Double.MAX_VALUE);
         BorderPane.setMargin(btn5, new Insets(5, 5, 0, 5));
     }
-
+*/
+    
+    static void setVBox(){     
+        //changing  label sizes
+        lTitle.setFont(new Font(30));
+        lUser.setFont(new Font(15));
+        lPass.setFont(new Font(15));
+        
+        //setting a static size for all components/nods
+        textUser.setMaxWidth(150);
+        textPass.setMaxWidth(150);
+        btnLogIn.setMaxWidth(150);
+        
+        //to change the current cursor when it's over the button
+        btnLogIn.setCursor(Cursor.OPEN_HAND); 
+    }
+    
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
