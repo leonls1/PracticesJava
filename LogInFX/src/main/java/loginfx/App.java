@@ -25,10 +25,11 @@ public class App extends Application {
     private static Scene scene;
     private static Label lUser, lTitle, lPass;
     private static Button btnLogIn;
-    private static VBox logIn;
+    private static VBox logIn, containerLeft;
     private static HBox main;
     private static TextField txtUser;
     private static PasswordField txtPass;
+    
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -42,7 +43,7 @@ public class App extends Application {
         root.setCenter(logIn);
         
         stage.setScene(scene);
-        stage.setTitle("Log in app");
+        stage.setTitle("Log-in app");
         stage.show();
     }
 
