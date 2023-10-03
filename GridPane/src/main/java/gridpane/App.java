@@ -1,4 +1,4 @@
-package flowpane;
+package gridpane;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,9 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 
 /**
  * JavaFX App
@@ -20,21 +19,24 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Button btn1 = new Button("Buttton #1");
-        Button btn2 = new Button("Buttton #2");
-        Button btn3 = new Button("Buttton #3");
-        Button btn4 = new Button("Buttton #4");
-        Button btn5 = new Button("Buttton #5");
+        Button btn1 = new Button("Button # 1");
+        Button btn2 = new Button("Button # 2");
+        Button btn3 = new Button("Button # 3");
+        Button btn4 = new Button("Button # 4");
+        Button btn5 = new Button("Button # 5");
+        Button btn6 = new Button("Button # 6");
         
-        FlowPane root = new FlowPane();
+        GridPane.setConstraints(btn1, 0, 0);
+        GridPane.setConstraints(btn2, 0, 1);
+        GridPane.setConstraints(btn3, 0, 2);
         
-        root.setHgap(10);
-        root.setVgap(12);
+        GridPane.setConstraints(btn4, 1, 0);
+        GridPane.setConstraints(btn5, 1, 1);
+        GridPane.setConstraints(btn6, 1, 2);
         
-        root.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
-        root.setOrientation(Orientation.VERTICAL);
+        GridPane root = new GridPane();
         
-        
+        root.getChildren().addAll(btn1, btn3, btn2, btn4, btn5, btn6);
         
         scene = new Scene(root, 640, 480);
         stage.setScene(scene);
