@@ -12,10 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import java.io.InputStream;
 
 /**
  * JavaFX App
@@ -29,6 +32,9 @@ public class App extends Application {
     private static HBox main;
     private static TextField txtUser;
     private static PasswordField txtPass;
+    private static InputStream input;
+    private static Image img;
+    private static ImageView imgLogo;
     
 
     @Override
@@ -37,10 +43,16 @@ public class App extends Application {
         
         logIn = new VBox();
         loadVBox();
+        
+        containerLeft = new VBox();
+        loadImg("C:\\Users\\leonl\\Documents\\NetBeansProjects\\LogInFX\\src\\main\\java\\images\\47131hd.jpg"); //loading the img into the container
+        
         main = new HBox();
+        main.getChildren().addAll(logIn, containerLeft);
+        
+        root.getChildren().add(main);
         
         scene = new Scene(root, 854, 503);
-        root.setCenter(logIn);
         
         stage.setScene(scene);
         stage.setTitle("Log-in app");
@@ -60,7 +72,7 @@ public class App extends Application {
         launch();
     }
     
-    private static void loadVBox(){        
+    private void loadVBox(){        
        lTitle =  new Label("Log In");
        lUser =  new Label("User");
        lPass = new Label("Passwrod");
@@ -74,9 +86,17 @@ public class App extends Application {
         lPass.setFont(new Font(15));
         
         //setting a static size for all components/nods
-        txtUser.setMaxWidth(150);
-        txtPass.setMaxWidth(150);
-        btnLogIn.setMaxWidth(150);
+        txtUser.setMinWidth(150);
+        txtPass.setMinWidth(150);
+        btnLogIn.setMinWidth(150);
+        
+         lTitle.setMinWidth(150);
+        lUser.setMinWidth(150);
+        lPass.setMinWidth(150);
+        
+        txtUser.prefWidth(150);
+        txtPass.prefWidth(150);
+        btnLogIn.prefWidth(150);
         
         //to change the current cursor when it's over the button
         btnLogIn.setCursor(Cursor.OPEN_HAND); 
@@ -87,5 +107,16 @@ public class App extends Application {
         logIn.getChildren().addAll(lTitle, lUser, txtUser, lPass, txtPass, btnLogIn);
     }
     
+    private  void loadImg(String url){
+        try {
+          input = getClass().getResourceAsStream(url);
+        img = new Image(input);
+        imgLogo = new ImageView(img);
+        containerLeft.getChildren().add(imgLogo);  
+        } catch (Exception e) {
+            System.out.println("No se ha podido cargar la imagen");
+        }
+        
+    }
 
 }
