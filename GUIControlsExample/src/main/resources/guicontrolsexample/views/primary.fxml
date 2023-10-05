@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guicontrolsexample.PrimaryController">
+   <children>
+      <HBox layoutX="29.0" layoutY="103.0" prefHeight="280.0" prefWidth="550.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="254.0" prefWidth="153.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="TOP" prefHeight="40.0" prefWidth="158.0" text="Hola mundo" textAlignment="RIGHT" textFill="#8f611b">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="TOP" text="Leon">
+                     <graphic>
+                        <ImageView fitHeight="127.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/lion-calgary-zoo-lion-with-ball-lion-playing.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Un texto super largo que no me va a entrar en una sola linea" wrapText="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="205.0">
+               <children>
+                  <Button fx:id="btnAccept" defaultButton="true" mnemonicParsing="false" onAction="#eventButton" prefHeight="42.0" prefWidth="82.0" text="Aceptar">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button cancelButton="true" disable="true" mnemonicParsing="false" text="Cancelar" />
+                  <Button contentDisplay="BOTTOM" graphicTextGap="0.0" mnemonicParsing="false" text="Cursor">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="104.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Distant%20Volcano-X3.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="104.0" prefWidth="126.0" text="Button">
+                     <graphic>
+                        <ImageView fitHeight="101.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/05fd3b_a9be9d931ad34548aa7e598f14d4c101~mv2.jpeg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </VBox>
+            <VBox alignment="TOP_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="400.0" prefWidth="235.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <TextField fx:id="txtletters" editable="false" onKeyTyped="#eventkey">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtnumbers" alignment="TOP_RIGHT" onKeyTyped="#eventkey" promptText="ingrese un valor">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtpass" alignment="CENTER" onKeyTyped="#eventkey">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <PasswordField fx:id="txtall" onKeyTyped="#eventkey" promptText="ingrese su contraseña">
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </PasswordField>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="82.0" layoutY="64.0" text="Label">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="284.0" layoutY="64.0" text="Button">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="480.0" layoutY="64.0" text="text field">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
