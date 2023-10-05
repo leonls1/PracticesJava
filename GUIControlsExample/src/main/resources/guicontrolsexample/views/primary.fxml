@@ -82,7 +82,7 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="400.0" prefWidth="235.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField fx:id="txtletters" editable="false" onKeyTyped="#eventkey">
+                  <TextField fx:id="txt1" onKeyTyped="#eventkey">
                      <padding>
                         <Insets bottom="5.0" left="5.0" />
                      </padding>
@@ -90,17 +90,17 @@
                         <Insets bottom="15.0" top="30.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="txtnumbers" alignment="TOP_RIGHT" onKeyTyped="#eventkey" promptText="ingrese un valor">
+                  <TextField fx:id="txt2" alignment="TOP_RIGHT" onKeyTyped="#eventkey" promptText="ingrese un valor">
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="txtpass" alignment="CENTER" onKeyTyped="#eventkey">
+                  <TextField fx:id="txt3" accessibleRole="PASSWORD_FIELD" alignment="CENTER" onKeyTyped="#eventkey" promptText="ingrese su contraseña">
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </TextField>
-                  <PasswordField fx:id="txtall" onKeyTyped="#eventkey" promptText="ingrese su contraseña">
+                  <PasswordField fx:id="txt4" accessibleRole="TEXT_FIELD" onKeyTyped="#eventkey" promptText="hasta 8 caracteres">
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
