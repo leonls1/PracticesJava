@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="controller.UIControls_2Controller">
+   <children>
+      <HBox layoutX="-1.0" layoutY="107.0" prefHeight="290.0" prefWidth="600.0">
+         <children>
+            <VBox prefHeight="290.0" prefWidth="205.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" prefHeight="20.0" prefWidth="148.0" text="Default checkbox">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" selected="true" text="Selected">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="indeterminatedCheckBox" allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" onMouseClicked="#mouseEvent" text="Indeterminate">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefHeight="20.0" prefWidth="148.0" text="Image checkbox">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/lion-calgary-zoo-lion-with-ball-lion-playing.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </CheckBox>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="290.0" prefWidth="205.0" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="290.0" prefWidth="205.0" />
+         </children>
+      </HBox>
+      <Label layoutX="231.0" layoutY="1.0" text="Controles parte 2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="74.0" text="CheckBox" />
+      <Label layoutX="286.0" layoutY="74.0" text="RadioButton" />
+      <Label layoutX="529.0" layoutY="74.0" text="ComboBox" />
+      <Button fx:id="btnBackPrimary" layoutX="482.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionEvent" text="BackToPrimary" />
+   </children>
+</AnchorPane>
