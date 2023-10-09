@@ -3,5 +3,7 @@ module guicontrolsexample {
     requires javafx.fxml;
 
     opens guicontrolsexample to javafx.fxml;
+ 
     exports guicontrolsexample;
+    exports controller;
 }
