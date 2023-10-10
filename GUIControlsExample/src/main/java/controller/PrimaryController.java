@@ -17,7 +17,9 @@ public class PrimaryController implements Initializable{
     @FXML
     private TextField txt1, txt2,txt3, txt4;
  
-            
+
+    
+    
     
     @FXML
     private void eventButton(ActionEvent event){
@@ -63,5 +65,7 @@ public class PrimaryController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        
     }
 }
