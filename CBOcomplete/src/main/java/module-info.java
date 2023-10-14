@@ -4,6 +4,7 @@ module cbocomplete {
     requires java.base;
 
     opens cbocomplete to javafx.fxml;
+    opens cbocomplete.controller;
     exports cbocomplete;
     exports cbocomplete.controller;
 }
