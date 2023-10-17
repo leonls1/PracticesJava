@@ -4,7 +4,9 @@
  */
 package cbocomplete.controller;
 
+import cbocomplete.model.Country;
 import cbocomplete.model.Person;
+import cbocomplete.utilities.CountryConverter;
 import cbocomplete.utilities.PersonConverter;
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,13 +31,16 @@ public class CustonCboController implements Initializable {
     TextField textSearch;
     
     @FXML
-    Button btnSearch;
+    Button btnSearch, btnPull;
     
     @FXML
     ComboBox<Person> cboPerson;
     
     @FXML
-    TextArea textPerson;
+    ComboBox<Country> cboCountries;
+    
+    @FXML
+    TextArea textPerson, textCountry;
     
     @FXML
     private void comboboxEvents(ActionEvent event){
@@ -64,16 +69,27 @@ public class CustonCboController implements Initializable {
             } catch (Exception e) {
                 System.out.println("Error de formato, ingrese un valor numerico como id");
             }
+        }else if(evt.equals(cboCountries)){
+            textCountry.setText(cboCountries.getSelectionModel().getSelectedItem().toString());
+            
+        }else if(evt.equals(btnPull)){
+            System.out.println(showList());
         }
+        
+        
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cboPerson.getItems().addAll(createCollectionPersons());
         cboPerson.setConverter(new PersonConverter());
+        
+        cboCountries.setConverter(new CountryConverter(cboCountries));
+        cboCountries.getItems().addAll(createCountrys());
         }    
     
-     private ArrayList<Person> createCollectionPersons(){
+    private ArrayList<Person> createCollectionPersons(){
         
         ArrayList<Person> persons = new ArrayList<>();
 
@@ -91,7 +107,25 @@ public class CustonCboController implements Initializable {
         return persons;
     
     }
-     
+    
+    private ArrayList<Country> createCountrys(){
+        ArrayList<Country> countries = new ArrayList<>();
+        
+        
+        countries.add(new Country(1, "Brasil", "Brasilia"));        
+        countries.add(new Country(2, "Argentina", "Buenos Aires"));        
+        countries.add(new Country(3, "Colombia", "Bogota"));
+        countries.add(new Country(4, "Perú", "Lima"));
+        countries.add(new Country(5, "Chile", "Santiago"));
+        countries.add(new Country(6, "Venezuela", "Caracas"));
+        countries.add(new Country(7, "Ecuador", "Quito"));        
+        countries.add(new Country(8, "Bolivia", "La Paz"));        
+        countries.add(new Country(9, "Uruguay", "Montevideo"));        
+        countries.add(new Country(10, "Paraguay", "Asunción"));   
+        
+        return countries;
+    }
+    
     private int getSelectedIndex(int id, ComboBox<Person> cbo){
         ObservableList<Person> list = cbo.getItems();
         boolean state = true;
@@ -106,5 +140,14 @@ public class CustonCboController implements Initializable {
         }
         
         return index;
+    }
+    
+    private String showList() {
+        ObservableList<Country> list = cboCountries.getItems();
+        String show="";
+        for (int i = 0; i < list.size(); i++) {
+            show = show + list.get(i) + "\n";
+        }
+        return show;
     }
 }

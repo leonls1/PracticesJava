@@ -46,21 +46,21 @@
                </HBox.margin>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <VBox alignment="CENTER" prefHeight="282.0" prefWidth="311.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="287.0" prefWidth="297.0" spacing="10.0">
                <children>
                   <Label text="Paises">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Label>
-                  <ComboBox editable="true" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="274.0" text="Extraer">
+                  <ComboBox fx:id="cboCountries" editable="true" onAction="#comboboxEvents" prefHeight="25.0" prefWidth="274.0" />
+                  <Button fx:id="btnPull" mnemonicParsing="false" onAction="#comboboxEvents" prefHeight="27.0" prefWidth="274.0" text="Extraer">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
                   <Separator prefWidth="200.0" />
                   <Label text="Paises" />
-                  <TextArea prefHeight="203.0" prefWidth="89.0">
+                  <TextArea fx:id="textCountry" prefHeight="203.0" prefWidth="89.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
