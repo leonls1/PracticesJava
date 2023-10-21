@@ -11,8 +11,8 @@ package excercises.Supermercado;
 public class SuperMercado {
     public static void main(String[] args) {
       Carrito carrito = new Carrito(); 
-      //carrito.crearProductosEstandar();
-     // carrito.mostrarProductos();
+      carrito.crearProductosEstandar();
+      carrito.mostrarProductos();
     }
     
     

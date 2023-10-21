@@ -30,7 +30,7 @@ public class Carrito {
     
     
     public void crearProductosEstandar() throws PrecioInvalido{
-        carrito = new ArrayList<Producto>();
+        productosDiponibles = new ArrayList<Producto>();
         Producto leche = new Producto(100,"Leche", TipoProducto.SIN_TACC, 100);
         Producto agua = new Producto(100,"Agua", TipoProducto.BAJAS_CALORIAS, 100);
         Producto pan = new Producto(100,"Pan", TipoProducto.SIN_LACTOSA, 100);

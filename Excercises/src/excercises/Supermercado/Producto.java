@@ -20,7 +20,7 @@ public class Producto {
     private int stock;
 
     public Producto(double price, String name, TipoProducto type, int stock) throws PrecioInvalido {
-         if(0 == id){
+         if(0 <= id){
              id =1; }
          else{             
          id++;
