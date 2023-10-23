@@ -59,7 +59,7 @@ public class SimpleCalculatorController implements Initializable {
             txtShowed.setText("");
 
         } else if (evt.equals(btnPlus)) {
-            setText(" + ");
+            setText("+");
         } else if (evt.equals(btnEquals)) {
             calculate();
         }
