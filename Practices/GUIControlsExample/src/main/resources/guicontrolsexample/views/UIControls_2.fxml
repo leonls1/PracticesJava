@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UIControls_2Controller">
+   <children>
+      <HBox layoutX="-1.0" layoutY="107.0" prefHeight="290.0" prefWidth="600.0">
+         <children>
+            <VBox prefHeight="290.0" prefWidth="205.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" prefHeight="20.0" prefWidth="148.0" text="Default checkbox">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" selected="true" text="Selected">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="indeterminatedCheckBox" allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" onMouseClicked="#mouseEvent" text="Indeterminate">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefHeight="20.0" prefWidth="148.0" text="Image checkbox">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/img1.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </CheckBox>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="290.0" prefWidth="205.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Default" />
+                  <RadioButton mnemonicParsing="false" text="Selected" />
+                  <RadioButton mnemonicParsing="false" text="With an image">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/img1.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </RadioButton>
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="279.0" prefWidth="194.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="233.0" prefWidth="109.0" spacing="15.0">
+                           <children>
+                              <RadioButton fx:id="radio1" mnemonicParsing="false" text="img1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grpImg" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="radio2" mnemonicParsing="false" text="img2" toggleGroup="$grpImg" />
+                              <RadioButton fx:id="radio3" mnemonicParsing="false" text="img3" toggleGroup="$grpImg" />
+                           </children>
+                        </VBox>
+                        <ImageView fx:id="containerImg" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/img1.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children></VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="290.0" prefWidth="205.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox fx:id="cboE" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#comboBoxEvent" prefWidth="150.0" promptText="editable" />
+                        <ComboBox fx:id="cboN" onAction="#comboBoxEvent" prefHeight="25.0" prefWidth="204.0" promptText="NO editable" />
+                     </children>
+                  </VBox>
+               </children></VBox>
+         </children>
+      </HBox>
+      <Label layoutX="231.0" layoutY="1.0" text="Controles parte 2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="74.0" text="CheckBox" />
+      <Label layoutX="286.0" layoutY="74.0" text="RadioButton" />
+      <Label layoutX="529.0" layoutY="74.0" text="ComboBox" />
+      <Button fx:id="btnBackPrimary" layoutX="482.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionEvent" text="BackToPrimary" />
+   </children>
+</AnchorPane>
