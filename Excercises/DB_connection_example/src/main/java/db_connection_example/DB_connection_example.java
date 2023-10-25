@@ -3,15 +3,21 @@
  */
 
 package db_connection_example;
+import db_connection_example.querys.Queries_LANTIMES;
 import java.sql.*;
 public class DB_connection_example {
+    
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Queries_LANTIMES consultas = new Queries_LANTIMES();
         System.out.println("Hello World!");
         
-        /*1)*/Class.forName("com.mysql.jdbc.Driver");
-        /*2)*/Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/super_market","Leon", "yoProgramo");
-        /*3)*/Statement st =  con.createStatement();
+        //1
+        Class.forName("com.mysql.jdbc.Driver");
+        //2
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/super_market","Leon", "yoProgramo");
+        //3
+        Statement st =  con.createStatement();
         
         String creatingProductsTable = "CREATE TABLE IF NOT EXISTS super_market.product("
                 + " id INTEGER,"
@@ -25,13 +31,16 @@ public class DB_connection_example {
         String loadingANewPRoduct = "INSERT INTO product(id, name,price, actual_stock, max_stock)"
                 + "VALUES(2,'alfajorcito_chiquito', 100, 50, 200 )";
         
-        /*4)*/int result = st.executeUpdate(creatingProductsTable);
+        //4
+        int result = st.executeUpdate(creatingProductsTable);
         int rs = st.executeUpdate(loadingANewPRoduct);
         System.out.println(result);
         System.out.println(rs);
         
         
-        /*5)*/con.close();
+        //5
+        con.close();
+   
     }
     
     
