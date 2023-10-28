@@ -51,7 +51,7 @@ public class createEmployeeController implements Initializable {
             txtSalary.setText("");
         }else if(evt.equals(btnCreate)){
             //make some validations with the salary and other fields
-            Employee employee = new Employee(txtName.getText(), txtLastName.getText(), Gender.OTHER, txtObservations.getText(), Integer.parseInt( txtSalary.getText()));
+            Employee employee = new Employee(txtName.getText(), txtLastName.getText(),Gender.OTHER /*cboGender.getSelectionModel().selectedItemProperty()*/, txtObservations.getText(), Integer.parseInt( txtSalary.getText()));
             System.out.println("Empleado creado correctamente"); 
             employees.add(employee);
             
