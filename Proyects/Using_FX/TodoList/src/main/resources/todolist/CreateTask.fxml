@@ -17,8 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="todolist.controller.CreateTaskController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="todolist.controller.CreateTaskController">
    <children>
       <TextArea fx:id="txtDescription" layoutX="21.0" layoutY="361.0" prefHeight="200.0" prefWidth="604.0" />
       <Label layoutX="325.0" layoutY="22.0" prefHeight="28.0" prefWidth="129.0" text="TODO LIST">
@@ -51,16 +50,16 @@
                   <TextField fx:id="txtName" GridPane.columnIndex="1" />
                   <Label text="Begin date" GridPane.rowIndex="3" />
                   <Label text="End Date" GridPane.rowIndex="4" />
-                  <DatePicker fx:id="datPickBegin" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="datePickBegin" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <DatePicker fx:id="datePickEnd" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Type" GridPane.rowIndex="1" />
                   <Label text="Important" GridPane.rowIndex="2" />
-                  <RadioButton fx:id="radioImportant" mnemonicParsing="false" onAction="#radioButtonEvent" text="Very important" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <RadioButton fx:id="radioImportant" mnemonicParsing="false" selected="true" text="Very important" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <toggleGroup>
                         <ToggleGroup fx:id="Important" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="radioNotImportant" mnemonicParsing="false" onAction="#radioButtonEvent" text="Can wait" toggleGroup="$Important" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <RadioButton fx:id="radioNotImportant" mnemonicParsing="false" text="Can wait" toggleGroup="$Important" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <ComboBox fx:id="cboType" disable="true" onAction="#comboBoxEvent" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>

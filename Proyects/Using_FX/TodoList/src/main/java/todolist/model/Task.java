@@ -11,8 +11,10 @@ public class Task {
     private String name, description;
     private LocalDate creationDate, endDate;
     private boolean important;
-    private static int id = 1;
+    private int id;
     private int Type;
+
+    private static int currentId = 0;
 
     public Task(String name, String description, LocalDate creationDate, LocalDate endDate, boolean important, int Type) {
         this.name = name;
@@ -21,7 +23,27 @@ public class Task {
         this.endDate = endDate;
         this.important = important;
         this.Type = Type;
-        this.id++;
+        this.id = currentId;
+        currentId++;
+    }
+
+    public Task(String name, String description, LocalDate creationDate, boolean important, int Type) {
+        this.name = name;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.important = important;
+        this.id = currentId;
+        currentId++;
+        this.Type = Type;
+    }
+
+    public Task(String name, String description, boolean important, int Type) {
+        this.name = name;
+        this.description = description;
+        this.important = important;
+        this.id = currentId;
+        currentId++;
+        this.Type = Type;
     }
 
     public String getName() {
@@ -44,7 +66,7 @@ public class Task {
         return important;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -75,7 +97,13 @@ public class Task {
     public void setType(int Type) {
         this.Type = Type;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Task: " + name + " number: " + id + "\n"
+                + "Begin of the task:" + creationDate + "\n"
+                + "Date Limit: " + endDate + "\n"
+                + "Type:" + Type + "\n";
+    }
+
 }
