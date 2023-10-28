@@ -24,6 +24,14 @@ public class Employee {
         this.Observations = Observations;
         this.salary = salary;
     }
+    
+    @Override
+    public String toString(){
+        return      "Nombre: " + name + "\n" +
+                    "Apellido: " + lastName + "\n" +
+                    "Oberservaciones: " +  Observations + "\n" +
+                    "Salario: " + salary + "\n" ;
+    }
 
     
 }

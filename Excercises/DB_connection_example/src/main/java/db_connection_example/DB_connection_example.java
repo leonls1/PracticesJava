@@ -31,13 +31,14 @@ public class DB_connection_example {
         String loadingANewPRoduct = "INSERT INTO product(id, name,price, actual_stock, max_stock)"
                 + "VALUES(2,'alfajorcito_chiquito', 100, 50, 200 )";
         
+        
+        PreparedStatement consultaPreparada = con.prepareStatement("DELETE FROM product WHERE id = ?");
+        
+        consultaPreparada.setInt(1, 2);
+        
         //4
-        int result = st.executeUpdate(creatingProductsTable);
-        int rs = st.executeUpdate(loadingANewPRoduct);
-        System.out.println(result);
-        System.out.println(rs);
-        
-        
+        consultaPreparada.execute();
+
         //5
         con.close();
    

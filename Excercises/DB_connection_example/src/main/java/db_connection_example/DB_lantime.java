@@ -18,11 +18,8 @@ public class DB_lantime {
            //3
            Statement st = con.createStatement();
            //4
-           ResultSet rs = st.executeQuery(consultas.Simplequery1);
-
-           while(rs.next()){
-               System.out.println(rs.getString(1) + " " + rs.getString(2));
-           }
+           //ResultSet rs = st.executeQuery(consultas.Simplequery1);
+           PreparedStatement consultaPreparada = con.prepareStatement("INSert");
            
            //5
            con.close();          
@@ -30,10 +27,6 @@ public class DB_lantime {
            
         } catch (Exception e) {
             System.out.println("no se ha podido conectar con la db");
-        }
-        
-        
-        
+        }       
     }
-    
 }

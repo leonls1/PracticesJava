@@ -5,10 +5,13 @@
 package formwithfx.controller;
 
 import formwithfx.model.Employee;
+import formwithfx.model.Gender;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,17 +51,34 @@ public class createEmployeeController implements Initializable {
             txtSalary.setText("");
         }else if(evt.equals(btnCreate)){
             //make some validations with the salary and other fields
+            Employee employee = new Employee(txtName.getText(), txtLastName.getText(), Gender.OTHER, txtObservations.getText(), Integer.parseInt( txtSalary.getText()));
+            System.out.println("Empleado creado correctamente"); 
+            employees.add(employee);
+            
+            employees.forEach(emp -> System.out.println(emp.toString()) );
         }       
     }
     
     @FXML
     private void comboBoxEvent(ActionEvent event ){
+        Object evt = event.getSource();
         
+        if(evt.equals(cboGender)){
+            System.out.println("El genero seleccionado es: " + cboGender.getSelectionModel().getSelectedItem());
+        }
     }  
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        ObservableList<String> genres = FXCollections.observableArrayList(
+                "MALE",
+                "FEMALE",
+                "OTHER");
+        
+        cboGender.getItems().setAll(genres);
+        cboGender.getSelectionModel().selectFirst();
+        employees = new ArrayList<>();
     }    
     
 }
