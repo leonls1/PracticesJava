@@ -33,8 +33,8 @@ public class CreateTaskController implements Initializable {
     private ArrayList<Task> tasks;
     private Task task;
 
-    @FXML
-    private Button btnRead, btnReset, btnCreate;
+@FXML
+private Button btnRead, btnReset, btnCreate;
 
     @FXML
     private ComboBox<TaskType> cboType;
