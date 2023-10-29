@@ -122,7 +122,7 @@ public class CreateTaskController implements Initializable {
     }
 
     private void changeToRead(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ReadTask.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/todolist/ReadTask.fxml"));
         Scene readView = new Scene(root);
 
         Stage window = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
