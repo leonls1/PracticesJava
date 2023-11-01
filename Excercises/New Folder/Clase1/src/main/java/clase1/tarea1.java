@@ -15,7 +15,6 @@ public class tarea1 {
 
     public static void main(String[] args) {
         Materia AED, PPR, DSI;
-//        Incripcion insc = new Incripcion();
         Alumno alumno = new Alumno("Sasha Leon Alexis", "Lederhos Sturich ", 77971L);
 
         AED = new Materia("Algoritmo y estructura de datos", 1L, true);
@@ -25,23 +24,13 @@ public class tarea1 {
 
         DSI = new Materia("Diseño de sistemas", 3L, false);
         DSI.addCorrelativa(2L);
-
-        /*insc.inscribirMateria(AED, alumno);
-        insc.inscribirMateria(PPR, alumno);
-        insc.inscribirMateria(DSI, alumno);
-
-        System.out.println("\n una vez aprueba ppr... \n");
-        PPR.setEstado(true);
-        insc.inscribirMateria(DSI, alumno);*/
         Inscripcion inscripcionAed = new Inscripcion("1k1", "Juan perez", AED, alumno);
         Inscripcion inscripcionPPR = new Inscripcion("2k1", "Pedro perez", PPR, alumno);
         Inscripcion inscripcionDSI = new Inscripcion("3k1", "Jose perez", DSI, alumno);
-        
-                System.out.println("\n una vez aprueba ppr... \n");
+
+        System.out.println("\n una vez aprueba ppr... \n");
         PPR.setEstado(true);
         inscripcionDSI = new Inscripcion("3k1", "Jose perez", DSI, alumno);
-        
-        
 
     }
 
@@ -97,51 +86,6 @@ public class tarea1 {
             }
         }
 
-        void inscribirMateria(Materia materia, Alumno alumno) {
-            if (puedeInscribirse(materia, alumno)) {
-                alumno.addMateria(materia);
-            }
-        }
-//version 1 para inscribir materia y verificarla en el mismo metodo
-        /* boolean inscribirMateria(Materia materia, Alumno alumno) {
-            
-            ArrayList<Long> correlativas = materia.getIdCorrelativas();
-            int correlativasTamanio = materia.idCorrelativas.size();
-
-            if (correlativasTamanio > 0) {
-                int tamañoAprobadas = 0;
-                ArrayList<Long> aprobadas = new ArrayList<>();
-                
-                //consiguiendo una lista de todos los id de las materias aprobadas
-                for (int i = 0; i < alumno.materias.size(); i++) {
-                    if (alumno.materias.get(i).estado) {
-                        tamañoAprobadas++;
-                        aprobadas.add(alumno.materias.get(i).getId());
-                    }
-                }
-                //si hay mas correlativas que las materias que tiene el alumno aprobadas no es logico que pueda inscribirse
-                if(tamañoAprobadas < correlativasTamanio){
-                    System.out.println("Faltan correlativas");
-                    return false;
-                }
-                
-                for (int i = 0; i < correlativasTamanio; i++) {
-                    if(! aprobadas.contains(correlativas.get(i))){
-                        System.out.println("Una o mas correlativas no se estan aprobadas para la materia: " + materia.getNombre());
-                        return false;
-                    }
-                }
-                System.out.println("Se cumplen las correlativas, se ha inscripto en la materia " + materia.getNombre() +   " correctamente");
-                alumno.addMateria(materia);
-                return true;
-
-            } else {
-                System.out.println("La materia no tiene correlativas, inscripcion realizada");
-                alumno.addMateria(materia);
-                return true;
-            }
-        }
-         */
     }
 
     static class Alumno {
