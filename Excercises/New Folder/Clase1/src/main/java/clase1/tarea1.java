@@ -93,7 +93,7 @@ public class tarea1 {
         String nombre;
         String apellido;
         Long legajo;
-        ArrayList<Materia> materias;
+        ArrayList<Materia> materias; //treu --> aprobada flase no
 
         public Alumno(String nombre, String apellido, Long legajo) {
             this.nombre = nombre;

@@ -4,12 +4,15 @@
  */
 package clase2;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author leon
  */
-public interface ILowerToUpper {
-    public List<String> toUpper(List<String> list);
+@FunctionalInterface
+public interface IToUpperCase {
+
+   public  ArrayList<String> upper(ArrayList<String> StringList);
+
 }
