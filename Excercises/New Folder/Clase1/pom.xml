@@ -11,4 +11,5 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>clase1.Clase1</exec.mainClass>
     </properties>
+    <name>YoProg2</name>
 </project>
