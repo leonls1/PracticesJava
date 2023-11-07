@@ -52,5 +52,9 @@ public class Clase2 {
     interface ToUpperCase {
         ArrayList<String> upper(ArrayList<String> StringList);
     }
+    
+    static ArrayList<String> transformador (ArrayList<String> StringList,ToUpperCase interface1 ){
+        return interface1.upper(StringList);
+    }
 
 }

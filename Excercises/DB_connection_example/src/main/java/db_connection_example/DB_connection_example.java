@@ -13,7 +13,6 @@ public class DB_connection_example {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
         Queries_LANTIMES consultas = new Queries_LANTIMES();
-        System.out.println("Hello World!");
 
         //1
         Class.forName("com.mysql.jdbc.Driver");
