@@ -5,21 +5,16 @@
 package WithMVC.model;
 
 import java.sql.Connection;
-import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-/**
- *
- * @author leon
- */
 public class DataBaseConfig {
-    private Connection  con;
-    private String url, User, Password;
 
-    public Connection getCon() {
-        return con;
-    }
+    private Connection con;
+    private String url, User, Password;
+    private Statement st;
 
     public String getUrl() {
         return url;
@@ -31,6 +26,10 @@ public class DataBaseConfig {
 
     public String getPassword() {
         return Password;
+    }
+    
+    public Statement getStatement(){
+        return st;
     }
 
     public void setUrl(String url) {
@@ -46,12 +45,20 @@ public class DataBaseConfig {
     }
     
     
-    
 
-    public DataBaseConfig() throws SQLException{
-         con = DriverManager.getConnection
-                ("jdbc:mysql://localhost:3306/super_market",
-                        "Leon",
-                        "yoProg");
+    public DataBaseConfig() throws SQLException {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/super_market",
+                "Leon",
+                "yoProg");
+        
+        st = con.createStatement();
+    }
+    
+    public PreparedStatement preparedStatement(String sql) throws SQLException{
+        return con.prepareStatement(sql);
+    }
+    
+    public void closeConnection () throws SQLException{
+        con.close();
     }
 }
