@@ -6,41 +6,37 @@ package clase4.states;
 
 import clase4.Icon;
 import clase4.Song;
-import clase4.State;
-import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *
  * @author leon
  */
-public class Trend implements State {
+public class Boom implements State {
 
     @Override
     public void toBooom(Song song) {
         System.out.println("NOPE");
-               }
+    }
 
     @Override
     public void toRegular(Song song) {
-        //si paso mas de un dia(comparar fechas) vuevle a regular
-        
-        Date fechaActual = new Date();
-        
-        /*if (song.getLastView()) LocalDate.now() {
+        if (song.getDislikes() > 4999) {
             song.setState(new Regular());
             song.setIcon(Icon.MUSICAL_NOTE);
             song.setCaption(song.getArtistName() + " - "
                     + song.getAlbumName() + " - " + song.getTitle());
-        }*/
-        
-        //TimeUnit.MILLISECONDS.toHours(fechaActual.getTime() - fechaPasada.getTime());
 
+        }
     }
 
     @Override
     public void toTrend(Song song) {
-        System.out.println("NOPE");
+        if (song.getTotalViews() > 50000 && song.getLikes() > 20000) {
+            song.setState(new Trend());
+            song.setIcon(Icon.FIRE);
+            song.setCaption(song.getTitle() + " - " + song.getArtistName()
+                    + "(" + song.getAlbumName() + "-" + song.getAlbumYear() + ")");
+        }
     }
 
 }

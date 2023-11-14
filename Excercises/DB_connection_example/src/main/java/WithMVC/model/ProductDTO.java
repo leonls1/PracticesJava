@@ -4,10 +4,24 @@
  */
 package WithMVC.model;
 
-/**
- *
- * @author leon
- */
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class ProductDTO {
-    
+
+    private String name;
+    private double price;
+    private int productType, maxStock, actualStock;
+
+    public ProductDTO() {
+    }
+
+    public ProductDTO(String name, double price, int productType, int maxStock, int actualStock) {
+        this.name = name;
+        this.price = price;
+        this.productType = productType;
+        this.maxStock = maxStock;
+        this.actualStock = actualStock;
+    }
 }

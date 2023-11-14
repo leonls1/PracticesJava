@@ -3,6 +3,8 @@
  */
 package db_connection_example;
 
+import WithMVC.service.ProductDAO;
+import WithMVC.service.ProductService;
 import db_connection_example.querys.Queries_LANTIMES;
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.Scanner;
 public class DB_connection_example {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
+/*
         Queries_LANTIMES consultas = new Queries_LANTIMES();
 
         //1
@@ -41,7 +43,7 @@ public class DB_connection_example {
         consultaPreparada.execute();
          */
         //5
-
+/*
         String traerTipoProducto = "SELECT tp.descrip FROM tipoProducto tp";
         ArrayList<String> tiposProudcttos = new ArrayList<>();
         //tiposProudcttos.add("SELECCIONE EL PRODUCTO \n");
@@ -74,6 +76,13 @@ System.out.println("Seleccione el producto: \n");
 
         //tiposProudcttos.forEach( tipo -> System.out.println(tipo));
         con.close();
+        
+        */
+        
+        ProductDAO service = new ProductService();
+        service.getAllProducts();
+        service.getProductById(3L);
+        
 
     }
 

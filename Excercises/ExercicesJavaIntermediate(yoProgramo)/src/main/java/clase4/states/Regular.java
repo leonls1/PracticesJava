@@ -6,7 +6,6 @@ package clase4.states;
 
 import clase4.Icon;
 import clase4.Song;
-import clase4.State;
 
 /**
  *
@@ -24,6 +23,8 @@ public class Regular implements State {
                     + song.getAlbumName() + "-"
                     + song.getAlbumYear() + ")");
 
+        }else{
+            System.out.println("Requeriments aren't satisfaced");
         }
     }
 
@@ -34,7 +35,15 @@ public class Regular implements State {
 
     @Override
     public void toTrend(Song song) {
-        System.out.println("you can't, need to be in boom state first");
+        if (song.getTotalViews() > 50000 && song.getLikes() > 20000) {
+            song.setState(new Trend());
+            song.setIcon(Icon.FIRE);
+            song.setCaption(song.getTitle() + " - " + song.getArtistName()
+                    + "(" + song.getAlbumName() + "-" + song.getAlbumYear() + ")");
+        }else{
+            System.out.println("Some requirements aren't satisfaced");
+        }
+        
     }
 
 }

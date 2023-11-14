@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author leon
  */
-public class ProductDAO {
+public class ProductDAO2 {
 
     //data access object for the product entity
     public ResultSet getAllProducts() {

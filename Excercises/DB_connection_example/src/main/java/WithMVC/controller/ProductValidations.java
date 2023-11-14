@@ -4,10 +4,7 @@
  */
 package WithMVC.controller;
 
-/**
- *
- * @author leon
- */
 public class ProductValidations {
+    
     
 }
