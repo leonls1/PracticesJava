@@ -14,6 +14,7 @@ public class Client {
     private String phone;
     
     private String email;
-    //enum razon social
+    
+    private Long id_corporateName;
     
 }

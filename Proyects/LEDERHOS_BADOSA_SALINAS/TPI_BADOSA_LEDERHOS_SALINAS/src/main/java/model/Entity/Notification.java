@@ -11,6 +11,8 @@ package model.Entity;
 public class Notification {
     private Long id;
     
+    private Long id_incident;
+    
     private String description;
     
     private String contact;

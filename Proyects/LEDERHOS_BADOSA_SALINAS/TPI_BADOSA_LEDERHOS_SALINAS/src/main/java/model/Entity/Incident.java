@@ -25,8 +25,11 @@ public class Incident {
     
     private Long servicio;
 
-    //fk --> Clinte.cuil
+    //fk --> Clinte.cuil/cuil
     private String CUIL_CUIT;
+   
+    //fk --> Servicio
+    private Long id_service;
     
     
     

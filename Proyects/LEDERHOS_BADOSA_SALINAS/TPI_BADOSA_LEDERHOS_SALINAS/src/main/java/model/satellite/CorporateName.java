@@ -2,17 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.Entity;
-
+package model.satellite;
 
 /**
  *
  * @author leon
  */
-public class Problem {
-    private Long incident_id;
+public class CorporateName {
+    private Long id;
     
-    private Long id_problemType;
+    private String description;
     
-    private int stimatedTime;
+
 }

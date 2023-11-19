@@ -4,11 +4,12 @@
  */
 package model.Entity;
 
-import model.enums.EmployeeType;
 import java.util.Date;
 
 public class Employee {
     private Long id; //legajo
+    
+    private Long employeeType; 
     
     private String name;
     
@@ -22,6 +23,6 @@ public class Employee {
     
     private Date entryDate;
     
-    private EmployeeType employeeType; 
+    
          
 }
