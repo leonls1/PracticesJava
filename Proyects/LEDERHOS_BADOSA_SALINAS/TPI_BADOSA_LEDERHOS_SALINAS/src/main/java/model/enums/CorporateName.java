@@ -9,5 +9,5 @@ package model.enums;
  * @author leon
  */
 public enum CorporateName {
-    //cositas
+    //Acá iría el nombre de la empresa :c
 }

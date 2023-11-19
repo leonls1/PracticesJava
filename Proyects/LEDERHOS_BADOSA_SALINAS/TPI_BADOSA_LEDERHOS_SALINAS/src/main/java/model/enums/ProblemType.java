@@ -9,5 +9,13 @@ package model.enums;
  * @author leon
  */
 public enum ProblemType {
-    //alguito
+    SAP,
+
+    TANGO, //Este y el anterior se podrían renombrar como software (?
+
+    WINDOWS,
+
+    MACOS,
+
+    LINUX_UBUNTU
 }

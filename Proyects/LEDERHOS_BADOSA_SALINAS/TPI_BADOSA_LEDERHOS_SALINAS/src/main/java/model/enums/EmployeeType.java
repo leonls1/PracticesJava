@@ -10,7 +10,10 @@ package model.enums;
  */
 public enum EmployeeType {
     TECNICIAN,
+
     HR,
+
     HELP_DESK,
+
     COMMERCIAL
 }
