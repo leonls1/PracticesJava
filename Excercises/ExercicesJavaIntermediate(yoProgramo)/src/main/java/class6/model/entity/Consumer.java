@@ -2,17 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.satellite;
+package class6.model.entity;
 
 /**
  *
  * @author leon
  */
-public class ProblemType {
-
-    private Long id;
-
-    private String description;
+public class Consumer {
     
-    private int maxTimeToResolve;
 }
