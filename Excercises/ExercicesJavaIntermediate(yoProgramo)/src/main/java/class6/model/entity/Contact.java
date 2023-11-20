@@ -4,15 +4,26 @@
  */
 package class6.model.entity;
 
-/**
- *
- * @author leon
- */
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name ="contact")
 public class Contact {
 
+    @ManyToOne
+    @JoinColumn(name = "service_lender")
     private Long idServiceLender;
     
+    @ManyToOne
+    @JoinColumn(name = "contact_type")
     private Long contactType;
-    
+
+    @Column(name = "description")
     private String description;
 }

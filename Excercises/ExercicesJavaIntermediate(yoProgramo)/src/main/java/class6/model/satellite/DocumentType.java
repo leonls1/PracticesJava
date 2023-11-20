@@ -4,11 +4,28 @@
  */
 package class6.model.satellite;
 
-/**
- *
- * @author leon
- */
+import class6.model.entity.ServiceLender;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import static jakarta.persistence.GenerationType.SEQUENCE;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import java.util.List;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name ="document_type")
 public class DocumentType {
+    @Id
+    @Column
+    @GeneratedValue(strategy=SEQUENCE, generator="IDENTITY")  
     private Long id;
     private String description;
+    
+    @OneToMany(mappedBy = "document_type", cascade = CascadeType.ALL)
+    private List<ServiceLender> lenders;
 }
