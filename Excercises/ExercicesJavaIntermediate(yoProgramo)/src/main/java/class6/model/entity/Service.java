@@ -9,5 +9,12 @@ package class6.model.entity;
  * @author leon
  */
 public class Service {
+    private Long idServicelender;
+    private Long typeService;
+    private String timeAvailability;
+    private String descrition;
+    
+    private int radioCoverage;
+    
     
 }

@@ -9,5 +9,7 @@ package class6.model.entity;
  * @author leon
  */
 public class Consumer {
+    private Long id;
     
+    private String userName;
 }

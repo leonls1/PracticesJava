@@ -9,5 +9,10 @@ package class6.model.entity;
  * @author leon
  */
 public class Contact {
+
+    private Long idServiceLender;
     
+    private Long contactType;
+    
+    private String description;
 }

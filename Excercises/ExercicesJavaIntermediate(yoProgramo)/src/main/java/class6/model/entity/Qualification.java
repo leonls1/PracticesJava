@@ -9,5 +9,8 @@ package class6.model.entity;
  * @author leon
  */
 public class Qualification {
-    
+    private Long id;
+    private Long Work;
+    private int stars;
+    private String opinion;
 }

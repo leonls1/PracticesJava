@@ -9,5 +9,6 @@ package class6.model.satellite;
  * @author leon
  */
 public class ServiceType {
-    
+    private Long id;
+    private String description;
 }

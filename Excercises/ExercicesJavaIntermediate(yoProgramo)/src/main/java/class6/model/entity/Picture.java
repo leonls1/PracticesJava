@@ -9,5 +9,9 @@ package class6.model.entity;
  * @author leon
  */
 public class Picture {
+    private Long id;
+    private Long idServiceLender;
+    private Long idService;
+    private String url;
     
 }

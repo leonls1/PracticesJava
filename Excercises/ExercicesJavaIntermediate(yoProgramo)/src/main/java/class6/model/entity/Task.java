@@ -9,5 +9,9 @@ package class6.model.entity;
  * @author leon
  */
 public class Task {
+    private Long id;
+    private Long work;
+    private boolean completed;
+    private String description;
     
 }

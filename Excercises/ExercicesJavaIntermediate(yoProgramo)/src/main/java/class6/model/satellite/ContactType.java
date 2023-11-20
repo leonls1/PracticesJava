@@ -9,5 +9,6 @@ package class6.model.satellite;
  * @author leon
  */
 public class ContactType {
-    
+    private Long id;
+    private String description;
 }
