@@ -42,8 +42,24 @@ public class EmployeeImp implements EmployeeService{
     }
 
     @Override
-    public void update(Employee employee, Long id) {
-       Employee oldEmployee  = 
+    public void update(Employee newEmployee, Long id) {
+       Employee oldEmployee  = repo.getById(id);
+       oldEmployee.setBirthDate(
+            newEmployee.getBirthDate());
+       oldEmployee.setEmail(
+            newEmployee.getEmail());
+       oldEmployee.setEmployeeType(
+            newEmployee.getEmployeeType());
+       oldEmployee.setEntryDate(
+            newEmployee.getEntryDate());
+       oldEmployee.setLastName(
+            newEmployee.getLastName());
+       oldEmployee.setName(
+            newEmployee.getName());   
+       oldEmployee.setPhone(
+            newEmployee.getPhone());  
+       
+       repo.save(oldEmployee);
     }
     
 }

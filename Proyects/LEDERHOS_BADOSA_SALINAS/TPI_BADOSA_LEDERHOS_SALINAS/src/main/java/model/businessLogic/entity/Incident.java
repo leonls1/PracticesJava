@@ -36,6 +36,8 @@ public class Incident {
     
     private String description;
     
+    private boolean state;
+    
     @ManyToOne
     @JoinColumn(name = "client")
     private String CUIL_CUIT; 

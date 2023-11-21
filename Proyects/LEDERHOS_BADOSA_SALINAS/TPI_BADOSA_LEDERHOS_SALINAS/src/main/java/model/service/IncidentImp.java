@@ -5,6 +5,7 @@
 package model.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import model.businessLogic.entity.Incident;
 import model.persistence.IncidentRepository;
@@ -42,7 +43,22 @@ public class IncidentImp implements IncidentService{
     }
 
     @Override
-    public void update() {
- 
+    public void update(Incident incident, Long id) {
+        //implementar lueguito
+    }
+
+    @Override
+    public List<Incident> getSolvedIncidents() {
+        List<Incident> solvedIncidents = repo.findAll()
+                .stream()
+                .filter(incident -> incident.isState())
+                .collect(Collectors.toList());
+        return solvedIncidents;
+        
+    }
+
+    @Override
+    public List<Incident> getIncidentsLastDays() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

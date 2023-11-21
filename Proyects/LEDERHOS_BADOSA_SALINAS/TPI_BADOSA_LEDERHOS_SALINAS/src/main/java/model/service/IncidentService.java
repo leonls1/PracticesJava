@@ -20,5 +20,14 @@ public interface IncidentService {
     
     public void delete(Long id);
     
-    public void update(Incident incident);
+    public void update(Incident incident, Long id);
+    
+    //conseguir incidentes resueltos, conseguir indidentes por fecha desde hace n dias
+    //buscar una forma de hacer join entre los comunes de esas dos listas devueltas abajo
+    
+    public List<Incident> getSolvedIncidents();
+    
+    public List<Incident> getIncidentsLastDays();
+    
+    
 }
