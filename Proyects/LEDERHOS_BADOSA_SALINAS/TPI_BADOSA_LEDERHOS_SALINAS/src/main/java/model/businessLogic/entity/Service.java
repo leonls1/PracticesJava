@@ -4,12 +4,29 @@
  */
 package model.businessLogic.entity;
 
-/**
- *
- * @author leon
- */
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import static jakarta.persistence.GenerationType.SEQUENCE;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import java.util.List;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "service")
 public class Service {
+    
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy=SEQUENCE, generator="IDENTITY")  
     private Long id;
     
     private String description;
+    
+    @OneToMany(mappedBy = "incident")
+    private List<Incident> incidents;
+    
 }
