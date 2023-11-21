@@ -28,7 +28,6 @@ public class Client {
     
     private String email;
     
-    
     @ManyToOne
     @JoinColumn(name = "corporateName")    
     private Long id_corporateName;
