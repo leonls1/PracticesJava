@@ -16,12 +16,14 @@ import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.List;
 import lombok.Data;
+import model.businessLogic.entity.incidentStatePatterns.Finished;
+import model.businessLogic.entity.incidentStatePatterns.State;
 
 @Data
 @Entity
 @Table(name = "incident")
 public class Incident {
-    
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=SEQUENCE, generator="IDENTITY")    
@@ -36,7 +38,7 @@ public class Incident {
     
     private String description;
     
-    private boolean state;
+    private State state;
     
     @ManyToOne
     @JoinColumn(name = "client")
@@ -51,5 +53,7 @@ public class Incident {
     
     @OneToMany(mappedBy = "notification")
     private List<Notification> notification ;
-    
+
+    public void setState(State state) {
+    }
 }
