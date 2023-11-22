@@ -79,13 +79,19 @@ public class IncidentImp implements IncidentService{
         List<Incident> list = getAll().stream()
                 .filter(incident -> esAntesDeNDias(incident.getRealDate(), nDays) )
                 .collect(Collectors.toList());
-        
-        
+ 
         return list;
     }
-
-    public List<Incident> getIncidentsLastDays() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
-    }
+    
+    
+    //a. Quién fue el técnico con más incidentes resueltos en los últimos N días
+    //tecnico para cada incidente,contar cuantos incidentes tiene cada tecnico
+    //seleccionar el maximo
+    
+    //b. Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días
+    //igual que el anterior pero filtrando que la especialidad de cada incidente sea la ingresada por paramentro
+    
+    //c. Quién fue el técnico que más rápido resolvió los incidentes
+    //consegir los incidentes por tecnico y ver dentrod de todos quien lo resolvio mas rapido
+    //(EntryDate - realDate)
 }
