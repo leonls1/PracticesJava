@@ -20,7 +20,7 @@ public class main {
     */
     
     //a)Quién fue el técnico con más incidentes resueltos en los últimos N días
-    public static Employee masIncidentesResueltosEnPeriodo(int n){
+   /* public static Employee masIncidentesResueltosEnPeriodo(int n){
         IncidentService service = new IncidentImp();
 
         List<Incident> incidentesCompletadosNdias = service.getAll()
@@ -28,6 +28,6 @@ public class main {
                 .filter(incident -> incident.isState())
                 .collect(Collectors.toList());
         
-    }
+    }*/
     
 }

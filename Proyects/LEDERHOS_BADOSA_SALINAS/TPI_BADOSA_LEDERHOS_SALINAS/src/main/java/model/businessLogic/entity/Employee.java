@@ -46,6 +46,6 @@ public class Employee {
     private Long employeeType;
 
     @OneToMany(mappedBy = "specialty")
-    private List<Specialty> specialities;
+    private List<Speciality> specialities;
 
 }

@@ -17,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "speciality")
-public class Specialty {
+public class Speciality {
     
     @Id
     @Column(name = "speciality_id")

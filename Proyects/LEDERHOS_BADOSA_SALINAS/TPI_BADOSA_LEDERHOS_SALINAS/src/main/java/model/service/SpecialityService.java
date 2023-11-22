@@ -1,3 +1,5 @@
+package model.service;
+
 import java.util.List;
 import model.businessLogic.entity.Speciality;
 

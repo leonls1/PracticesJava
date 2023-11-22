@@ -1,3 +1,6 @@
+package model.service;
+
+
 import java.util.List;
 import model.businessLogic.entity.Speciality;
 import model.persistence.SpecialityRepository;
@@ -5,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class SpecialityImp implements SpecialityService{
-    @Autowired
-    private SpecialityRepository repo;
-
     @Autowired
     private SpecialityRepository repo;
 

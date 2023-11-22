@@ -32,7 +32,7 @@ public class Problem {
     @JoinTable(name = "speciallity_X_problem",
             joinColumns = @JoinColumn(name = "problem_id"),
             inverseJoinColumns = @JoinColumn(name  = "speciality_id"))
-    private List<Specialty> specialities;
+    private List<Speciality> specialities;
     
     @Column(name = "stimated_time", nullable = false)    
     private int stimatedTime;

@@ -9,11 +9,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import model.businessLogic.entity.Incident;
 import model.persistence.IncidentRepository;
+import org.springframework.stereotype.Service;
 
-/**
- *
- * @author debor
- */
+@Service
 public class IncidentImp implements IncidentService{
     
     @Autowired

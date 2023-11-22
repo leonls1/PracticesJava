@@ -4,11 +4,11 @@
  */
 package model.persistence;
 
-import model.businessLogic.entity.Specialty;
+import model.businessLogic.entity.Speciality;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SpecialityRepository extends JpaRepository<Specialty, Long>{
+public interface SpecialityRepository extends JpaRepository<Speciality, Long>{
 
 }

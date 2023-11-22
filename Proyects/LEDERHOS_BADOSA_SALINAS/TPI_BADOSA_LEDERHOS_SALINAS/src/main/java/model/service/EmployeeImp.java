@@ -8,11 +8,9 @@ import java.util.List;
 import model.businessLogic.entity.Employee;
 import model.persistence.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-/**
- *
- * @author leon
- */
+@Service
 public class EmployeeImp implements EmployeeService{
     
     @Autowired
