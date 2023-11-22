@@ -46,7 +46,7 @@ public class IncidentImp implements IncidentService{
     @Override
     public void update(Incident incident, Long id) {}
 
-    @Override
+    /*@Override
     public List<Incident> getSolvedIncidents() {
         List<Incident> solvedIncidents = repo.findAll()
                 .stream()
@@ -54,7 +54,7 @@ public class IncidentImp implements IncidentService{
                 .collect(Collectors.toList());
         return solvedIncidents;
         
-    }
+    }*/
 
     
     private  boolean esAntesDeNDias(Date fecha, int dias) {
@@ -72,7 +72,7 @@ public class IncidentImp implements IncidentService{
         return fechaDada.before(fechaActual.getTime());
     }
     
-    @Override
+    /*@Override
     public List<Incident> getIncidentsLastDays(int nDays) {
         
         List<Incident> list = getAll().stream()
@@ -81,7 +81,7 @@ public class IncidentImp implements IncidentService{
         
         
         return list;
-    }
+    }*/
 
     public List<Incident> getIncidentsLastDays() {
         throw new UnsupportedOperationException("Not supported yet.");
