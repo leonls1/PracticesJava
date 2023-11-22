@@ -43,6 +43,6 @@ public class IncidentImp implements IncidentService{
 
     @Override
     public void update() {
- 
+        
     }
 }
