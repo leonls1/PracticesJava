@@ -27,7 +27,7 @@ public interface IncidentService {
     
     public List<Incident> getSolvedIncidents();
     
-    public List<Incident> getIncidentsLastDays();
+    public List<Incident> getIncidentsLastDays(int n);
     
     
 }

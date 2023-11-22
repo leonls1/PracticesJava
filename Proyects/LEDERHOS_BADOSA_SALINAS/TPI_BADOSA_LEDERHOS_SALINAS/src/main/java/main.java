@@ -1,10 +1,4 @@
 
-import java.util.List;
-import java.util.stream.Collectors;
-import model.businessLogic.entity.Employee;
-import model.businessLogic.entity.Incident;
-import model.service.IncidentImp;
-import model.service.IncidentService;
 
 
 public class main {
