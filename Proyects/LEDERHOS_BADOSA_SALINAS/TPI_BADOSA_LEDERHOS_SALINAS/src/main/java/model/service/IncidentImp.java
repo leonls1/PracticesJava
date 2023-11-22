@@ -45,17 +45,8 @@ public class IncidentImp implements IncidentService{
 
     @Override
     public void update(Incident incident, Long id) {}
-        
 
-    @Override
-    public List<Incident> getSolvedIncidents() {
-        List<Incident> solvedIncidents = repo.findAll()
-                .stream()
-                .filter(incident -> incident.isState())
-                .collect(Collectors.toList());
-        return solvedIncidents;
-        
-    }
+
 
     
     private  boolean esAntesDeNDias(Date fecha, int dias) {
@@ -81,6 +72,7 @@ public class IncidentImp implements IncidentService{
                 .collect(Collectors.toList());
  
         return list;
+
     }
     
     
@@ -94,4 +86,11 @@ public class IncidentImp implements IncidentService{
     //c. Quién fue el técnico que más rápido resolvió los incidentes
     //consegir los incidentes por tecnico y ver dentrod de todos quien lo resolvio mas rapido
     //(EntryDate - realDate)
+
+    @Override
+    public List<Incident> getSolvedIncidents() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+
 }
