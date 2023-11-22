@@ -8,11 +8,9 @@ import java.util.List;
 import model.businessLogic.entity.Employee;
 import model.persistence.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-/**
- *
- * @author leon
- */
+@Service
 public class EmployeeImp implements EmployeeService{
     
     @Autowired
@@ -42,8 +40,24 @@ public class EmployeeImp implements EmployeeService{
     }
 
     @Override
-    public void update(Employee employee, Long id) {
-       Employee oldEmployee  = 
+    public void update(Employee newEmployee, Long id) {
+       Employee oldEmployee  = repo.getById(id);
+       oldEmployee.setBirthDate(
+            newEmployee.getBirthDate());
+       oldEmployee.setEmail(
+            newEmployee.getEmail());
+       oldEmployee.setEmployeeType(
+            newEmployee.getEmployeeType());
+       oldEmployee.setEntryDate(
+            newEmployee.getEntryDate());
+       oldEmployee.setLastName(
+            newEmployee.getLastName());
+       oldEmployee.setName(
+            newEmployee.getName());   
+       oldEmployee.setPhone(
+            newEmployee.getPhone());  
+       
+       repo.save(oldEmployee);
     }
     
 }
