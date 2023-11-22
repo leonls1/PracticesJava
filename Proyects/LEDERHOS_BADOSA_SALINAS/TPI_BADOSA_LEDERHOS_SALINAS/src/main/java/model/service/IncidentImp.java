@@ -41,10 +41,9 @@ public class IncidentImp implements IncidentService{
     }
 
     @Override
-<<<<<<< HEAD
     public void update() {
         
-=======
+    }
     public void update(Incident incident, Long id) {
         //implementar lueguito
     }
@@ -61,7 +60,6 @@ public class IncidentImp implements IncidentService{
 
     @Override
     public List<Incident> getIncidentsLastDays() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
->>>>>>> f76e44a715a659ae31d37b9e1bad24e2c6b4c185
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }
