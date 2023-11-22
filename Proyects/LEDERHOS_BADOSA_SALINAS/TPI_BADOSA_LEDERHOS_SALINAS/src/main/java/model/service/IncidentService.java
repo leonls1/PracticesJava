@@ -5,6 +5,8 @@
 package model.service;
 
 import java.util.List;
+import java.util.Map;
+import model.businessLogic.entity.Employee;
 import model.businessLogic.entity.Incident;
 /**
  *
@@ -28,6 +30,8 @@ public interface IncidentService {
     public List<Incident> getSolvedIncidents();
     
     public List<Incident> getIncidentsLastDays(int n);
+    
+    public Map<Employee, Long> totalIncidentsByTech(List<Incident> list,  List<Employee> employeesList);
     
     
 }

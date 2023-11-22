@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
+import model.satellite.CorporateName;
 
 
 @Data
@@ -30,7 +31,7 @@ public class Client {
     
     @ManyToOne
     @JoinColumn(name = "corporateName")    
-    private Long id_corporateName;
+    private CorporateName id_corporateName;
     
     @OneToMany(mappedBy = "incident")
     private List<Incident> incidents;

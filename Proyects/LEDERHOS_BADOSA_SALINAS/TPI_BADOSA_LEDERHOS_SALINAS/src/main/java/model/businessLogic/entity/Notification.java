@@ -26,7 +26,7 @@ public class Notification {
     
     @ManyToOne
     @JoinColumn(name = "incident")
-    private Long id_incident;
+    private Incident id_incident;
     
     private String description;
     

@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.List;
 import lombok.Data;
+import model.satellite.EmployeeType;
 
 @Data
 @Entity
@@ -43,7 +44,7 @@ public class Employee {
     
     @ManyToOne
     @JoinColumn(name = "employee_type")
-    private Long employeeType;
+    private EmployeeType employeeType;
 
     @OneToMany(mappedBy = "specialty")
     private List<Speciality> specialities;

@@ -40,11 +40,11 @@ public class Incident {
     
     @ManyToOne
     @JoinColumn(name = "client")
-    private String CUIL_CUIT; 
+    private Client CUIL_CUIT; 
        
     @ManyToOne
     @JoinColumn(name = "service")
-    private Long servicio;
+    private Service service;
     
     @OneToMany(mappedBy = "problem")
     private List<Problem> problems ;

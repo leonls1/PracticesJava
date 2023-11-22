@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
+import model.satellite.ProblemType;
 
 
 @Data
@@ -22,11 +23,11 @@ public class Problem {
     
     @ManyToOne 
     @JoinColumn(name = "incident")
-    private Long incident_id;
+    private Incident incident_id;
     
     @ManyToOne 
     @JoinColumn(name = "problem_type")
-    private Long id_problemType;
+    private ProblemType id_problemType;
     
     @ManyToMany
     @JoinTable(name = "speciallity_X_problem",
