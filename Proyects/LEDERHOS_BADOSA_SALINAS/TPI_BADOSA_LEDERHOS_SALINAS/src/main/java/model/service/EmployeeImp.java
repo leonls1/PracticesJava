@@ -6,7 +6,6 @@ package model.service;
 
 import java.util.List;
 import model.businessLogic.entity.Employee;
-import model.businessLogic.entity.Incident;
 import model.persistence.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,7 +58,7 @@ public class EmployeeImp implements EmployeeService {
 
         repo.save(oldEmployee);
     }
-
+/*
     @Override
     public Employee getEmployeeWithMoreIncidentResolvedInPeriod(int days) {
         IncidentService incidentService = new IncidentImp();
@@ -67,5 +66,12 @@ public class EmployeeImp implements EmployeeService {
         List<Employee> employeeList = //what?
         
     }
+*/
 
+    @Override
+    public Employee getEmployeeWithMoreIncidentResolvedInPeriod(int days) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
 }
