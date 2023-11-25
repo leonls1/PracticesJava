@@ -4,10 +4,9 @@
  */
 package tpi_v2.model.businessLogic.entity;
 
-/**
- *
- * @author leon
- */
+import javax.persistence.Table;
+
+@Table
 public class Client {
     
 }
