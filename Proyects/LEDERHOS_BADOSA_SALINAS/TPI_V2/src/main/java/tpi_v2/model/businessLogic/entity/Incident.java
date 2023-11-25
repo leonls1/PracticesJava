@@ -4,18 +4,19 @@
  */
 package tpi_v2.model.businessLogic.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.*;
+
 import static jakarta.persistence.GenerationType.SEQUENCE;
-import jakarta.persistence.Id;
+
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 import tpi_v2.model.businessLogic.entity.incidentPatternState.State;
 
 @Data
 @Entity
-@jakarta.persistence.Table(name = "incident")
+@Table(name = "incident")
 public class Incident {
    
     @Id 
@@ -34,7 +35,17 @@ public class Incident {
     private Date resolutionDate;
     
     private State state;
-    
-    
+
+    @ManyToMany(mappedBy = "problem_type")
+    private List<ProblemType> problemsType;
+    @ManyToOne
+    @JoinColumn(name = "technician")
+    private Technician technician;
+    @ManyToOne
+    @JoinColumn(name = "service")
+    private Service service;
+    @ManyToOne
+    @JoinColumn(name = "operator")
+    private Operator operator;
     
 }
