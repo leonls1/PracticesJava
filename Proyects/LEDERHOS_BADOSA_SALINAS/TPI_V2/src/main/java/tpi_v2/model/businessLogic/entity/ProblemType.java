@@ -10,12 +10,13 @@ import jakarta.persistence.GeneratedValue;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
 
 @Data
 @Entity
-@jakarta.persistence.Table(name = "problem_type")
+@Table(name = "problem_type")
 public class ProblemType {
     
     @Id 

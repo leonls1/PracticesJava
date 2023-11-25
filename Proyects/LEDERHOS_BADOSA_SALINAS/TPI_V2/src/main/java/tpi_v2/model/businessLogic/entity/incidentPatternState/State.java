@@ -4,10 +4,15 @@
  */
 package tpi_v2.model.businessLogic.entity.incidentPatternState;
 
-/**
- *
- * @author leon
- */
+import tpi_v2.model.businessLogic.entity.Incident;
+
+
 public interface State {
+    
+    void toStarted(Incident incident);
+    
+    void toInProgress(Incident incident);
+    
+    void toFinished(Incident incident);
     
 }
