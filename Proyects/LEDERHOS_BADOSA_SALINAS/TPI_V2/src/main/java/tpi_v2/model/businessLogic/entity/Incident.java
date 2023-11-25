@@ -7,6 +7,7 @@ package tpi_v2.model.businessLogic.entity;
 import jakarta.persistence.*;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
+import java.time.LocalDate;
 
 import java.util.Date;
 import java.util.List;
@@ -29,10 +30,10 @@ public class Incident {
     private String description;
     
     @Column(name = "entry_date")
-    private Date entryDate;
+    private LocalDate entryDate;
     
     @Column(name = "resolution_date")
-    private Date resolutionDate;
+    private LocalDate resolutionDate;
     
     private State state;
 
