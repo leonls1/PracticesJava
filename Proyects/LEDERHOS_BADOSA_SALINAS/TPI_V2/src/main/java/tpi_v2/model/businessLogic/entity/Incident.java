@@ -36,16 +36,19 @@ public class Incident {
     
     private State state;
 
-    @ManyToMany(mappedBy = "problem_type")
+    @ManyToMany(mappedBy = "incidents")
     private List<ProblemType> problemsType;
+    
     @ManyToOne
-    @JoinColumn(name = "technician")
+    @JoinColumn(name = "fk_technician", referencedColumnName = "id")
     private Technician technician;
+    
     @ManyToOne
-    @JoinColumn(name = "service")
+    @JoinColumn(name = "fk_service", referencedColumnName = "id")
     private Service service;
+    
     @ManyToOne
-    @JoinColumn(name = "operator")
+    @JoinColumn(name = "fk_operator", referencedColumnName = "id")
     private Operator operator;
     
 }

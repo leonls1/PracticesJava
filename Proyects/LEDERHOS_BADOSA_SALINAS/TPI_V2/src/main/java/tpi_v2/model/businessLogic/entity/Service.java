@@ -16,19 +16,25 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @Entity
 @Table(name = "service")
 public class Service {
+    
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "IDENTITY")
-    Long Id;
+    private Long Id;
+    
     @Column(name = "name", nullable = false)
     private String name;
+    
     @Column(name = "support_hours", nullable = false)
     private int hoursSupport;
+    
     @ManyToOne
-    @JoinColumn(name = "client")
-    private Client client;
-    @ManyToMany(mappedBy = "problem_type")
+    @JoinColumn(name = "client_id", referencedColumnName = "id")    
+    private Client clients;
+    
+    @ManyToMany(mappedBy = "services")
     private List<ProblemType> problemsType;
-    @OneToMany(mappedBy = "incident")
+    
+    @OneToMany
     private List<Incident> incidents;
 
 }

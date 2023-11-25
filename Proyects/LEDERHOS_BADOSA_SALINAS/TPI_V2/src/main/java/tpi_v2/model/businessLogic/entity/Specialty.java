@@ -15,14 +15,18 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @Entity
 @Table(name = "specialty")
 public class Specialty {
+    
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "IDENTITY")
-    Long Id;
+    private Long Id;
+    
     @Column(name = "name", nullable = false)
     private String name;
+    
     @ManyToMany
     private List<Technician> technicians;
-    @ManyToMany(mappedBy = "problem_type")
+    
+    @ManyToMany(mappedBy = "specialties")
     private List<ProblemType> problemsType;
 
 }

@@ -4,10 +4,29 @@
  */
 package tpi_v2.model.businessLogic.entity;
 
-/**
- *
- * @author leon
- */
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import static jakarta.persistence.GenerationType.SEQUENCE;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.List;
+import lombok.Data;
+
+@Data
+@Entity
+@jakarta.persistence.Table(name = "operator")
 public class Operator {
     
+    @Id 
+    @Column( nullable = false, unique = true)   
+    @GeneratedValue(strategy=SEQUENCE, generator="IDENTITY")  
+    private Long id;
+    
+    private String name;
+    
+    @OneToMany
+    private List<Incident> indents;
+            
+            
 }

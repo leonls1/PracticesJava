@@ -6,6 +6,8 @@ package tpi_v2.model.businessLogic.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import static jakarta.persistence.GenerationType.SEQUENCE;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
@@ -17,13 +19,14 @@ import lombok.Data;
 public class Client {
 
     @Id 
-    @Column(name = "CUIL_CUIT", nullable = false, unique = true)    
+    @Column( nullable = false, unique = true)   
+    @GeneratedValue(strategy=SEQUENCE, generator="IDENTITY")      
     private Long id;
     
     private String corporateName;
     
     private String cuitCuil;
     
-    @OneToMany(mappedBy = "service")
+    @OneToMany
     private List<Service> services;
 }
