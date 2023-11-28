@@ -16,7 +16,6 @@ import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.List;
 import lombok.Data;
-import model.businessLogic.entity.incidentStatePatterns.Finished;
 import model.businessLogic.entity.incidentStatePatterns.State;
 
 @Data

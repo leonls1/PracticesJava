@@ -87,7 +87,7 @@ private Button btnRead, btnReset, btnCreate;
 
     private void creatingTask() {
         boolean isImportant = radioImportant.isSelected();
-
+/*
         if (datePickEnd.getValue() == null) {
             if (datePickBegin.getValue() == null) {
                 task = new Task(txtName.getText(), txtDescription.getText(),
@@ -103,7 +103,7 @@ private Button btnRead, btnReset, btnCreate;
         } else {
             task = new Task(txtName.getText(), txtDescription.getText(),
                     datePickBegin.getValue(), datePickEnd.getValue(), isImportant, 0);
-        }
+        }*/
     }
 
     private boolean validationOnCreate() {
