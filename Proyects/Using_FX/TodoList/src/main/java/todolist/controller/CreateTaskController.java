@@ -13,8 +13,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import todolist.model.Task;
-import todolist.model.TaskType;
+import todolist.model.entity.Task;
+import todolist.model.entity.TaskType;
 import java.util.ArrayList;
 
 

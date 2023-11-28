@@ -4,6 +4,7 @@ module todolist {
     requires java.base;
     requires jakarta.persistence;
     requires lombok;
+    requires spring.boot;
 
     opens todolist to javafx.fxml;
     opens todolist.controller;

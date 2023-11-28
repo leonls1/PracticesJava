@@ -1,4 +1,4 @@
-package todolist.model;
+package todolist.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,8 +10,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import lombok.Data;
-import todolist.model.taskStatePattern.InProgress;
-import todolist.model.taskStatePattern.State;
+import todolist.model.entity.taskStatePattern.InProgress;
+import todolist.model.entity.taskStatePattern.State;
 
 @Entity
 @Data
