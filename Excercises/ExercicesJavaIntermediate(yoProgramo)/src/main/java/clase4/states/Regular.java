@@ -7,10 +7,6 @@ package clase4.states;
 import clase4.Icon;
 import clase4.Song;
 
-/**
- *
- * @author leon
- */
 public class Regular implements State {
 
     @Override

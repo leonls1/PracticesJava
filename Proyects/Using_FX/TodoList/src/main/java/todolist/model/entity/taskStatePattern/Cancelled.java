@@ -2,21 +2,26 @@ package todolist.model.entity.taskStatePattern;
 
 import todolist.model.entity.Task;
 
+<<<<<<< HEAD
 public class Cancelled implements State{
+=======
+/**
+ *
+ * @author leon
+ */
+public class Cancelled implements State {
+>>>>>>> develop
 
     @Override
     public void toCancelled(Task task) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void toInProgress(Task task) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void toCompleted(Task task) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

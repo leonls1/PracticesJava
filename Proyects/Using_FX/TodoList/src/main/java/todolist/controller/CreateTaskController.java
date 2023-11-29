@@ -15,9 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import todolist.model.entity.Task;
 import todolist.model.entity.TaskType;
-import java.util.ArrayList;
-
-
+import java.time.LocalDate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,12 +24,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.time.LocalDate;
+import todolist.model.service.TaskImp;
+import todolist.model.service.TaskService;
 
 public class CreateTaskController implements Initializable {
 
-    private ArrayList<Task> tasks;
+    //private ArrayList<Task> tasks;
     private Task task;
+    private TaskService service;
 
 @FXML
 private Button btnRead, btnReset, btnCreate;
@@ -68,11 +68,7 @@ private Button btnRead, btnReset, btnCreate;
             if (validationOnCreate()) {
 
                 creatingTask();
-
-                tasks.add(task);
-
-                System.out.println("Tarea creada correctamente");
-                tasks.forEach(task -> System.out.println(task.toString()));
+                System.out.println(task);
 
             }
         } else if (evt.equals(btnRead)) {
@@ -87,23 +83,35 @@ private Button btnRead, btnReset, btnCreate;
 
     private void creatingTask() {
         boolean isImportant = radioImportant.isSelected();
-/*
+
         if (datePickEnd.getValue() == null) {
             if (datePickBegin.getValue() == null) {
-                task = new Task(txtName.getText(), txtDescription.getText(),
-                        LocalDate.now(), isImportant, 0);
+                task = new Task(txtName.getText()
+                        , txtDescription.getText()
+                        , LocalDate.now()
+                        , isImportant);
             } else {
-                task = new Task(txtName.getText(), txtDescription.getText(),
-                        datePickBegin.getValue(), isImportant, 0);
+                task = new Task(txtName.getText()
+                        , txtDescription.getText()
+                        , datePickBegin.getValue()
+                        , isImportant);       
             }
         } else if (datePickBegin.getValue() == null) {
-            task = new Task(txtName.getText(), txtDescription.getText(),
-                    LocalDate.now(), datePickEnd.getValue(), isImportant, 0);
+            task = new Task(txtName.getText()
+                        , txtDescription.getText()
+                        ,  LocalDate.now()
+                        , datePickEnd.getValue()
+                        , isImportant); 
 
         } else {
-            task = new Task(txtName.getText(), txtDescription.getText(),
-                    datePickBegin.getValue(), datePickEnd.getValue(), isImportant, 0);
-        }*/
+            task = new Task(txtName.getText()
+                        , txtDescription.getText()
+                        , datePickBegin.getValue()
+                        , datePickEnd.getValue()
+                        , isImportant); 
+        }
+        
+        service.create(task);
     }
 
     private boolean validationOnCreate() {
@@ -134,8 +142,10 @@ private Button btnRead, btnReset, btnCreate;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tasks = new ArrayList<Task>();
+        service = new TaskImp();
     }
+    
+    
 
 }
 //
