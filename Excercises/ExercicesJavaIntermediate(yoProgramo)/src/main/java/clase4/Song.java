@@ -106,7 +106,7 @@ public class Song {
         this.dislikes = dislikes;
         this.totalViews = totalViews;
         this.lastView = lastView;
-                state = new Regular();
+        state = new Regular();
         icon = Icon.MUSICAL_NOTE;
         caption = artistName + " - " + albumName + " - " + title;
         
