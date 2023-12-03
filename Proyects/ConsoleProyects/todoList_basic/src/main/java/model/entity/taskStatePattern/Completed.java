@@ -1,10 +1,9 @@
+package model.entity.taskStatePattern;
 
-package todolist.model.entity.taskStatePattern;
-
-import todolist.model.entity.Task;
+import model.entity.Task;
 
 
-public class InProgress implements State{
+public class Completed implements State{
 
     @Override
     public void toCancelled(Task task) {
@@ -20,5 +19,5 @@ public class InProgress implements State{
     public void toCompleted(Task task) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

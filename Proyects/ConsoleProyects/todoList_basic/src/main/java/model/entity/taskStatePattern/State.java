@@ -1,7 +1,6 @@
+package model.entity.taskStatePattern;
 
-package todolist.model.entity.taskStatePattern;
-
-import todolist.model.entity.Task;
+import model.entity.Task;
 
 public interface State {
 

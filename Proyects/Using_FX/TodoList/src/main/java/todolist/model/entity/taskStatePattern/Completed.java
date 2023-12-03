@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package todolist.model.entity.taskStatePattern;
 
 import todolist.model.entity.Task;
 
-/**
- *
- * @author leon
- */
 public class Completed implements State{
 
     @Override

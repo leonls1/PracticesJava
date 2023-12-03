@@ -13,7 +13,6 @@ import todolist.model.entity.taskStatePattern.InProgress;
 import todolist.model.entity.taskStatePattern.State;
 
 @Entity
-
 @Table(name = "task")
 public class Task {
 
