@@ -1,6 +1,9 @@
 package Excercices.collections;
 
-public class Client {
+import java.util.Comparator;
+
+
+public class Client implements Comparable<Client>, Comparator<Client>{
 
     private String name;
 
@@ -70,6 +73,19 @@ public class Client {
         }
         final Client other = (Client) obj;
         return this.acountNumber == other.acountNumber;
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        return acountNumber - o.getAcountNumber(); }
+
+    @Override
+    public int compare(Client o1, Client o2) {
+        String total1 = o1.getName();
+        String total2 = o2.getName();
+        
+        return total1.compareTo(total2);
+        
     }
     
     

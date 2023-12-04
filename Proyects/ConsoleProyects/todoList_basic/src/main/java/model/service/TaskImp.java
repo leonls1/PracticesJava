@@ -1,16 +1,18 @@
-package todolist.model.service;
+package model.service;
 
 import java.util.List;
+import model.entity.Task;
+import model.persistence.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import todolist.model.entity.Task;
-import todolist.model.persistence.TaskRepository;
+
 
 @Service
 public class TaskImp implements TaskService {
-
     @Autowired
     private TaskRepository repo;
+    
+    
 
     @Override
     public Task getById(Long id) {
@@ -39,18 +41,12 @@ public class TaskImp implements TaskService {
 
     @Override
     public boolean update(Task task, Long id) {
-        if(!repo.existsById(id)) {
-            return false;
-        }
+        if(!repo.existsById(id)) return false;
         
-        Task oldTask = repo.getReferenceById(id);
-        
-        oldTask.setCreationDate(
-            task.getCreationDate());
+        Task oldTask = repo.getReferenceById(id);      
+       
         oldTask.setDescription(
-            task.getDescription());
-        oldTask.setEndDate(
-            task.getEndDate());
+            task.getDescription());        
         oldTask.setImportant(
             task.isImportant());
         oldTask.setName(
@@ -64,5 +60,4 @@ public class TaskImp implements TaskService {
         return true;
         
     }
-
 }

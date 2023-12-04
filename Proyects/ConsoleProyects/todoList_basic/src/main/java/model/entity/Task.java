@@ -41,6 +41,15 @@ public class Task {
         this.Type = Type;
         state = new InProgress();
     }
+
+    public Task(String name, String description, boolean important) {
+        this.name = name;
+        this.description = description;
+        this.important = important;
+        state = new InProgress();
+    }
+    
+    
     
     public void toCancelled(){
         state.toCancelled(this);

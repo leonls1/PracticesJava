@@ -1,7 +1,7 @@
-package todolist.model.service;
+package model.service;
 
 import java.util.List;
-import todolist.model.entity.Task;
+import model.entity.Task;
 
 public interface TaskService {
     
@@ -14,6 +14,5 @@ public interface TaskService {
     public boolean delete(Long id);
     
     public boolean update(Task task, Long id);
-    
     
 }

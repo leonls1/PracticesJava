@@ -15,20 +15,40 @@ public class main {
         clients.add(cli1);
         clients.add(clie2);
         clients.add(clie3);
-        clients.add(clie4);
-     
-        clients.forEach((cli) -> 
-            System.out.println(cli.getName() + "\n "
-                    + "saldo" + cli.getTotalMoney()));
-    }
-/*
-        Iterator<Client> it = clients.iterator();
+        clients.add(clie4);    
+
         
-        while(it.hasNext()){
-            String name = it.next().getName();
-            System.out.println("name: " + name);
-            
-        }*/
+        
+        List<String> list1 = new LinkedList<>();
+        List<String> list2 = new LinkedList<>();
+        
+       
+  
+        list1.add("a");
+        list1.add("b");
+        list1.add("c");
+        list1.add("d");
+        
+        list2.add("1");
+        list2.add("2");
+        list2.add("3");
+        list2.add("4");
+        
+         //iteradores para recorrer las listas
+        ListIterator<String> it1 = list1.listIterator();
+        ListIterator<String> it2 = list2.listIterator();       
+        
+        while(it2.hasNext()){
+            if(it1.hasNext()){
+                it1.next();
+            }
+            it1.add(it2.next());
+        }
+        
+        list1.forEach(elem-> System.out.println(elem) );
+        
+    }
+
         
     }
 
