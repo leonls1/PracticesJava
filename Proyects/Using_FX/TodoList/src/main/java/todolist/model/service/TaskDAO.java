@@ -3,7 +3,7 @@ package todolist.model.service;
 import java.util.List;
 import todolist.model.entity.Task;
 
-public interface TaskService {
+public interface TaskDAO {
     
     public Task getById(Long id);
     

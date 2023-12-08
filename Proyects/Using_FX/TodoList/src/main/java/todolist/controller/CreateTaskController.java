@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package todolist.controller;
 
 import java.net.URL;
@@ -24,14 +21,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
-import todolist.model.service.TaskImp;
-import todolist.model.service.TaskService;
+import todolist.model.service.TaskDAO;
 
 public class CreateTaskController implements Initializable {
 
     //private ArrayList<Task> tasks;
     private Task task;
-    private TaskService service;
+    private TaskDAO service;
 
 @FXML
 private Button btnRead, btnReset, btnCreate;
@@ -142,7 +138,7 @@ private Button btnRead, btnReset, btnCreate;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        service = new TaskImp();
+        
     }
     
     
