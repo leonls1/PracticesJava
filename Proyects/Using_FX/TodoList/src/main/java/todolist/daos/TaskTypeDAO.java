@@ -1,9 +1,10 @@
-package todolist.model.service;
+package todolist.daos;
 
+import jakarta.persistence.EntityManager;
 import java.util.List;
 import todolist.model.entity.TaskType;
 
-public interface TaskTypeService {
+public interface TaskTypeDAO {
 
     public TaskType getById(Long id);
 
@@ -14,4 +15,6 @@ public interface TaskTypeService {
     public boolean delete(Long id);
 
     public boolean update(TaskType task, Long id);
+    
+    public void setEntityManager(EntityManager em);
 }

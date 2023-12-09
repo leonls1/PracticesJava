@@ -12,10 +12,10 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 
-@Entity
-@Table
+//@Entity
+//@Table
 public class TaskType {
-    @Id
+  /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
@@ -55,5 +55,5 @@ public class TaskType {
     
     
     
-    
+    */
 }

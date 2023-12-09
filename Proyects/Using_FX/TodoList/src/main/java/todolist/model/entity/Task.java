@@ -9,8 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-import todolist.model.entity.taskStatePattern.InProgress;
-import todolist.model.entity.taskStatePattern.State;
 
 @Entity
 @Table(name = "task")
@@ -33,31 +31,17 @@ public class Task {
 
     private boolean important;
 
+  /*
     @ManyToOne
     @JoinColumn(name = "type", referencedColumnName = "id")
     private TaskType Type;
+*/
+    //private State state;
+    private boolean state;
 
-    private State state;
 
-    public Task(String name, String description, LocalDate creationDate, LocalDate endDate, boolean important, TaskType Type) {
-        this.name = name;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.endDate = endDate;
-        this.important = important;
-        this.Type = Type;
-        state = (State) new InProgress();
-    }
 
-    public Task( String name, String description, LocalDate creationDate, boolean important, TaskType Type, State state) {
-        this.name = name;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.important = important;
-        this.Type = Type;
-        this.state = new InProgress();
-    }
-    
+
     public Task(String name, String description, LocalDate creationDate, LocalDate endDate, boolean important) {
         this.name = name;
         this.description = description;
@@ -65,7 +49,7 @@ public class Task {
         this.endDate = endDate;
         this.important = important;
 
-        state = new InProgress();
+        state = false;
     }
 
     public Task(String name, String description, LocalDate creationDate, boolean important) {
@@ -73,12 +57,14 @@ public class Task {
         this.description = description;
         this.creationDate = creationDate;
         this.important = important;
-        this.state = new InProgress();
-        
-    }
-    
-    
+        state = false;
 
+    }
+
+    public Task() {
+    }
+
+    /*
     public void toCompleted() {
         state.toCompleted(this);
     }
@@ -90,6 +76,7 @@ public class Task {
     public void toInProgress() {
         state.toInProgress(this);
     }
+     */
 
     public Long getId() {
         return id;
@@ -139,22 +126,17 @@ public class Task {
         this.important = important;
     }
 
-    public TaskType getType() {
-        return Type;
-    }
+    
 
-    public void setType(TaskType Type) {
-        this.Type = Type;
-    }
-
-    public State getState() {
+    public boolean isState() {
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(boolean state) {
         this.state = state;
     }
     
     
+
 
 }

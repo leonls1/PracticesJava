@@ -21,13 +21,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
-import todolist.model.service.TaskDAO;
+import todolist.model.service.TaskRepository;
 
 public class CreateTaskController implements Initializable {
 
     //private ArrayList<Task> tasks;
+    private TaskRepository repo;
     private Task task;
-    private TaskDAO service;
 
 @FXML
 private Button btnRead, btnReset, btnCreate;
@@ -107,7 +107,12 @@ private Button btnRead, btnReset, btnCreate;
                         , isImportant); 
         }
         
-        service.create(task);
+        try {
+            repo.create(task);
+        } catch (Exception e) {
+            
+        }
+        
     }
 
     private boolean validationOnCreate() {
@@ -138,7 +143,7 @@ private Button btnRead, btnReset, btnCreate;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        repo = new TaskRepository();
     }
     
     

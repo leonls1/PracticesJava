@@ -4,11 +4,13 @@ module todolist {
     requires java.base;
     requires jakarta.persistence;
 
-
     opens todolist to javafx.fxml;
+    opens todolist.model.entity;
+
     opens todolist.controller;
-    opens todolist.model;
             
     exports todolist.controller;
-    exports todolist;
+    exports todolist to javafx.graphics;
+    exports todolist.model;
+
 }
