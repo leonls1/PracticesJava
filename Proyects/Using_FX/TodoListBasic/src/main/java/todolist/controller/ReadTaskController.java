@@ -48,9 +48,7 @@ public class ReadTaskController implements Initializable {
     @FXML
     private void buttonEvent(){
         
-    }
-    
-    
+    }   
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

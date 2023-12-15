@@ -21,12 +21,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class CreateTaskController implements Initializable {
 
-    //private ArrayList<Task> tasks;    
+    private ArrayList<Task> tasks;    
     private Task task;
+    
 
 @FXML
 private Button btnRead, btnReset, btnCreate;
@@ -63,6 +65,7 @@ private Button btnRead, btnReset, btnCreate;
             if (validationOnCreate()) {
 
                 creatingTask();
+                tasks.add(task);
                 System.out.println(task);
 
             }
@@ -128,7 +131,7 @@ private Button btnRead, btnReset, btnCreate;
         Scene readView = new Scene(root);
 
         Stage window = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
+        
         window.setScene(readView);
         window.show();
 
