@@ -29,6 +29,9 @@ public class BookService_jpa {
     }
     
     public void saveAuth(Author auth){
+        em.getTransaction().begin();
         em.persist(auth);
+        
+        em.getTransaction().commit();
     }
 }

@@ -17,6 +17,10 @@ public class HibernatePractices1 {
         Author auth = new Author();
         auth.setName("auth1");
         
+        book1.setAuthor(auth);
+        book2.setAuthor(auth);
+        book3.setAuthor(auth);
+        
         auth.setBooks(Arrays.asList(book1, book2, book3));
         
         jpaService.saveAuth(auth);
