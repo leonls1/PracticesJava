@@ -15,10 +15,7 @@ import lombok.Data;
 @Entity
 public class Book {
 
-    public Book() {
-    }
-    
-    
+    public Book() {    }       
     
     @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
