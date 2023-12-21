@@ -1,69 +1,46 @@
 package hibernatepractices1;
 
-import hibernatepractices1.model.entity.Author;
-import hibernatepractices1.model.entity.Book;
-import hibernatepractices1.service.BookService_jpa;
-import hibernatepractices1.service.BookService_spring;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import hibernatepractices1.model.entity.Task;
+import hibernatepractices1.model.entity.TaskType;
+import hibernatepractices1.service.TaskService_jpa;
+import java.time.LocalDate;
+import java.util.Arrays;
 
-@SpringBootApplication  
+
 public class HibernatePractices1 {
 
-    public static void main(String[] args) throws Exception {    
-        SpringApplication.run(HibernatePractices1.class, args);
-        
-        BookService_spring serviceSpring  = new  BookService_spring();
-        
-        BookService_jpa jpaService = new BookService_jpa();
-        Book book1 = new Book("librito 1");
-        Book book2 = new Book("librito 2");
-        Book book3 = new Book("librito 3");
-        
-        Author auth;
-        //auth.setName("auth1");
-        /*
-        book1.setAuthor(auth);
-        book2.setAuthor(auth);
-        book3.setAuthor(auth);
-        
-        auth.setBooks(Arrays.asList(book1, book2, book3));
-        */
-        //jpaService.saveAuth(auth);     
-        
-        auth = serviceSpring.getAuthorById(1L);
-              
-        if (auth != null) {
-            System.out.println(auth.getName());
-            
-        } else {
-            System.out.println("No se encontró el autor con el ID proporcionado.");
-        }
-    }    
-        @Bean
-    public CommandLineRunner demo(BookService_spring bookService_spring) {
-        return args -> {
-            /*
-            // Guardar un usuario
-            Usuario usuario = new Usuario();
-            usuario.setNombre("Ejemplo Usuario");
-            usuario.setCorreo("usuario@ejemplo.com");
-            usuarioService.guardarUsuario(usuario);
+    public static void main(String[] args) {
+       
+       //algunos ejemplos generados para poder cargar  
+       Task task1 = new Task("tarea1", "comprar pan", LocalDate.now(), LocalDate.now().plusDays(7), true);
+       Task task2 = new Task("tarea2", "comprar azucar", LocalDate.now(), LocalDate.now().plusDays(7), false);
+       
+       TaskType type1 = new TaskType("de la casa");
+       
 
-            // Obtener todos los usuarios y mostrarlos
-            System.out.println("Todos los usuarios:");
-            usuarioService.obtenerTodosLosUsuarios().forEach(System.out::println);
-
-            // Obtener un usuario por ID y mostrarlo
-            Long idUsuario = 1L;
-            Usuario usuarioRecuperado = usuarioService.obtenerUsuarioPorId(idUsuario);
-            if (usuarioRecuperado != null) {
-                System.out.println("Usuario recuperado por ID: " + usuarioRecuperado);
-            } else {
-                System.out.println("No se encontró un usuario con ID: " + idUsuario);
-            }
-        };*/
+       
+       type1.setTasks(Arrays.asList(task1, task2));
+       
+       //creando el repository
+       TaskService_jpa service = new TaskService_jpa();
+        
+       //service.createTaskType(type1);
+        TaskType typeGetted = service.getTaskTypeById(1l);
+        
+        System.out.println(typeGetted.getTasks().size());
+        
+        Task task1Getted = service.getTaskById(1L);
+        Task task1Getted2 = service.getTaskById(2L);
+        
+        System.out.println(task1Getted.toString() + "\n" +
+                task1Getted2.toString());
+        
+        
+                
+                 
+       
+       
     }
+
+   
 }
