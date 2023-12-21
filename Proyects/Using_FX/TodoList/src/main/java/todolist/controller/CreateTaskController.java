@@ -1,4 +1,3 @@
-
 package todolist.controller;
 
 import java.net.URL;
@@ -25,12 +24,12 @@ import todolist.model.service.TaskRepository;
 
 public class CreateTaskController implements Initializable {
 
-    //private ArrayList<Task> tasks;
+    //private ArrayLi   st<Task> tasks;
     private TaskRepository repo;
     private Task task;
 
-@FXML
-private Button btnRead, btnReset, btnCreate;
+    @FXML
+    private Button btnRead, btnReset, btnCreate;
 
     @FXML
     private ComboBox<TaskType> cboType;
@@ -82,37 +81,37 @@ private Button btnRead, btnReset, btnCreate;
 
         if (datePickEnd.getValue() == null) {
             if (datePickBegin.getValue() == null) {
-                task = new Task(txtName.getText()
-                        , txtDescription.getText()
-                        , LocalDate.now()
-                        , isImportant);
+                task = new Task(txtName.getText(),
+                         txtDescription.getText(),
+                         LocalDate.now(),
+                         isImportant);
             } else {
-                task = new Task(txtName.getText()
-                        , txtDescription.getText()
-                        , datePickBegin.getValue()
-                        , isImportant);       
+                task = new Task(txtName.getText(),
+                         txtDescription.getText(),
+                         datePickBegin.getValue(),
+                         isImportant);
             }
         } else if (datePickBegin.getValue() == null) {
-            task = new Task(txtName.getText()
-                        , txtDescription.getText()
-                        ,  LocalDate.now()
-                        , datePickEnd.getValue()
-                        , isImportant); 
+            task = new Task(txtName.getText(),
+                     txtDescription.getText(),
+                     LocalDate.now(),
+                     datePickEnd.getValue(),
+                     isImportant);
 
         } else {
-            task = new Task(txtName.getText()
-                        , txtDescription.getText()
-                        , datePickBegin.getValue()
-                        , datePickEnd.getValue()
-                        , isImportant); 
+            task = new Task(txtName.getText(),
+                     txtDescription.getText(),
+                     datePickBegin.getValue(),
+                     datePickEnd.getValue(),
+                     isImportant);
         }
-        
+
         try {
             repo.create(task);
         } catch (Exception e) {
-            
+
         }
-        
+
     }
 
     private boolean validationOnCreate() {
@@ -145,8 +144,5 @@ private Button btnRead, btnReset, btnCreate;
     public void initialize(URL url, ResourceBundle rb) {
         repo = new TaskRepository();
     }
-    
-    
 
 }
-//

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "form.controller.PrimaryController">
+   <children>
+      <Label layoutX="21.0" layoutY="21.0" text="User Name:" />
+      <Label layoutX="24.0" layoutY="62.0" text="Email:" />
+      <Label layoutX="24.0" layoutY="98.0" text="Password:" />
+      <TextField fx:id="lblName" layoutX="112.0" layoutY="17.0" />
+      <TextField fx:id="lblEmail" layoutX="112.0" layoutY="58.0" />
+      <Button fx:id="btnCreate" layoutX="351.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnAction" text="Create" />
+      <Button fx:id="btnGetAll" layoutX="351.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnAction" text="See all users" />
+      <PasswordField fx:id="lblPass" layoutX="112.0" layoutY="95.0" />
+   </children>
+</Pane>
