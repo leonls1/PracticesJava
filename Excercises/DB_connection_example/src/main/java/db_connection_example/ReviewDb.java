@@ -8,12 +8,13 @@ import java.sql.*;
 public class ReviewDb {
       public static void main(String[] args) throws ClassNotFoundException, SQLException{
         //1    isn't necesary
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.cj.jdbc.Driver");
         
         //2
         
-        Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/super_market","Leon", "yoProgramo");
+        Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/form1","Leon", "yoProgramo");
         
+          System.out.println(con);
         //3
         Statement st = con.createStatement();
         
