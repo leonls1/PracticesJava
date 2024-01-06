@@ -36,11 +36,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-        DBConnection db = new DBConnection();
-        db.getDBConection();
-
-        System.out.println("Connection status: " + db.getCon());
-       // launch();
+       launch();
         
     }
 

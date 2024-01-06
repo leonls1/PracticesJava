@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="513.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="form.javafxcrud.controller.StudentController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.javafxcrud.controller.StudentController">
    <children>
       <GridPane layoutX="6.0" layoutY="29.0">
         <columnConstraints>
@@ -38,15 +38,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField />
-            <TextField GridPane.rowIndex="1" />
-            <TextField GridPane.rowIndex="2" />
+            <TextField fx:id="fieldFirstName" />
+            <TextField fx:id="fieldMiddleName" GridPane.rowIndex="1" />
+            <TextField fx:id="fieldSurname" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button layoutX="56.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="New" />
-      <Button layoutX="130.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Save" />
-      <Button layoutX="289.0" layoutY="140.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="202.0" layoutY="140.0" mnemonicParsing="false" text="Update" />
       <Label layoutX="56.0" layoutY="217.0" text="Search:" />
       <TextField layoutX="140.0" layoutY="205.0" promptText="Search" />
       <TableView layoutX="12.0" layoutY="267.0" prefHeight="200.0" prefWidth="485.0">
@@ -57,5 +53,13 @@
             <TableColumn prefWidth="145.0" text="LastName" />
         </columns>
       </TableView>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="119.0" prefHeight="78.0" prefWidth="485.0" spacing="55.0">
+         <children>
+            <Button fx:id="btnNew" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="New" />
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="51.0" text="Save" />
+            <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" />
+            <Button fx:id="btnDelete" mnemonicParsing="false" text="Delete" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
