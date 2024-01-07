@@ -45,7 +45,7 @@
       </GridPane>
       <Label layoutX="56.0" layoutY="217.0" text="Search:" />
       <TextField layoutX="106.0" layoutY="213.0" promptText="Search" />
-      <TableView fx:id="tableView" layoutX="12.0" layoutY="267.0" prefHeight="200.0" prefWidth="485.0">
+      <TableView fx:id="tableView" layoutX="12.0" layoutY="267.0" onMouseClicked="#mouseClicked">
         <columns>
             <TableColumn fx:id="colId" minWidth="0.0" prefWidth="0.0" text="Column X" />
           <TableColumn fx:id="colFirtsName" prefWidth="172.0" text="First name" />

@@ -46,7 +46,7 @@ public class StudentController implements Initializable {
     public Button btnDelete;
     
     @FXML
-    public TableView tableView;
+    public TableView<Student> tableView;
     
     @FXML
     public TableColumn<Student, Integer> colId ;
@@ -76,12 +76,29 @@ public class StudentController implements Initializable {
     private void btnEvent(ActionEvent e){
         Object evt = e.getSource();
         
+        if(evt.equals(btnDelete)){
+            
+        }
         
     }
     
     @FXML
-    private void mouseClicked(MouseEvent e){
+    private void mouseClicked(MouseEvent mouseEvent){
+        //Object evt = e.getSource();
         
+        try {
+            Student stu = tableView.getSelectionModel().getSelectedItem();
+            student = stu;
+            fieldFirstName.setText(student.getFirstName());
+            fieldMiddleName.setText(student.getMiddleName());
+            fieldSurname.setText(student.getSurname());
+            
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+            btnSave.setDisable(true);
+            
+        } catch (Exception e) {
+        }
     }
     
     @FXML
