@@ -5,21 +5,21 @@ public class Student {
 
     public int id;
     
-    public String firtName;
+    public String firstName;
     
     public String middleName;
     
     public String surname;
 
     public Student(String firtName, String middleName, String surname) {
-        this.firtName = firtName;
+        this.firstName = firtName;
         this.middleName = middleName;
         this.surname = surname;
     }
 
     public Student(int id, String firtName, String middleName, String surname) {
         this.id = id;
-        this.firtName = firtName;
+        this.firstName = firtName;
         this.middleName = middleName;
         this.surname = surname;
     }
@@ -33,12 +33,12 @@ public class Student {
         return id;
     }
 
-    public String getFirtName() {
-        return firtName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirtName(String firtName) {
-        this.firtName = firtName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getMiddleName() {

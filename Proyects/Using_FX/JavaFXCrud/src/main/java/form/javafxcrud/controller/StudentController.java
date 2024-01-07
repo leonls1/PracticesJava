@@ -8,15 +8,21 @@ import form.javafxcrud.data.AppQuery;
 import form.javafxcrud.model.Student;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 
 public class StudentController implements Initializable {
 
-    private AppQuery query = new AppQuery();
+    private final AppQuery query = new AppQuery();
        
     @FXML
     public TextField fieldFirstName;
@@ -39,6 +45,22 @@ public class StudentController implements Initializable {
     @FXML
     public Button btnDelete;
     
+    @FXML
+    public TableView tableView;
+    
+    @FXML
+    public TableColumn<Student, Integer> colId ;
+    
+    @FXML
+    public TableColumn<Student, String> colFirtsName;  
+    
+    @FXML    
+    public TableColumn<Student, String> colMiddleName;  
+    
+    @FXML
+    public TableColumn<Student, String> colSurname;  
+    
+    private Student student;
             
     @FXML
     private void addStudent(){
@@ -48,12 +70,37 @@ public class StudentController implements Initializable {
                 fieldSurname.getText());
         
         query.addStudent(stu);
-    } 
+    }
+    
+    @FXML
+    private void btnEvent(ActionEvent e){
+        Object evt = e.getSource();
+        
+        
+    }
+    
+    @FXML
+    private void mouseClicked(MouseEvent e){
+        
+    }
+    
+    @FXML
+    private void getStudents(){
+        ObservableList list = query.getStudents();
+        
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colFirtsName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        colMiddleName.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+        colSurname.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        
+        
+        tableView.setItems(list);
+    }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        getStudents();
     }    
     
 }
