@@ -55,10 +55,10 @@
       </TableView>
       <HBox alignment="CENTER" layoutX="14.0" layoutY="119.0" prefHeight="78.0" prefWidth="485.0" spacing="55.0">
          <children>
-            <Button fx:id="btnNew" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="56.0" text="New" />
+            <Button fx:id="btnNew" mnemonicParsing="false" onAction="#newStudent" prefHeight="25.0" prefWidth="56.0" text="New" />
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="51.0" text="Save" />
-            <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
-            <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#btnEvent" text="Delete" />
+            <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateStudent" text="Update" />
+            <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" />
          </children>
       </HBox>
    </children>
