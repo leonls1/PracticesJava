@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.javafxcrud.controller.StudentController">
+<AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="form.javafxcrud.controller.StudentController">
    <children>
       <GridPane layoutX="6.0" layoutY="29.0">
         <columnConstraints>
@@ -43,9 +43,9 @@
             <TextField fx:id="fieldSurname" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Label layoutX="56.0" layoutY="217.0" text="Search:" />
-      <TextField layoutX="106.0" layoutY="213.0" promptText="Search" />
-      <TableView fx:id="tableView" layoutX="12.0" layoutY="267.0" onMouseClicked="#mouseClicked">
+      <Label layoutX="37.0" layoutY="217.0" text="Search:" />
+      <TextField fx:id="fieldSearch" layoutX="130.0" layoutY="213.0" prefHeight="25.0" prefWidth="369.0" promptText="Search" />
+      <TableView fx:id="tableView" layoutX="6.0" layoutY="247.0" onMouseClicked="#mouseClicked" prefHeight="219.0" prefWidth="493.0">
         <columns>
             <TableColumn fx:id="colId" minWidth="0.0" prefWidth="0.0" text="Column X" />
           <TableColumn fx:id="colFirtsName" prefWidth="172.0" text="First name" />

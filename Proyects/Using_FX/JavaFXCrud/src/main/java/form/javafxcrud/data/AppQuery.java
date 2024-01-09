@@ -49,12 +49,8 @@ public class AppQuery {
     public void updateStudent(Student student) {
         try {
             db.getDBConection();
-            PreparedStatement ps = db.getCon().prepareStatement("UPDATE `form1`.`person`\n"
-                    + "SET\n"
-                    + "`first_name` = ?,\n"
-                    + "`middle_name` = ?,\n"
-                    + "`surname` = ?\n"
-                    + "WHERE `id` = ?");
+            PreparedStatement ps = db.getCon().prepareStatement("UPDATE `form1`.`person` "
+                    + "SET `first_name` = ?, `middle_name` = ?,`surname` = ? WHERE `id` = ?");
             ps.setString(1, student.getFirstName());
             ps.setString(2, student.getMiddleName());
             ps.setString(3, student.getSurname());
@@ -63,9 +59,9 @@ public class AppQuery {
             
             ps.close();
             db.closeConn();
-            System.out.println("updated");
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
