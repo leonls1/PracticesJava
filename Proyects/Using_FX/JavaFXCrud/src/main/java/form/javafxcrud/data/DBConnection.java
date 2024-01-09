@@ -16,7 +16,7 @@ public class DBConnection {
                         String url = "jdbc:mysql://localhost:3306/form1";
                         //Class.forName("com.mysql.cj.jdbc.Driver");
                         setCon(    DriverManager.getConnection(url, "Leon", "yoProgramo"));
-                        System.out.println("connection completed");
+                  
                     } catch (Exception e) {
                         e.printStackTrace();
                         System.out.println("error");
