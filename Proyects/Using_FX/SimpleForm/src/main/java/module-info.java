@@ -13,6 +13,6 @@ module form {
     exports form.controller;
     exports form.entity;
     
-     requires org.hibernate.orm.core;
+    requires org.hibernate.orm.core;
     requires java.xml;
 }

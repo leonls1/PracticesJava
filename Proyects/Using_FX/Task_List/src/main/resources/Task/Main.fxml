@@ -10,13 +10,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Task.controller.MainController">
    <children>
       <Label layoutX="258.0" layoutY="21.0" text="Task List Applicaction">
          <font>
@@ -34,35 +34,39 @@
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="134.0" layoutY="59.0" prefHeight="200.0" prefWidth="248.0" spacing="8.0">
          <children>
-            <TextField prefHeight="25.0" prefWidth="217.0" />
-            <DatePicker />
-            <DatePicker />
+            <TextField fx:id="txtName" prefHeight="25.0" prefWidth="217.0" />
+            <DatePicker fx:id="dtpStart" />
+            <DatePicker fx:id="dtpEnd" />
             <HBox prefHeight="19.0" prefWidth="263.0" spacing="20.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Yep" />
-                  <RadioButton mnemonicParsing="false" text="Nope" />
+                  <RadioButton fx:id="radioYes" mnemonicParsing="false" text="Yep">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Important" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radioNo" mnemonicParsing="false" text="Nope" toggleGroup="$Important" />
                </children>
             </HBox>
-            <ComboBox disable="true" prefWidth="150.0" />
+            <ComboBox fx:id="cboType" disable="true" prefWidth="150.0" />
          </children>
       </VBox>
       <Label layoutX="445.0" layoutY="84.0" text="Description" />
-      <TextArea layoutX="521.0" layoutY="84.0" prefHeight="110.0" prefWidth="248.0" />
-      <Button layoutX="615.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Clear " />
-      <Button layoutX="707.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Save" />
-      <TableView layoutX="34.0" layoutY="320.0" prefHeight="200.0" prefWidth="705.0">
+      <TextArea fx:id="txtDescription" layoutX="521.0" layoutY="84.0" prefHeight="110.0" prefWidth="248.0" />
+      <Button fx:id="btnClear" layoutX="615.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="60.0" text="Clear " />
+      <Button fx:id="btnSave" layoutX="707.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="60.0" text="Save" />
+      <TableView fx:id="tasksTable" layoutX="34.0" layoutY="320.0" prefHeight="200.0" prefWidth="705.0">
         <columns>
-            <TableColumn prefWidth="30.0" text="ID" />
-          <TableColumn prefWidth="235.0" text="Name" />
-          <TableColumn prefWidth="100.0" text="Start Date" />
-            <TableColumn prefWidth="109.0" text="End Date" />
-            <TableColumn prefWidth="105.0" text="Important" />
-            <TableColumn prefWidth="125.0" text="Type" />
+            <TableColumn fx:id="idCol" prefWidth="30.0" text="ID" />
+          <TableColumn fx:id="nameCol" prefWidth="235.0" text="Name" />
+          <TableColumn fx:id="startCol" prefWidth="100.0" text="Start Date" />
+            <TableColumn fx:id="endCol" prefWidth="109.0" text="End Date" />
+            <TableColumn fx:id="imporntatCol" prefWidth="105.0" text="Important" />
+            <TableColumn fx:id="typeCol" prefWidth="125.0" text="Type" />
         </columns>
       </TableView>
-      <Button layoutX="32.0" layoutY="537.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="677.0" layoutY="537.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Delete" />
-      <Button layoutX="108.0" layoutY="537.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Detail" />
+      <Button fx:id="btnUpdate" layoutX="32.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
+      <Button fx:id="btnDelete" layoutX="677.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
+      <Button fx:id="btnDetail" layoutX="108.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="55.0" text="Detail" />
    </children>
    <padding>
       <Insets bottom="25.0" />

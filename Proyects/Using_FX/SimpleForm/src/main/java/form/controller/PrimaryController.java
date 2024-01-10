@@ -29,6 +29,7 @@ public class PrimaryController implements Initializable{
     @FXML
     private void btnAction(ActionEvent evtent){
         Object evt = evtent.getSource();
+        person = new Person();
         
         if(evt.equals(btnCreate)){
             if( !txtName.getText().isEmpty() && !txtEmail.getText().isEmpty() && !txtPass.getText().isEmpty() ){
