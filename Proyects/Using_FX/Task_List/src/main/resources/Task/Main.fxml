@@ -39,7 +39,7 @@
             <DatePicker fx:id="dtpEnd" />
             <HBox prefHeight="19.0" prefWidth="263.0" spacing="20.0">
                <children>
-                  <RadioButton fx:id="radioYes" mnemonicParsing="false" text="Yep">
+                  <RadioButton fx:id="radioYes" mnemonicParsing="false" selected="true" text="Yep">
                      <toggleGroup>
                         <ToggleGroup fx:id="Important" />
                      </toggleGroup>
@@ -64,9 +64,10 @@
             <TableColumn fx:id="typeCol" prefWidth="125.0" text="Type" />
         </columns>
       </TableView>
-      <Button fx:id="btnUpdate" layoutX="32.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
+      <Button fx:id="btnUpdate" layoutX="107.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
       <Button fx:id="btnDelete" layoutX="677.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
-      <Button fx:id="btnDetail" layoutX="108.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="55.0" text="Detail" />
+      <Button fx:id="btnDetail" layoutX="194.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="55.0" text="Detail" />
+      <Button fx:id="editBtn" layoutX="34.0" layoutY="537.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Edit" />
    </children>
    <padding>
       <Insets bottom="25.0" />
