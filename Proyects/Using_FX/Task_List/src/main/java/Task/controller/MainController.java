@@ -60,15 +60,16 @@ public class MainController implements Initializable {
             clearFields();
 
         } else if (evt.equals(btnDelete)) {
-
+            deleteTask();
         } else if (evt.equals(btnDetail)) {
+            //to do later
 
         } else if (evt.equals(btnSave)) {
             saveTask();
 
         } else if (evt.equals(btnUpdate)) {
             updateTask();
-        }else if(evt.equals(btnEdit)){
+        } else if (evt.equals(btnEdit)) {
             enableEdit();
         }
 
@@ -79,6 +80,8 @@ public class MainController implements Initializable {
         Object obj = evt.getSource();
         if (obj.equals(tasksTable)) {
             btnSave.setDisable(true);
+            btnEdit.setDisable(false);
+            btnDelete.setDisable(false);            
 
             txtName.setDisable(true);
             dtpEnd.setDisable(true);
@@ -104,17 +107,27 @@ public class MainController implements Initializable {
         txtDescription.setText(task.getDescription());
         dtpEnd.setValue(task.getEndDate());
         dtpStart.setValue(task.getCreationDate());
-        cboType.setValue(task.getType());       
- 
+        cboType.setValue(task.getType());
+
+    }
+
+    private void deleteTask() {
+        service.delete(task);
+        clearFields();
+        getTask();
+        tasksTable.refresh();
     }
 
     private void enableEdit() {
+
         txtName.setDisable(false);
         dtpEnd.setDisable(false);
         dtpStart.setDisable(false);
         txtDescription.setDisable(false);
         radioNo.setDisable(false);
         radioYes.setDisable(false);
+        
+        btnUpdate.setDisable(false);
     }
 
     private void getTask() {
@@ -140,6 +153,16 @@ public class MainController implements Initializable {
         txtName.setText("");
         dtpEnd.setValue(LocalDate.now());
         dtpStart.setValue(LocalDate.now());
+
+        task = new Task();
+
+        btnEdit.setDisable(true);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+        btnDetail.setDisable(true);
+        btnSave.setDisable(false);
+
+        enableEdit();
     }
 
     private void saveTask() {
@@ -158,8 +181,8 @@ public class MainController implements Initializable {
         service.create(this.task);
         getTask();
     }
-    
-    private void updateTask(){
+
+    private void updateTask() {
         task.setEndDate(dtpEnd.getValue());
         task.setCreationDate(dtpStart.getValue());
         task.setName(txtName.getText());

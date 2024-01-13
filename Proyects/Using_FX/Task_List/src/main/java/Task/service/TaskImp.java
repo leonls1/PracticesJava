@@ -35,12 +35,13 @@ public class TaskImp implements TaskDao {
 
     @Override
     public void delete(Task task) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Task t = em.merge(task);
+        em.remove(t);
     }
 
     @Override
     public void setEntityManager(EntityManager em) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.em = em;
     }
 
     @Override
