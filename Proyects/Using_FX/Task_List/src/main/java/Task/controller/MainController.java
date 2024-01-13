@@ -1,6 +1,5 @@
 package Task.controller;
 
-
 import Task.model.Task;
 import Task.service.TaskDao;
 import Task.service.TaskImp;
@@ -18,15 +17,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.List;
 import javafx.collections.FXCollections;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class MainController implements Initializable {
 
-
     @FXML
-    private Button btnDelete, btnSave, btnUpdate, btnDetail, btnClear;
+    private Button btnDelete, btnSave, btnUpdate, btnDetail, btnClear, btnEdit;
 
     @FXML
     private TextField txtName;
@@ -48,9 +47,9 @@ public class MainController implements Initializable {
 
     @FXML
     private TableColumn idCol, nameCol, startCol, endCol, importantCol, typeCol;
-    
+
     private TaskDao service;
-    
+
     private Task task;
 
     @FXML
@@ -68,9 +67,29 @@ public class MainController implements Initializable {
             saveTask();
 
         } else if (evt.equals(btnUpdate)) {
-
+            updateTask();
+        }else if(evt.equals(btnEdit)){
+            enableEdit();
         }
 
+    }
+
+    @FXML
+    private void mouseEvent(MouseEvent evt) {
+        Object obj = evt.getSource();
+        if (obj.equals(tasksTable)) {
+            btnSave.setDisable(true);
+
+            txtName.setDisable(true);
+            dtpEnd.setDisable(true);
+            dtpStart.setDisable(true);
+            txtDescription.setDisable(true);
+            radioNo.setDisable(true);
+            radioYes.setDisable(true);
+
+            task = tasksTable.getSelectionModel().getSelectedItem();
+            setCurrentTask();
+        }
     }
 
     @Override
@@ -80,20 +99,40 @@ public class MainController implements Initializable {
         getTask();
     }
 
+    private void setCurrentTask() {
+        txtName.setText(task.getName());
+        txtDescription.setText(task.getDescription());
+        dtpEnd.setValue(task.getEndDate());
+        dtpStart.setValue(task.getCreationDate());
+        cboType.setValue(task.getType());       
+ 
+    }
+
+    private void enableEdit() {
+        txtName.setDisable(false);
+        dtpEnd.setDisable(false);
+        dtpStart.setDisable(false);
+        txtDescription.setDisable(false);
+        radioNo.setDisable(false);
+        radioYes.setDisable(false);
+    }
+
     private void getTask() {
-       /* List<Task> list = service.getAll();
+
+        List<Task> list = service.getAll();
         System.out.println(list.size());
         list.forEach(task -> System.out.println(task.toString()));
 
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-         importantCol.setCellValueFactory(new PropertyValueFactory<>("important")); // Uncomment if "important" is a property in Task
-        startCol.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        importantCol.setCellValueFactory(new PropertyValueFactory<>("important"));
+        startCol.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
         endCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
 
         tasksTable.setItems(FXCollections.observableArrayList(list));
-*/
+        tasksTable.refresh();
+
     }
 
     private void clearFields() {
@@ -102,20 +141,39 @@ public class MainController implements Initializable {
         dtpEnd.setValue(LocalDate.now());
         dtpStart.setValue(LocalDate.now());
     }
-    
-    private void saveTask(){
+
+    private void saveTask() {
         task.setEndDate(dtpEnd.getValue());
         task.setCreationDate(dtpStart.getValue());
         task.setName(txtName.getText());
         task.setType(0);
         task.setDescription(txtDescription.getText());
-        
-        if(radioYes.isSelected()){
+
+        if (radioYes.isSelected()) {
             task.setImportant(true);
-        }else task.setImportant(false);
-        
+        } else {
+            task.setImportant(false);
+        }
+
         service.create(this.task);
+        getTask();
     }
     
+    private void updateTask(){
+        task.setEndDate(dtpEnd.getValue());
+        task.setCreationDate(dtpStart.getValue());
+        task.setName(txtName.getText());
+        task.setType(0);
+        task.setDescription(txtDescription.getText());
+
+        if (radioYes.isSelected()) {
+            task.setImportant(true);
+        } else {
+            task.setImportant(false);
+        }
+
+        service.update(this.task);
+        getTask();
+    }
 
 }
