@@ -14,6 +14,7 @@ module Task {
     exports Task;
     exports Task.model;
     exports Task.controller;
+    exports Task.utilities;
 
     
 }

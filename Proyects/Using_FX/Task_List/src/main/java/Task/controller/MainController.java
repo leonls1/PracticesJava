@@ -3,6 +3,7 @@ package Task.controller;
 import Task.model.Task;
 import Task.service.TaskDao;
 import Task.service.TaskImp;
+import Task.utilities.Validations;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -65,10 +66,17 @@ public class MainController implements Initializable {
             //to do later
 
         } else if (evt.equals(btnSave)) {
+//            if (requiredFields()) {
+//                saveTask();
+//            }
             saveTask();
 
         } else if (evt.equals(btnUpdate)) {
+//            if (requiredFields()) {
+//                updateTask();
+//            }
             updateTask();
+
         } else if (evt.equals(btnEdit)) {
             enableEdit();
         }
@@ -81,7 +89,7 @@ public class MainController implements Initializable {
         if (obj.equals(tasksTable)) {
             btnSave.setDisable(true);
             btnEdit.setDisable(false);
-            btnDelete.setDisable(false);            
+            btnDelete.setDisable(false);
 
             txtName.setDisable(true);
             dtpEnd.setDisable(true);
@@ -97,6 +105,9 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        dtpEnd.setValue(LocalDate.now());
+        dtpStart.setValue(LocalDate.now());
+
         service = new TaskImp();
         task = new Task();
         getTask();
@@ -126,14 +137,13 @@ public class MainController implements Initializable {
         txtDescription.setDisable(false);
         radioNo.setDisable(false);
         radioYes.setDisable(false);
-        
+
         btnUpdate.setDisable(false);
     }
 
     private void getTask() {
 
         List<Task> list = service.getAll();
-        System.out.println(list.size());
         list.forEach(task -> System.out.println(task.toString()));
 
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -199,4 +209,12 @@ public class MainController implements Initializable {
         getTask();
     }
 
+//    private boolean requiredFields() {
+//        if (Validations.lenghtRequired(txtName.getText())) {
+//            System.out.println("field required");
+//            return false;
+//        } else {
+//            return true;
+//        }
+//    }
 }

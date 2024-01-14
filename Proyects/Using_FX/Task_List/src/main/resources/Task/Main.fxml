@@ -25,7 +25,7 @@
       </Label>
       <VBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="55.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
          <children>
-            <Label text="Name" />
+            <Label text="Name(*)" />
             <Label text="Starts" />
             <Label text="Ends" />
             <Label text="Important ?" />
@@ -58,10 +58,10 @@
         <columns>
             <TableColumn fx:id="idCol" prefWidth="30.0" text="ID" />
           <TableColumn fx:id="nameCol" prefWidth="235.0" text="Name" />
-          <TableColumn fx:id="startCol" prefWidth="100.0" text="Start Date" />
-            <TableColumn fx:id="endCol" prefWidth="109.0" text="End Date" />
-            <TableColumn fx:id="importantCol" prefWidth="105.0" text="Important" />
-            <TableColumn fx:id="typeCol" prefWidth="125.0" text="Type" />
+          <TableColumn fx:id="startCol" prefWidth="112.0" text="Start Date" />
+            <TableColumn fx:id="endCol" prefWidth="97.0" text="End Date" />
+            <TableColumn fx:id="importantCol" minWidth="0.0" prefWidth="139.0" text="Important" />
+            <TableColumn fx:id="typeCol" minWidth="0.0" prefWidth="120.0" text="Type" />
         </columns>
       </TableView>
       <Button fx:id="btnUpdate" layoutX="238.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
