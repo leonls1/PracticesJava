@@ -13,7 +13,6 @@ public class TaskImp implements TaskDao {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence-unit");
     EntityManager em = emf.createEntityManager();
 
-  
     @Override
     public void create(Task task) {
         em.getTransaction().begin();
@@ -47,23 +46,20 @@ public class TaskImp implements TaskDao {
     @Override
     public List<Task> getAll() {
         try {
-            // Comienza la transacción (si estás utilizando transacciones manuales)
+
             em.getTransaction().begin();
 
-            // Utiliza JPQL (Java Persistence Query Language) para obtener todos los objetos de la entidad
             String jpql = "SELECT e FROM Task e";
             Query query = em.createQuery(jpql, Task.class);
             List<Task> listaDeEntidades = query.getResultList();
 
-            // Termina la transacción (si estás utilizando transacciones manuales)
             em.getTransaction().commit();
 
             return listaDeEntidades;
         } catch (Exception e) {
             e.printStackTrace();
-            // Maneja las excepciones de manera apropiada según tus necesidades
+
         }
         return null;
     }
 }
-
