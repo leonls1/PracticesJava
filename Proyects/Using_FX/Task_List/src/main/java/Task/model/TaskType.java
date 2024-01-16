@@ -67,9 +67,8 @@ public class TaskType {
 
     @Override
     public String toString() {
-        return "TaskType{" + "description=" + description + '}';
-    }
-    
+        return  description ;
+    }   
     
 
     @Override
