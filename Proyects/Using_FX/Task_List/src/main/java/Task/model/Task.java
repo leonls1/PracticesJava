@@ -124,13 +124,10 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" + "id=" + id + ", name=" + name + ", description=" + description + ", creationDate=" + creationDate + ", endDate=" + endDate + ", important=" + important  + '}';
+        return "Task{" + "id=" + id + ", name=" + name + ", description=" + description + ", creationDate=" + creationDate + ", endDate=" + endDate + ", important=" + important + ", taskType=" + taskType + '}';
     }
 
-
-    
-    
-    
+ 
 
     @Override
     public boolean equals(Object obj) {

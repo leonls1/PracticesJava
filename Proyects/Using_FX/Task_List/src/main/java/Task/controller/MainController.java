@@ -21,11 +21,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.util.List;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import java.util.stream.Collectors;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.stage.Modality;
 
 public class MainController implements Initializable {
 
@@ -196,8 +202,16 @@ public class MainController implements Initializable {
 
     private void saveTask() {
         loadTask();
-        taskService.create(this.task);
-        getAllTask();
+        System.out.println(task);
+        
+        if (confirmation("Add confirmation")) {
+            taskService.create(this.task);
+            getAllTask();
+
+        } else {
+            System.out.println("canceled");
+        }
+
     }
 
     private void loadTask() {
@@ -234,4 +248,26 @@ public class MainController implements Initializable {
 
     }
 
+    private boolean confirmation(String message) {
+        //definicion de la ventana emergente
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle(message);
+        dialog.setHeaderText("Do you want to save the task?");
+        dialog.initModality(Modality.WINDOW_MODAL);
+
+        //definicion de la etiqueta que tengra la ventana
+        Label label = new Label("Name:" + txtName.getText());
+        dialog.getDialogPane().setContent(label);
+
+        //definicion de los botones ok y cancel
+        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancelButton = new ButtonType("CANCEL", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        //agregado de los botones al dialog
+        dialog.getDialogPane().getButtonTypes().addAll(okButton, cancelButton);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+
+        return (result.isPresent() && result.get() == okButton);
+    }
 }

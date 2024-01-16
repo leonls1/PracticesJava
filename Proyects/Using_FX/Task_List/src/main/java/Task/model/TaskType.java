@@ -66,6 +66,13 @@ public class TaskType {
     }
 
     @Override
+    public String toString() {
+        return "TaskType{" + "description=" + description + '}';
+    }
+    
+    
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -79,12 +86,7 @@ public class TaskType {
         final TaskType other = (TaskType) obj;
         return Objects.equals(this.id, other.id);
     }
-
-    @Override
-    public String toString() {
-        return description;
-    }
-    
+   
     
     
     
