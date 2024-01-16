@@ -256,7 +256,7 @@ public class MainController implements Initializable {
         dialog.initModality(Modality.WINDOW_MODAL);
 
         //definicion de la etiqueta que tengra la ventana
-        Label label = new Label("Name:" + txtName.getText());
+        Label label = new Label("Name :" + txtName.getText());
         dialog.getDialogPane().setContent(label);
 
         //definicion de los botones ok y cancel
