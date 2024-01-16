@@ -22,10 +22,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.util.List;
 import javafx.collections.FXCollections;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import java.util.stream.Collectors;
 
 public class MainController implements Initializable {
+
+    @FXML
+    private CheckBox chkonlyImportant;
 
     @FXML
     private Button btnDelete, btnSave, btnUpdate, btnDetail, btnClear, btnEdit;
@@ -49,13 +54,15 @@ public class MainController implements Initializable {
     private TableView<Task> tasksTable;
 
     @FXML
-    private TableColumn idCol, nameCol, startCol, endCol, importantCol, typeCol;
+    private TableColumn idCol, nameCol, startCol, endCol, typeCol, importantCol;
 
     private TaskDao taskService;
 
     private TaskTypeDao taskTypeService;
 
     private Task task;
+
+    private List<Task> list;
 
     @FXML
     private void btnEvent(ActionEvent event) {
@@ -79,6 +86,13 @@ public class MainController implements Initializable {
 
         } else if (evt.equals(btnEdit)) {
             enableEdit();
+        } else if (evt.equals(chkonlyImportant)) {
+            if (chkonlyImportant.isSelected()) {
+                getImportantOnly();
+
+            } else {
+                getAllTask();
+            }
         }
 
     }
@@ -111,7 +125,7 @@ public class MainController implements Initializable {
         taskService = new TaskImp();
         taskTypeService = new TaskTypeImp();
         task = new Task();
-        getTask();
+        getAllTask();
         getTypes();
     }
 
@@ -127,7 +141,7 @@ public class MainController implements Initializable {
     private void deleteTask() {
         taskService.delete(task);
         clearFields();
-        getTask();
+        getAllTask();
         tasksTable.refresh();
     }
 
@@ -144,19 +158,17 @@ public class MainController implements Initializable {
         btnUpdate.setDisable(false);
     }
 
-    private void getTask() {
+    private void getAllTask() {
 
-        List<Task> list = taskService.getAll();
+        list = taskService.getAll();
+        loadTable();
 
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        importantCol.setCellValueFactory(new PropertyValueFactory<>("important"));
-        startCol.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
-        endCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
-        typeCol.setCellValueFactory(new PropertyValueFactory<>("taskType"));
+    }
 
-        tasksTable.setItems(FXCollections.observableArrayList(list));
-        tasksTable.refresh();
+    private void getImportantOnly() {
+        this.list = list.stream().filter(
+                t -> t.isImportant()).collect(Collectors.toList());
+        loadTable();
     }
 
     private void getTypes() {
@@ -185,7 +197,7 @@ public class MainController implements Initializable {
     private void saveTask() {
         loadTask();
         taskService.create(this.task);
-        getTask();
+        getAllTask();
     }
 
     private void loadTask() {
@@ -203,10 +215,22 @@ public class MainController implements Initializable {
 
     }
 
+    private void loadTable() {
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        startCol.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
+        endCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("taskType"));
+        importantCol.setCellValueFactory(new PropertyValueFactory<>("important"));
+
+        tasksTable.setItems(FXCollections.observableArrayList(list));
+        tasksTable.refresh();
+    }
+
     private void updateTask() {
         loadTask();
         taskService.update(this.task);
-        getTask();
+        getAllTask();
 
     }
 

@@ -32,22 +32,12 @@ public class Task {
 
     private boolean important;
 
-    private int type;
     
     @ManyToOne
     @JoinColumn(name = "type_id")
     private TaskType taskType;
     
     public Task() {
-    }
-
-    public Task(String name, String description, LocalDate creationDate, LocalDate endDate, boolean important, int type) {
-        this.name = name;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.endDate = endDate;
-        this.important = important;
-        this.type = type;
     }
 
     public Task(Long id, String name, String description, LocalDate creationDate, LocalDate endDate, boolean important) {
@@ -77,9 +67,6 @@ public class Task {
         this.taskType = taskType;
     }
     
-
-   
-
     public Long getId() {
         return id;
     }
@@ -120,14 +107,6 @@ public class Task {
         this.important = important;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -145,7 +124,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" + "id=" + id + ", name=" + name + ", description=" + description + ", creationDate=" + creationDate + ", endDate=" + endDate + ", important=" + important + ", type=" + type + '}';
+        return "Task{" + "id=" + id + ", name=" + name + ", description=" + description + ", creationDate=" + creationDate + ", endDate=" + endDate + ", important=" + important  + '}';
     }
 
 
