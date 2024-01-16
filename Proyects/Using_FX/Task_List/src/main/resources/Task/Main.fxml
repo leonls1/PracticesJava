@@ -29,7 +29,7 @@
             <Label text="Starts" />
             <Label text="Ends" />
             <Label text="Important ?" />
-            <Label text="Type" />
+            <Label text="Type(*)" />
          </children>
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="134.0" layoutY="59.0" prefHeight="200.0" prefWidth="248.0" spacing="8.0">
@@ -47,7 +47,7 @@
                   <RadioButton fx:id="radioNo" mnemonicParsing="false" text="Nope" toggleGroup="$Important" />
                </children>
             </HBox>
-            <ComboBox fx:id="cboType" prefWidth="150.0" />
+            <ComboBox fx:id="cboType" prefWidth="150.0" promptText="Select the type" />
          </children>
       </VBox>
       <Label layoutX="445.0" layoutY="84.0" text="Description" />

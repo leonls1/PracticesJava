@@ -52,7 +52,7 @@ public class MainController implements Initializable {
     private TableColumn idCol, nameCol, startCol, endCol, importantCol, typeCol;
 
     private TaskDao taskService;
-    
+
     private TaskTypeDao taskTypeService;
 
     private Task task;
@@ -120,7 +120,7 @@ public class MainController implements Initializable {
         txtDescription.setText(task.getDescription());
         dtpEnd.setValue(task.getEndDate());
         dtpStart.setValue(task.getCreationDate());
-        //cboType.setValue(task.getType());
+        cboType.setValue(task.getTaskType());
 
     }
 
@@ -139,6 +139,7 @@ public class MainController implements Initializable {
         txtDescription.setDisable(false);
         radioNo.setDisable(false);
         radioYes.setDisable(false);
+        cboType.setDisable(false);
 
         btnUpdate.setDisable(false);
     }
@@ -152,18 +153,18 @@ public class MainController implements Initializable {
         importantCol.setCellValueFactory(new PropertyValueFactory<>("important"));
         startCol.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
         endCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
-        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("taskType"));
 
         tasksTable.setItems(FXCollections.observableArrayList(list));
         tasksTable.refresh();
     }
 
-    private void getTypes(){
+    private void getTypes() {
         List<TaskType> list = taskTypeService.getAll();
         cboType.setItems(FXCollections.observableArrayList(list));
-       
+
     }
-    
+
     private void clearFields() {
         txtDescription.setText("");
         txtName.setText("");
@@ -182,27 +183,16 @@ public class MainController implements Initializable {
     }
 
     private void saveTask() {
-        task.setEndDate(dtpEnd.getValue());
-        task.setCreationDate(dtpStart.getValue());
-        task.setName(txtName.getText());
-        task.setType(0);
-        task.setDescription(txtDescription.getText());
-
-        if (radioYes.isSelected()) {
-            task.setImportant(true);
-        } else {
-            task.setImportant(false);
-        }
-
+        loadTask();
         taskService.create(this.task);
         getTask();
     }
 
-    private void updateTask() {
+    private void loadTask() {
         task.setEndDate(dtpEnd.getValue());
         task.setCreationDate(dtpStart.getValue());
         task.setName(txtName.getText());
-        task.setType(0);
+        task.setTaskType(cboType.getSelectionModel().getSelectedItem());
         task.setDescription(txtDescription.getText());
 
         if (radioYes.isSelected()) {
@@ -211,17 +201,13 @@ public class MainController implements Initializable {
             task.setImportant(false);
         }
 
-        taskService.update(this.task);
-        getTask();
-        
     }
 
-//    private boolean requiredFields() {
-//        if (Validations.lenghtRequired(txtName.getText())) {
-//            System.out.println("field required");
-//            return false;
-//        } else {
-//            return true;
-//        }
-//    }
+    private void updateTask() {
+        loadTask();
+        taskService.update(this.task);
+        getTask();
+
+    }
+
 }

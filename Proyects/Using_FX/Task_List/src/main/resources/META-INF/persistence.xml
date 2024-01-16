@@ -16,7 +16,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
       <!-- Next properties don't use on production environment-->
       <!--this
       property just to see what occurs behind the scenes-->
-      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.show_sql" value="false" />
       <!--this
       property to build database from oo model - create will drop table if it's already created -->
       <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create, none, update-->

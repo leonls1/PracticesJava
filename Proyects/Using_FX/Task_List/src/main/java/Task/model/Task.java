@@ -59,6 +59,25 @@ public class Task {
         this.important = important;
     }
 
+    public Task(Long id, String name, String description, LocalDate creationDate, LocalDate endDate, boolean important, TaskType taskType) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.endDate = endDate;
+        this.important = important;
+        this.taskType = taskType;
+    }
+
+    public TaskType getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(TaskType taskType) {
+        this.taskType = taskType;
+    }
+    
+
    
 
     public Long getId() {
