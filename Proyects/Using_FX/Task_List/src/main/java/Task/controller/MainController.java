@@ -1,9 +1,11 @@
 package Task.controller;
 
 import Task.model.Task;
+import Task.model.TaskType;
 import Task.service.TaskDao;
 import Task.service.TaskImp;
-import Task.utilities.Validations;
+import Task.service.TaskTypeDao;
+import Task.service.TaskTypeImp;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -38,7 +40,7 @@ public class MainController implements Initializable {
     private RadioButton radioYes, radioNo;
 
     @FXML
-    private ComboBox cboType;
+    private ComboBox<TaskType> cboType;
 
     @FXML
     private TextArea txtDescription;
@@ -49,7 +51,9 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn idCol, nameCol, startCol, endCol, importantCol, typeCol;
 
-    private TaskDao service;
+    private TaskDao taskService;
+    
+    private TaskTypeDao taskTypeService;
 
     private Task task;
 
@@ -66,15 +70,11 @@ public class MainController implements Initializable {
             //to do later
 
         } else if (evt.equals(btnSave)) {
-//            if (requiredFields()) {
-//                saveTask();
-//            }
+
             saveTask();
 
         } else if (evt.equals(btnUpdate)) {
-//            if (requiredFields()) {
-//                updateTask();
-//            }
+
             updateTask();
 
         } else if (evt.equals(btnEdit)) {
@@ -108,9 +108,11 @@ public class MainController implements Initializable {
         dtpEnd.setValue(LocalDate.now());
         dtpStart.setValue(LocalDate.now());
 
-        service = new TaskImp();
+        taskService = new TaskImp();
+        taskTypeService = new TaskTypeImp();
         task = new Task();
         getTask();
+        getTypes();
     }
 
     private void setCurrentTask() {
@@ -118,12 +120,12 @@ public class MainController implements Initializable {
         txtDescription.setText(task.getDescription());
         dtpEnd.setValue(task.getEndDate());
         dtpStart.setValue(task.getCreationDate());
-        cboType.setValue(task.getType());
+        //cboType.setValue(task.getType());
 
     }
 
     private void deleteTask() {
-        service.delete(task);
+        taskService.delete(task);
         clearFields();
         getTask();
         tasksTable.refresh();
@@ -143,8 +145,7 @@ public class MainController implements Initializable {
 
     private void getTask() {
 
-        List<Task> list = service.getAll();
-        list.forEach(task -> System.out.println(task.toString()));
+        List<Task> list = taskService.getAll();
 
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -155,9 +156,14 @@ public class MainController implements Initializable {
 
         tasksTable.setItems(FXCollections.observableArrayList(list));
         tasksTable.refresh();
-
     }
 
+    private void getTypes(){
+        List<TaskType> list = taskTypeService.getAll();
+        cboType.setItems(FXCollections.observableArrayList(list));
+       
+    }
+    
     private void clearFields() {
         txtDescription.setText("");
         txtName.setText("");
@@ -188,7 +194,7 @@ public class MainController implements Initializable {
             task.setImportant(false);
         }
 
-        service.create(this.task);
+        taskService.create(this.task);
         getTask();
     }
 
@@ -205,8 +211,9 @@ public class MainController implements Initializable {
             task.setImportant(false);
         }
 
-        service.update(this.task);
+        taskService.update(this.task);
         getTask();
+        
     }
 
 //    private boolean requiredFields() {

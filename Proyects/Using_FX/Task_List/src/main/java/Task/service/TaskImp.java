@@ -5,7 +5,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public class TaskImp implements TaskDao {

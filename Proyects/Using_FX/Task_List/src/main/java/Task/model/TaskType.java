@@ -82,7 +82,7 @@ public class TaskType {
 
     @Override
     public String toString() {
-        return "TaskType{" + "id=" + id + ", description=" + description + ", task=" + task + '}';
+        return description;
     }
     
     
