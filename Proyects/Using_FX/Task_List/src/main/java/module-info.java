@@ -5,6 +5,7 @@ module Task {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires java.xml;
+    
 
     opens Task to javafx.fxml;
     opens Task.controller to javafx.fxml;
