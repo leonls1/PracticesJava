@@ -2,6 +2,7 @@ package Task.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,8 +34,8 @@ public class Task {
     private boolean important;
 
     
-    @ManyToOne
-    @JoinColumn(name = "type_id")
+     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type")
     private TaskType taskType;
     
     public Task() {

@@ -12,29 +12,24 @@ public class HibernatePractices1 {
     public static void main(String[] args) {
        
        //algunos ejemplos generados para poder cargar  
-       Task task1 = new Task("tarea1", "comprar pan", LocalDate.now(), LocalDate.now().plusDays(7), true);
-       Task task2 = new Task("tarea2", "comprar azucar", LocalDate.now(), LocalDate.now().plusDays(7), false);
+       Task task1 = new Task("tarea 6", "comprar pan", LocalDate.now(), LocalDate.now().plusDays(7), true);
+       Task task2 = new Task("tarea 44", "comprar azucar", LocalDate.now(), LocalDate.now().plusDays(7), false);
        
-       TaskType type1 = new TaskType("de la casa");
        
-
        
-       type1.setTasks(Arrays.asList(task1, task2));
        
-       //creando el repository
+       //type1.setTasks(Arrays.asList(task1, task2));      
+      
        TaskService_jpa service = new TaskService_jpa();
-        
+       
+       TaskType type1 = service.getTaskTypeById(1L);
        //service.createTaskType(type1);
-        TaskType typeGetted = service.getTaskTypeById(1l);
-        
-        System.out.println(typeGetted.getTasks().size());
-        
-        Task task1Getted = service.getTaskById(1L);
-        Task task1Getted2 = service.getTaskById(2L);
-        
-        System.out.println(task1Getted.toString() + "\n" +
-                task1Getted2.toString());
-        
+       task1.setType(type1);
+       task2.setType(type1);
+       service.createTask(task2);
+       service.createTask(task1);
+       
+      
         
                 
                  

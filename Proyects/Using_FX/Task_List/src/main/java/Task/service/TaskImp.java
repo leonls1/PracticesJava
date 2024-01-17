@@ -1,6 +1,7 @@
 package Task.service;
 
 import Task.model.Task;
+import Task.model.TaskType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -14,9 +15,13 @@ public class TaskImp implements TaskDao {
 
     @Override
     public void create(Task task) {
+
+
+        
         em.getTransaction().begin();
         em.persist(task);
         em.getTransaction().commit();
+     
     }
 
     @Override
@@ -24,6 +29,7 @@ public class TaskImp implements TaskDao {
         em.getTransaction().begin();
         em.merge(task);
         em.getTransaction().commit();
+        
     }
 
     @Override
@@ -35,6 +41,7 @@ public class TaskImp implements TaskDao {
     public void delete(Task task) {
         Task t = em.merge(task);
         em.remove(t);
+        
     }
 
     @Override
@@ -53,6 +60,7 @@ public class TaskImp implements TaskDao {
             List<Task> listaDeEntidades = query.getResultList();
 
             em.getTransaction().commit();
+           
 
             return listaDeEntidades;
         } catch (Exception e) {

@@ -24,8 +24,8 @@ public class TaskType {
     @Column(name = "description", nullable = false)
     private String description;
     
-    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id")
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "type")
+    
     private List<Task> tasks;
 
     public TaskType() {

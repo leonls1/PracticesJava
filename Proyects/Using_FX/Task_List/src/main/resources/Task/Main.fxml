@@ -47,7 +47,7 @@
                   <RadioButton fx:id="radioNo" mnemonicParsing="false" text="Nope" toggleGroup="$Important" />
                </children>
             </HBox>
-            <ComboBox fx:id="cboType" disable="true" prefWidth="150.0" />
+            <ComboBox fx:id="cboType" prefWidth="150.0" />
          </children>
       </VBox>
       <Label layoutX="445.0" layoutY="84.0" text="Description" />
@@ -64,10 +64,10 @@
             <TableColumn fx:id="typeCol" minWidth="0.0" prefWidth="120.0" text="Type" />
         </columns>
       </TableView>
-      <Button fx:id="btnUpdate" layoutX="238.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
-      <Button fx:id="btnDelete" layoutX="707.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
+      <Button fx:id="btnUpdate" disable="true" layoutX="238.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
+      <Button fx:id="btnDelete" disable="true" layoutX="707.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="60.0" text="Delete" />
       <Button fx:id="btnDetail" layoutX="134.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="55.0" text="Detail" visible="false" />
-      <Button fx:id="btnEdit" layoutX="34.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="55.0" text="Edit" />
+      <Button fx:id="btnEdit" disable="true" layoutX="34.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnEvent" prefHeight="25.0" prefWidth="55.0" text="Edit" />
    </children>
    <padding>
       <Insets bottom="25.0" />

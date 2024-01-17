@@ -79,23 +79,23 @@ public class MainController implements Initializable {
 
         } else if (evt.equals(btnDelete)) {
             deleteTask();
+
         } else if (evt.equals(btnDetail)) {
             //to do later
 
         } else if (evt.equals(btnSave)) {
-
             saveTask();
 
         } else if (evt.equals(btnUpdate)) {
-
             updateTask();
 
         } else if (evt.equals(btnEdit)) {
+            btnUpdate.setDisable(false);
             enableEdit();
+
         } else if (evt.equals(chkonlyImportant)) {
             if (chkonlyImportant.isSelected()) {
                 getImportantOnly();
-
             } else {
                 getAllTask();
             }
@@ -110,6 +110,7 @@ public class MainController implements Initializable {
             btnSave.setDisable(true);
             btnEdit.setDisable(false);
             btnDelete.setDisable(false);
+            cboType.setDisable(true);
 
             txtName.setDisable(true);
             dtpEnd.setDisable(true);
@@ -121,6 +122,12 @@ public class MainController implements Initializable {
             task = tasksTable.getSelectionModel().getSelectedItem();
             setCurrentTask();
         }
+    }
+
+    @FXML
+    private void cboEvent(ActionEvent event) {
+        Object evt = event.getSource();
+
     }
 
     @Override
@@ -145,10 +152,15 @@ public class MainController implements Initializable {
     }
 
     private void deleteTask() {
-        taskService.delete(task);
-        clearFields();
-        getAllTask();
-        tasksTable.refresh();
+
+        if (confirmation("Delete confirmation")) {
+            taskService.delete(task);
+            clearFields();
+            getAllTask();
+
+        } else {
+            System.out.println("canceled");
+        }
     }
 
     private void enableEdit() {
@@ -161,7 +173,6 @@ public class MainController implements Initializable {
         radioYes.setDisable(false);
         cboType.setDisable(false);
 
-        btnUpdate.setDisable(false);
     }
 
     private void getAllTask() {
@@ -178,8 +189,8 @@ public class MainController implements Initializable {
     }
 
     private void getTypes() {
-        List<TaskType> list = taskTypeService.getAll();
-        cboType.setItems(FXCollections.observableArrayList(list));
+        List<TaskType> listTypes = taskTypeService.getAll();
+        cboType.setItems(FXCollections.observableArrayList(listTypes));
 
     }
 
@@ -191,7 +202,7 @@ public class MainController implements Initializable {
 
         task = new Task();
 
-        btnEdit.setDisable(true);
+        btnEdit.setDisable(false);
         btnUpdate.setDisable(true);
         btnDelete.setDisable(true);
         btnDetail.setDisable(true);
@@ -202,11 +213,12 @@ public class MainController implements Initializable {
 
     private void saveTask() {
         loadTask();
-        System.out.println(task);
-        
+        System.out.println(cboType.getSelectionModel().getSelectedIndex());
+
         if (confirmation("Add confirmation")) {
-            taskService.create(this.task);
+            taskService.create(task);
             getAllTask();
+            clearFields();
 
         } else {
             System.out.println("canceled");
@@ -242,10 +254,13 @@ public class MainController implements Initializable {
     }
 
     private void updateTask() {
-        loadTask();
-        taskService.update(this.task);
-        getAllTask();
-
+        if (confirmation("Update confirmation")) {
+            loadTask();
+            taskService.update(this.task);
+            getAllTask();
+        } else {
+            System.out.println("Update canceled");
+        }
     }
 
     private boolean confirmation(String message) {

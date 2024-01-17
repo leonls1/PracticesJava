@@ -34,11 +34,11 @@ public class Task {
 
     private boolean important;
     
-    /*
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type")
     private TaskType type;
-*/
+
     public Task() {
     }
 
