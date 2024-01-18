@@ -24,7 +24,7 @@ public class TaskType {
     @Column(nullable = false)
     private String description;
     
-    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "taskType")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "taskType")
     private List<Task> task;
 
     public Long getId() {

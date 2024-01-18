@@ -1,4 +1,4 @@
-package javafx.incidentmanager.model;
+package javafx.incidentmanager.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
+import javafx.incidentmanager.model.satellite.EmployeeType;
 
 import lombok.Data;
 
@@ -33,7 +34,7 @@ public class Employee {
 
     private String email;
 
-    //enum for empoyeetype   
+    private EmployeeType employeeType;  
     
 
 }
