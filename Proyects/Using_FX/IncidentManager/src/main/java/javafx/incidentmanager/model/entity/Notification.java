@@ -20,12 +20,12 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToOne()
+    @ManyToOne
     private Incident incident;
     
     private String description;
     
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private ContactType contactType;
     
     private String contact;

@@ -8,9 +8,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import javafx.incidentmanager.model.satellite.ProblemType;
 import lombok.Data;
+import java.util.Set;
 
 @Entity
 @Table
@@ -21,13 +23,13 @@ public class Problem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToMany
+    @ManyToOne
     private Incident incident;
     
-    @ManyToMany
-    private Specialty specialty;
+    @ManyToMany(mappedBy = "problems")
+    private Set<Specialty> specialties;
     
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private ProblemType type;
     
     private String description;

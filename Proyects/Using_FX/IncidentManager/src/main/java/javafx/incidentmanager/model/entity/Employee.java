@@ -8,11 +8,12 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import javafx.incidentmanager.model.satellite.EmployeeType;
-import java.util.List;
+import java.util.Set;
 import lombok.Data;
 
 @Entity
@@ -39,10 +40,10 @@ public class Employee {
 
     private String email;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    private List<Specialty> specialties;
+    @ManyToMany
+    private Set<Specialty> specialties;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private EmployeeType employeeType;
 
 }

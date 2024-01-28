@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,12 +20,12 @@ public class Specialty {
     private Long Id;
     
     @Column(name = "name", nullable = false)
-    private String name;
+    private String name;    
+    
+    @ManyToMany(mappedBy = "specialties")
+    private Set<Employee> employees;
     
     @ManyToMany
-    private List<Employee> technicians;
-    
-    //@ManyToMany(mappedBy = "specialties")
-    //private List<ProblemType> problemsType;
+    private Set<Problem> problems;
 
 }

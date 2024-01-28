@@ -43,9 +43,11 @@ public class Incident {
     @OneToMany(mappedBy = "incident", cascade = CascadeType.ALL)
     private List<Notification> notifications;
     
+    @OneToMany(mappedBy = "incident", cascade = CascadeType.ALL)
+    private List<Problem> problems;
+    
     //private State state;
     
-    private Problem problem;
     
     
 }

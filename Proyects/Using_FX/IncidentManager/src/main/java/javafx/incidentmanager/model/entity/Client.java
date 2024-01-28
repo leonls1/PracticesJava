@@ -30,7 +30,7 @@ public class Client {
     
     private String email;
     
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private CorporateName corporateName;
     
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
