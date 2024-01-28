@@ -15,8 +15,6 @@ public class TaskImp implements TaskDao {
 
     @Override
     public void create(Task task) {
-
-
         
         em.getTransaction().begin();
         em.persist(task);
