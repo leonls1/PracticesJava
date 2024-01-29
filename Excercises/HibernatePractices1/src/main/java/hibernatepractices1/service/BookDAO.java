@@ -1,6 +1,6 @@
 package hibernatepractices1.service;
 
-import hibernatepractices1.model.entity.oneToMany.Book;
+import hibernatepractices1.model.entity.Book;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;

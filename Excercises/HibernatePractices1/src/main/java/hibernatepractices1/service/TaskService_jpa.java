@@ -1,7 +1,7 @@
 package hibernatepractices1.service;
 
-import hibernatepractices1.model.entity.oneToMany.Task;
-import hibernatepractices1.model.entity.oneToMany.TaskType;
+import hibernatepractices1.model.entity.Task;
+import hibernatepractices1.model.entity.TaskType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

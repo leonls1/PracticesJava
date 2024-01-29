@@ -11,11 +11,15 @@ public class StudentDAO {
     EntityManager em = emf.createEntityManager();
 
     public void create(Student student) {
+        em.getTransaction().begin();
         em.persist(student);
+        em.getTransaction().commit();
     }
 
     public Student read(Long id) {
+
         return em.find(Student.class, id);
+
     }
 
     public void delete(Student student) {
@@ -31,4 +35,12 @@ public class StudentDAO {
     public void setEntityManager(EntityManager em) {
         this.em = em;
     }
+    
+    public void createStudent(Student stu){
+            em.getTransaction().begin();
+            stu.getCourses().stream().forEach(c -> em.persist(em));
+            em.persist(stu);
+            em.getTransaction().commit();
+    }
+        
 }

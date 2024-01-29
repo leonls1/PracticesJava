@@ -1,4 +1,4 @@
-package hibernatepractices1.model.entity.oneToMany;
+package hibernatepractices1.model.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -17,6 +17,8 @@ import lombok.Setter;
 @Table(name = "author")
 @Getter@Setter
 public class Author {
+    
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +27,7 @@ public class Author {
     @Column(name = "name", nullable = false)
     public String name;    
     
-    @OneToMany(mappedBy = "author" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author" , cascade = CascadeType.ALL)
     public List<Book> books;
     
      public Author() {

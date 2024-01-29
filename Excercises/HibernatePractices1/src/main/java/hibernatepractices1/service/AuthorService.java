@@ -1,7 +1,7 @@
 package hibernatepractices1.service;
 
-import hibernatepractices1.model.entity.oneToMany.Author;
-import hibernatepractices1.model.entity.oneToMany.Book;
+import hibernatepractices1.model.entity.Author;
+import hibernatepractices1.model.entity.Book;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

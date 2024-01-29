@@ -1,4 +1,4 @@
-package hibernatepractices1.model.entity.oneToMany;
+package hibernatepractices1.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +30,7 @@ public class Book {
         this.name = name;
     }
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "author_id")
     private Author author;
 

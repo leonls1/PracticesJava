@@ -1,6 +1,6 @@
 package hibernatepractices1.service;
 
-import hibernatepractices1.model.entity.oneToMany.Author;
+import hibernatepractices1.model.entity.Author;
 import jakarta.persistence.EntityManager;
 
 public class AuthorDAO {
