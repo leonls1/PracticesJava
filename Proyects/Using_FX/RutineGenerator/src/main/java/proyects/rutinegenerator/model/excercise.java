@@ -5,11 +5,19 @@ import java.util.List;
 public class Excercise {
    private String name;
    
+   private String ubicacion;
+   
+   private List<String> muscles;
+   
+   
    //private excerciseType type;
    
-   private List<Muscle> mainMuscles;
+   //@ManyToMany
+   //private List<Muscle> muscles;
    
-   private List<Muscle> sucundaryMuscles;
+   //private List<Muscle> sucundaryMuscles;
+   
+   
    
    
 }

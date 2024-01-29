@@ -2,6 +2,9 @@ module proyects.rutinegenerator {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.base;
+    requires jakarta.persistence;
+    requires java.xml;    
+
 
     opens proyects.rutinegenerator to javafx.fxml;
     opens proyects.rutinegenerator.controller;
