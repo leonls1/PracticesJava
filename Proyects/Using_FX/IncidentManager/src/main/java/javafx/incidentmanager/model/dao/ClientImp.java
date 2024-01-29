@@ -3,6 +3,7 @@ package javafx.incidentmanager.model.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import java.util.List;
 import javafx.incidentmanager.model.entity.Client;
 
@@ -19,13 +20,12 @@ public class ClientImp implements ClientDao{
 
     @Override
     public void create(Client client) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.persist(client);
     }
 
     @Override
     public void update(Client client) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        em.merge(client);}
 
     @Override
     public void findById(Long id) {
@@ -34,12 +34,17 @@ public class ClientImp implements ClientDao{
 
     @Override
     public void delete(Client client) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        Client c = em.merge(client);
+        em.remove(c);}
 
     @Override
     public List<Client> GetAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String jpql = "SELECT c from Client c";
+        Query query = em.createQuery(jpql, Client.class);
+        
+        List<Client> list = query.getResultList();
+        
+        return list;
     }
 
     

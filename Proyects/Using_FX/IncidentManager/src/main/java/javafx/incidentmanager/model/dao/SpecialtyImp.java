@@ -6,12 +6,11 @@ import jakarta.persistence.Persistence;
 import java.util.List;
 import javafx.incidentmanager.model.entity.Specialty;
 
-
-public class SpecialtyImp implements SpecialtyDao{
+public class SpecialtyImp implements SpecialtyDao {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManager-unit");
     EntityManager em = emf.createEntityManager();
-    
+
     @Override
     public void setEntityManager(EntityManager em) {
         this.em = em;
@@ -19,12 +18,12 @@ public class SpecialtyImp implements SpecialtyDao{
 
     @Override
     public void create(Specialty specialty) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.persist(specialty);
     }
 
     @Override
     public void update(Specialty specialty) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.merge(specialty);
     }
 
     @Override
@@ -34,11 +33,12 @@ public class SpecialtyImp implements SpecialtyDao{
 
     @Override
     public void delete(Specialty specialty) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Specialty s = em.merge(specialty);
+        em.remove(s);
     }
 
     @Override
     public List<Specialty> GetAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return em.createQuery("SELECT s FROM Specialty s", Specialty.class).getResultList();
     }
 }

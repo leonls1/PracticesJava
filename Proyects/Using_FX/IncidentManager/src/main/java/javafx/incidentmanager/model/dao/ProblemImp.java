@@ -3,15 +3,15 @@ package javafx.incidentmanager.model.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import java.util.List;
 import javafx.incidentmanager.model.entity.Problem;
 
-
-public class ProblemImp implements ProblemDao{
+public class ProblemImp implements ProblemDao {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManager-unit");
     EntityManager em = emf.createEntityManager();
-    
+
     @Override
     public void setEntityManager(EntityManager em) {
         this.em = em;
@@ -19,12 +19,12 @@ public class ProblemImp implements ProblemDao{
 
     @Override
     public void create(Problem problem) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.persist(problem);
     }
 
     @Override
     public void update(Problem problem) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.merge(problem);
     }
 
     @Override
@@ -34,11 +34,14 @@ public class ProblemImp implements ProblemDao{
 
     @Override
     public void delete(Problem problem) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Problem p = em.merge(problem);
+        em.remove(p);
     }
 
     @Override
     public List<Problem> GetAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String jpql = "SELECT p FROM Problem p";
+        Query query = em.createQuery(jpql, Problem.class);
+        return query.getResultList();
     }
 }

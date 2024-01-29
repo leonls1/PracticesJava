@@ -3,6 +3,7 @@ package javafx.incidentmanager.model.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import java.util.List;
 import javafx.incidentmanager.model.entity.Employee;
 
@@ -18,12 +19,12 @@ public class EmployeeImp implements EmployeeDao {
 
     @Override
     public void create(Employee empl) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.persist(empl);
     }
 
     @Override
     public void update(Employee empl) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.merge(empl);
     }
 
     @Override
@@ -33,11 +34,14 @@ public class EmployeeImp implements EmployeeDao {
 
     @Override
     public void delete(Employee empl) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Employee e = em.merge(empl);
+        em.remove(e);
     }
 
     @Override
     public List<Employee> GetAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String jpql = "SELECT e FROM Employee e";
+        Query query = em.createQuery(jpql, Employee.class);
+        return query.getResultList();
     }
 }

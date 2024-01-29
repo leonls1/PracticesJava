@@ -3,15 +3,15 @@ package javafx.incidentmanager.model.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import java.util.List;
 import javafx.incidentmanager.model.entity.Notification;
 
-
-
 public class NotificationImp implements NotificationDao {
-EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManager-unit");
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManager-unit");
     EntityManager em = emf.createEntityManager();
-    
+
     @Override
     public void setEntityManager(EntityManager em) {
         this.em = em;
@@ -19,12 +19,12 @@ EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManag
 
     @Override
     public void create(Notification notification) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.persist(notification);
     }
 
     @Override
     public void update(Notification notification) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        em.merge(notification);
     }
 
     @Override
@@ -34,11 +34,14 @@ EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManag
 
     @Override
     public void delete(Notification notification) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Notification n = em.merge(notification);
+        em.remove(n);
     }
 
     @Override
     public List<Notification> GetAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String jpql = "SELECT n FROM Notification n";
+        Query query = em.createQuery(jpql, Notification.class);
+        return query.getResultList();
     }
 }

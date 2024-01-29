@@ -53,7 +53,7 @@ public class TaskImp implements TaskDao {
 
             em.getTransaction().begin();
 
-            String jpql = "SELECT e FROM Task e";
+            String jpql = "SELECT t FROM Task t";
             Query query = em.createQuery(jpql, Task.class);
             List<Task> listaDeEntidades = query.getResultList();
 
