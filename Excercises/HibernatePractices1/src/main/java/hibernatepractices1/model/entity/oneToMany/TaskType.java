@@ -1,4 +1,4 @@
-package hibernatepractices1.model.entity;
+package hibernatepractices1.model.entity.oneToMany;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

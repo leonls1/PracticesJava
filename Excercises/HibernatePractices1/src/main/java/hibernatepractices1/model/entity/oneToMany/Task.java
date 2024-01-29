@@ -1,4 +1,4 @@
-package hibernatepractices1.model.entity;
+package hibernatepractices1.model.entity.oneToMany;
         
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

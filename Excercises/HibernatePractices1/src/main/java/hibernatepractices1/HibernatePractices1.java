@@ -1,41 +1,41 @@
 package hibernatepractices1;
 
-import hibernatepractices1.model.entity.Task;
-import hibernatepractices1.model.entity.TaskType;
-import hibernatepractices1.service.TaskService_jpa;
-import java.time.LocalDate;
-import java.util.Arrays;
-
+import hibernatepractices1.model.entity.oneToMany.Author;
+import hibernatepractices1.model.entity.oneToMany.Book;
+import hibernatepractices1.service.AuthorService;
+import java.util.List;
 
 public class HibernatePractices1 {
 
     public static void main(String[] args) {
-       
-       //algunos ejemplos generados para poder cargar  
-       Task task1 = new Task("tarea 6", "comprar pan", LocalDate.now(), LocalDate.now().plusDays(7), true);
-       Task task2 = new Task("tarea 44", "comprar azucar", LocalDate.now(), LocalDate.now().plusDays(7), false);
-       
-       
-       
-       
-       //type1.setTasks(Arrays.asList(task1, task2));      
-      
-       TaskService_jpa service = new TaskService_jpa();
-       
-       TaskType type1 = service.getTaskTypeById(1L);
-       //service.createTaskType(type1);
-       task1.setType(type1);
-       task2.setType(type1);
-       service.createTask(task2);
-       service.createTask(task1);
-       
-      
+        AuthorService service = new AuthorService();
         
-                
-                 
-       
-       
+        Book book1 = new Book("librito de cocina");
+        Book book2 = new Book("librito de java");
+        
+        Author auth1 = new Author("George Lucas");
+        
+        auth1.setBooks(List.of(book1,book2));
+        book1.setAuthor(auth1);
+        book2.setAuthor(auth1);
+        
+        service.createAuthor(auth1);
+        
+        Book book3 = new Book("librito de casa");
+        Book book4 = new Book("librito de mysql");
+        
+        Author auth2 = new Author("George ");
+        
+        book3.setAuthor(auth2);
+        book4.setAuthor(auth2);
+        auth2.setBooks(List.of(book3,book4));
+        
+        service.createAuthor(auth2);
+        
+        
+        Author autREcuperado = service.getAuthor(2L);
+        System.out.println(autREcuperado.getBooks());
+
     }
 
-   
 }
