@@ -62,7 +62,7 @@ class writeFile{
         String toWrite = "alguna cosita para escribi en el archivo";
         
         try {
-            FileWriter escritura = new FileWriter("C:\\Users\\leonl\\Documents\\NetBeansProjects\\Excercises\\write_example.txt");
+            FileWriter escritura = new FileWriter("C:\\Users\\leonl\\Documents\\NetBeansProjects\\Excercises\\write_example.txt",true);
             //FileWriter escritura2 = new FileWriter;
             
             escritura.write(toWrite);
