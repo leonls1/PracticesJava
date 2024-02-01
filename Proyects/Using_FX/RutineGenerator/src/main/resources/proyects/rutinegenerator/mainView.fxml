@@ -16,14 +16,14 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <TableView layoutX="71.0" layoutY="140.0" prefHeight="200.0" prefWidth="520.0">
+      <TableView fx:id="tableRutine" layoutX="71.0" layoutY="140.0" onMouseClicked="#mouseEvent" prefHeight="200.0" prefWidth="520.0">
         <columns>
           <TableColumn prefWidth="360.0" text="Ejercicio" />
           <TableColumn prefWidth="74.0" text="Series" />
             <TableColumn prefWidth="85.0" text="Repeticiones" />
         </columns>
       </TableView>
-      <Button layoutX="591.0" layoutY="371.0" mnemonicParsing="false" text="Generar" />
-      <ComboBox layoutX="71.0" layoutY="78.0" prefWidth="150.0" promptText="Tipo de rutina" />
+      <Button fx:id="btnGenerate" layoutX="591.0" layoutY="371.0" mnemonicParsing="false" onAction="#btnAction" text="Generar" />
+      <ComboBox fx:id="cboRutineType" layoutX="71.0" layoutY="78.0" onAction="#cboAction" prefWidth="150.0" promptText="Tipo de rutina" />
    </children>
 </AnchorPane>
