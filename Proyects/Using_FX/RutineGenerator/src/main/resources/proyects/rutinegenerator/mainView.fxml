@@ -23,7 +23,7 @@
             <TableColumn prefWidth="85.0" text="Repeticiones" />
         </columns>
       </TableView>
-      <Button fx:id="btnGenerate" layoutX="591.0" layoutY="371.0" mnemonicParsing="false" onAction="#btnAction" text="Generar" />
-      <ComboBox fx:id="cboRutineType" layoutX="71.0" layoutY="78.0" onAction="#cboAction" prefWidth="150.0" promptText="Tipo de rutina" />
+      <Button fx:id="btnGenerate" layoutX="591.0" layoutY="371.0" mnemonicParsing="false" onAction="#btnEvent" text="Generar" />
+      <ComboBox fx:id="cboRutineType" layoutX="71.0" layoutY="78.0" onAction="#cboEvent" prefWidth="150.0" promptText="Tipo de rutina" />
    </children>
 </AnchorPane>
