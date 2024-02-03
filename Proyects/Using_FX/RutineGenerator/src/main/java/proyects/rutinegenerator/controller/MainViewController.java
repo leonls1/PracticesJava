@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import proyects.rutinegenerator.model.Excercise;
@@ -35,6 +36,9 @@ public class MainViewController implements Initializable {
 
     @FXML
     private ComboBox<String> cboRutineType;
+    
+    @FXML
+    private TableColumn excerciceCol, serieCol, repCol; 
 
     @FXML
     public void cboEvent(ActionEvent evt) {
