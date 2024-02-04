@@ -19,12 +19,17 @@ public class ProblemImp implements ProblemDao {
 
     @Override
     public void create(Problem problem) {
+        em.getTransaction().begin();
         em.persist(problem);
+        em.getTransaction().commit();
     }
 
     @Override
     public void update(Problem problem) {
+        em.getTransaction().begin();
         em.merge(problem);
+        em.getTransaction().commit();
+
     }
 
     @Override
@@ -34,14 +39,18 @@ public class ProblemImp implements ProblemDao {
 
     @Override
     public void delete(Problem problem) {
+        em.getTransaction().begin();
         Problem p = em.merge(problem);
         em.remove(p);
+        em.getTransaction().commit();
     }
 
     @Override
     public List<Problem> GetAll() {
+        em.getTransaction().begin();
         String jpql = "SELECT p FROM Problem p";
         Query query = em.createQuery(jpql, Problem.class);
+        em.getTransaction().commit();
         return query.getResultList();
     }
 }

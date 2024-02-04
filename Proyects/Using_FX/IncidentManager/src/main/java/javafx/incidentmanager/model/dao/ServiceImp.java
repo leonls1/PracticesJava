@@ -7,12 +7,11 @@ import jakarta.persistence.Query;
 import java.util.List;
 import javafx.incidentmanager.model.entity.Service;
 
-
-public class ServiceImp implements ServiceDao{
+public class ServiceImp implements ServiceDao {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("IncendetManager-unit");
     EntityManager em = emf.createEntityManager();
-    
+
     @Override
     public void setEntityManager(EntityManager em) {
         this.em = em;
@@ -20,11 +19,17 @@ public class ServiceImp implements ServiceDao{
 
     @Override
     public void create(Service service) {
-    em.persist(service); }
+        em.getTransaction().begin();
+        em.persist(service);
+        em.getTransaction().commit();
+    }
 
     @Override
     public void update(Service service) {
-    em.merge(service);}
+        em.getTransaction().begin();
+        em.merge(service);
+        em.getTransaction().commit();
+    }
 
     @Override
     public void findById(Long id) {
@@ -33,11 +38,17 @@ public class ServiceImp implements ServiceDao{
 
     @Override
     public void delete(Service service) {
-    Service s = em.merge(service);
-    em.remove(s);}
+        em.getTransaction().begin();
+        Service s = em.merge(service);
+        em.remove(s);
+        em.getTransaction().commit();
+    }
 
     @Override
     public List<Service> GetAll() {
-    String jpql = "SELECT s FROM Service s";
-    return  em.createQuery(jpql,Service.class).getResultList();}
+        em.getTransaction().begin();
+        String jpql = "SELECT s FROM Service s";
+        em.getTransaction().commit();
+        return em.createQuery(jpql, Service.class).getResultList();
+    }
 }

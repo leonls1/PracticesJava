@@ -18,12 +18,16 @@ public class SpecialtyImp implements SpecialtyDao {
 
     @Override
     public void create(Specialty specialty) {
+        em.getTransaction().begin();
         em.persist(specialty);
+        em.getTransaction().commit();
     }
 
     @Override
     public void update(Specialty specialty) {
+        em.getTransaction().begin();
         em.merge(specialty);
+        em.getTransaction().commit();
     }
 
     @Override
@@ -33,12 +37,15 @@ public class SpecialtyImp implements SpecialtyDao {
 
     @Override
     public void delete(Specialty specialty) {
+        em.getTransaction().begin();
         Specialty s = em.merge(specialty);
         em.remove(s);
+        em.getTransaction().commit();
     }
 
     @Override
     public List<Specialty> GetAll() {
+
         return em.createQuery("SELECT s FROM Specialty s", Specialty.class).getResultList();
     }
 }

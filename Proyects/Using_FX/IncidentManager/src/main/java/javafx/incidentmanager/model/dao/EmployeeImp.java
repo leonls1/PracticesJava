@@ -19,12 +19,16 @@ public class EmployeeImp implements EmployeeDao {
 
     @Override
     public void create(Employee empl) {
+        em.getTransaction().begin();
         em.persist(empl);
+        em.getTransaction().commit();
     }
 
     @Override
     public void update(Employee empl) {
+        em.getTransaction().begin();
         em.merge(empl);
+        em.getTransaction().commit();
     }
 
     @Override
@@ -34,14 +38,18 @@ public class EmployeeImp implements EmployeeDao {
 
     @Override
     public void delete(Employee empl) {
+        em.getTransaction().begin();
         Employee e = em.merge(empl);
-        em.remove(e);
+        em.remove(e);em.getTransaction().commit();
+        
     }
 
     @Override
     public List<Employee> GetAll() {
+        em.getTransaction().begin();
         String jpql = "SELECT e FROM Employee e";
         Query query = em.createQuery(jpql, Employee.class);
+        em.getTransaction().commit();
         return query.getResultList();
     }
 }
