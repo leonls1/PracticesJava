@@ -6,6 +6,7 @@ import java.awt.*;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -58,9 +59,9 @@ class MarcoServidor extends JFrame implements Runnable {
 
             PaqueteEnviado paqueteRecivido;
             while (true) {
-                Socket mySocket = server.accept();
+                Socket soquetEscucha = server.accept();
 
-                ObjectInputStream ois = new ObjectInputStream(mySocket.getInputStream());
+                ObjectInputStream ois = new ObjectInputStream(soquetEscucha.getInputStream());
 
                 paqueteRecivido = (PaqueteEnviado) ois.readObject();
 
@@ -76,7 +77,18 @@ class MarcoServidor extends JFrame implements Runnable {
                  */
                 
                 areatexto.append("\n" + nick + ": " + mensaje + " para " + ip);
-                mySocket.close();
+                
+                
+                //generando un nuevo soquet para enviar el mensaje al cliente destino
+                Socket soquetEnvia = new Socket(ip, 9090);
+                
+                
+                ObjectOutputStream paqueteReenviado = new ObjectOutputStream(soquetEnvia.getOutputStream());
+                paqueteReenviado.writeObject(paqueteRecivido);
+                
+                soquetEnvia.close();
+                
+                soquetEscucha.close();
 
             }
 

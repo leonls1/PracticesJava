@@ -3,8 +3,11 @@ package practices.socketsVideos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,11 +37,13 @@ class MarcoCliente extends JFrame {
         add(milamina);
 
         setVisible(true);
+        
+        
     }
 
 }
 
-class LaminaMarcoCliente extends JPanel {
+class LaminaMarcoCliente extends JPanel implements Runnable {
 
     public LaminaMarcoCliente() {
         
@@ -69,7 +74,40 @@ class LaminaMarcoCliente extends JPanel {
         miboton.addActionListener(event);
 
         add(miboton);
+        
+        Thread hiloEscucha = new Thread(this);
+        
+        hiloEscucha.start();
 
+    }
+
+    @Override
+    public void run() {
+        try {
+            ServerSocket server = new ServerSocket(9090);
+            
+            Socket mySocket = server.accept();
+            
+            PaqueteEnviado paqueteRecivido;
+            
+            while (true) {                
+                ObjectInputStream ois = new ObjectInputStream(mySocket.getInputStream());
+                
+                paqueteRecivido = (PaqueteEnviado)ois.readObject();
+                
+                campochat.append(paqueteRecivido.getNick() + " : " + paqueteRecivido.getMensaje());
+                
+            }
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(LaminaMarcoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LaminaMarcoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    
     }
 
     private class SendMessage implements ActionListener {
@@ -89,6 +127,9 @@ class LaminaMarcoCliente extends JPanel {
                 ObjectOutputStream oos = new ObjectOutputStream(mySocket.getOutputStream());
                 //enviando el objeto
                 oos.writeObject(datos);
+                campochat.append("tu: " + campo1.getText());
+                campo1.setText("");
+                oos.close();
                 mySocket.close();
                 
                 
