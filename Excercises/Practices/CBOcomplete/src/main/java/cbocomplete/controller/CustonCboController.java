@@ -51,10 +51,14 @@ public class CustonCboController implements Initializable {
             textPerson.setText(cboPerson.getSelectionModel().getSelectedItem().toString());
             
         }else if(evt.equals(btnSearch)){
+            
+            //the id that user is looking for
             String id = textSearch.getText();
             
             try {
+                //the id is a String so you need to pharse it
                 int idSearch = Integer.parseInt(id);
+                
                 int indexSearch = getSelectedIndex(idSearch, cboPerson);
                 //looking if i get a result != -1 so i can load that person in my cbo
                 if(indexSearch != -1){
