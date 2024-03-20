@@ -70,7 +70,7 @@ public class CustonCboController implements Initializable {
 
                 
                 
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Error de formato, ingrese un valor numerico como id");
             }
         }else if(evt.equals(cboCountries)){
@@ -91,6 +91,7 @@ public class CustonCboController implements Initializable {
         
         cboCountries.setConverter(new CountryConverter(cboCountries));
         cboCountries.getItems().addAll(createCountrys());
+        
         }    
     
     private ArrayList<Person> createCollectionPersons(){
