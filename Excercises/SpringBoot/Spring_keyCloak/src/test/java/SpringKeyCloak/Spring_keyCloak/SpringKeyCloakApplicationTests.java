@@ -1,10 +1,10 @@
-package com.api.rest;
+package SpringKeyCloak.Spring_keyCloak;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootKeyCloakApplicationTests {
+class SpringKeyCloakApplicationTests {
 
 	@Test
 	void contextLoads() {
