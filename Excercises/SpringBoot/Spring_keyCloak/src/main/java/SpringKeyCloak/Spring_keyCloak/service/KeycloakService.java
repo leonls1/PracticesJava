@@ -55,7 +55,7 @@ public class KeycloakService implements IKeycloakService {
             String path = response.getLocation().getPath();
 
             //getting the user id
-            String userId = path.substring(path.lastIndexOf("/" + 1));
+            String userId = path.substring(path.lastIndexOf("/") + 1);
 
             //generating the credeatials to aply at the new user
             CredentialRepresentation credential = new CredentialRepresentation();
