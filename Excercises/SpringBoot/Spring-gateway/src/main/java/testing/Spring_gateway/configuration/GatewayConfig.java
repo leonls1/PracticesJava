@@ -13,7 +13,7 @@ public class GatewayConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder){
         return builder.routes()
-                .route("id_ruta1", r -> r.path("rutaRecibida1/users/**")
+                .route("id_ruta1", r -> r.path("/rutaRecibida1/users/**")
                         .filters(f -> f.stripPrefix(1))
                         .uri("https://jsonplaceholder.typicode.com/")
                 )
@@ -29,6 +29,5 @@ public class GatewayConfig {
                 .filters(f -> f.stripPrefix(2)) // Esto elimina los dos primeros segmentos del path
                 .uri("http://localhost:8082"))
             .build();
-*/
-    }
+*/}
 }
