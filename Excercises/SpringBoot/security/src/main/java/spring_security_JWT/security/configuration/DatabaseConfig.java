@@ -9,16 +9,16 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 @Configuration
 public class DatabaseConfig {
 
-    @Value("{spring.datasource.url}")
+    @Value("${spring.datasource.url}")
     private String urlDB;
 
-    @Value("{spring.datasource.username}")
+    @Value("${spring.datasource.username}")
     private String user;
 
-    @Value("{spring.datasource.password}")
+    @Value("${spring.datasource.password}")
     private String password;
 
-    @Value("{spring.datasource.driver-class-name}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
     @Bean
