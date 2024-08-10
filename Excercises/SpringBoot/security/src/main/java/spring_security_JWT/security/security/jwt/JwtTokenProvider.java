@@ -3,6 +3,7 @@ package spring_security_JWT.security.security.jwt;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -35,7 +36,7 @@ public class JwtTokenProvider {
                 .issuedAt(new Date())
                 .expiration(new Date(new Date().getTime() + jwtExpiration))
                 .claim("role", role)
-                .signWith(key())
+                .signWith(SignatureAlgorithm.HS512, SecurityConstants.JWT_SIGNATURE)
                 .compact();
     }
 
@@ -47,7 +48,7 @@ public class JwtTokenProvider {
     //metodo para obtener el username desde el token
     public String getUernameFromToken(String token) {
         return Jwts.parser()
-                .setSigningKey(key())
+                .setSigningKey(SecurityConstants.JWT_SIGNATURE)
                 .build()
                 .parseClaimsJws(token).getBody().getSubject();
 
@@ -56,7 +57,7 @@ public class JwtTokenProvider {
 
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(key()).build().parse(token);
+            Jwts.parser().setSigningKey(SecurityConstants.JWT_SIGNATURE).build().parse(token);
             return true;
         } catch (MalformedJwtException e) {
             log.error("El token esta mal formado: {}", e.getMessage());
