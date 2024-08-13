@@ -23,7 +23,7 @@ public class JwtTokenProvider {
 
     private String JwtSecret = SecurityConstants.JWT_SIGNATURE;
 
-    @Value("${}")
+    @Value("${auth.token.expiration.inMillis}")
     private int jwtExpiration;
 
     //metodo para generar el token
