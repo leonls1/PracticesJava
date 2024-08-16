@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,12 +16,14 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import spring_security_JWT.security.security.CustomUserDetailService;
 
-@RequiredArgsConstructor
-public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
-    private final CustomUserDetailService customUserDetailService;
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtTokenProvider jwtTokenProvider;
+    @Autowired
+    private  CustomUserDetailService customUserDetailService;
+
+    @Autowired
+    private  JwtTokenProvider jwtTokenProvider;
 
     private String getTokenFromRequest(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");

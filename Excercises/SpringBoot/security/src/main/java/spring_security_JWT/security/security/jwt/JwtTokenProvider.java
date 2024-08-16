@@ -40,7 +40,7 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    //metodo para desencriptar el secret de jwt que tengo en el properties
+    //metodo para desencriptar el secret de jwt que tengo en el properties, si lo pones aca claro
     private Key key() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(JwtSecret));
     }
