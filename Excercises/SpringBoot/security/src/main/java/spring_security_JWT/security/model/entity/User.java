@@ -1,4 +1,4 @@
-package spring_security_JWT.security.model;
+package spring_security_JWT.security.model.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
