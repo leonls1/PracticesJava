@@ -1,0 +1,40 @@
+Language: C# el total de repositorios para:9 total de estrellas entre esos repositorios:75.3
+Language:  el total de repositorios para:103 total de estrellas entre esos repositorios:1495.3
+Language: C el total de repositorios para:26 total de estrellas entre esos repositorios:312.4
+Language: Go el total de repositorios para:39 total de estrellas entre esos repositorios:490.9
+Language: HTML el total de repositorios para:34 total de estrellas entre esos repositorios:470.9
+Language: Jupyter Notebook el total de repositorios para:3 total de estrellas entre esos repositorios:31.1
+Language: PureBasic el total de repositorios para:1 total de estrellas entre esos repositorios:9.1
+Language: TypeScript el total de repositorios para:15 total de estrellas entre esos repositorios:222.0
+Language: Shell el total de repositorios para:20 total de estrellas entre esos repositorios:247.3
+Language: OCaml el total de repositorios para:2 total de estrellas entre esos repositorios:19.200000000000003
+Language: JavaScript el total de repositorios para:338 total de estrellas entre esos repositorios:4789.7
+Language: Haskell el total de repositorios para:3 total de estrellas entre esos repositorios:26.1
+Language: Lua el total de repositorios para:4 total de estrellas entre esos repositorios:40.8
+Language: Objective-C el total de repositorios para:43 total de estrellas entre esos repositorios:412.5
+Language: PHP el total de repositorios para:23 total de estrellas entre esos repositorios:234.1
+Language: Ruby el total de repositorios para:44 total de estrellas entre esos repositorios:522.6
+Language: Assembly el total de repositorios para:1 total de estrellas entre esos repositorios:24.4
+Language: Emacs Lisp el total de repositorios para:1 total de estrellas entre esos repositorios:12.1
+Language: Clojure el total de repositorios para:3 total de estrellas entre esos repositorios:31.1
+Language: Python el total de repositorios para:63 total de estrellas entre esos repositorios:833.4
+Language: PowerShell el total de repositorios para:2 total de estrellas entre esos repositorios:19.2
+Language: Java el total de repositorios para:67 total de estrellas entre esos repositorios:731.4
+Language: CSS el total de repositorios para:30 total de estrellas entre esos repositorios:407.6
+Language: C++ el total de repositorios para:28 total de estrellas entre esos repositorios:441.90000000000003
+Language: Rust el total de repositorios para:2 total de estrellas entre esos repositorios:30.3
+Language: Objective-C++ el total de repositorios para:3 total de estrellas entre esos repositorios:40.8
+Language: TeX el total de repositorios para:3 total de estrellas entre esos repositorios:28.3
+Language: Scala el total de repositorios para:5 total de estrellas entre esos repositorios:46.3
+Language: Vue el total de repositorios para:5 total de estrellas entre esos repositorios:44.1
+Language: Perl el total de repositorios para:2 total de estrellas entre esos repositorios:14.9
+Language: Kotlin el total de repositorios para:1 total de estrellas entre esos repositorios:6.5
+Language: Julia el total de repositorios para:1 total de estrellas entre esos repositorios:8.8
+Language: Rascal el total de repositorios para:1 total de estrellas entre esos repositorios:13.9
+Language: CoffeeScript el total de repositorios para:7 total de estrellas entre esos repositorios:87.0
+Language: Batchfile el total de repositorios para:1 total de estrellas entre esos repositorios:11.7
+Language: Swift el total de repositorios para:28 total de estrellas entre esos repositorios:307.4
+Language: Vim script el total de repositorios para:14 total de estrellas entre esos repositorios:141.4
+Language: Elixir el total de repositorios para:3 total de estrellas entre esos repositorios:26.700000000000003
+Language: Crystal el total de repositorios para:1 total de estrellas entre esos repositorios:8.4
+Language: Matlab el total de repositorios para:1 total de estrellas entre esos repositorios:9.1

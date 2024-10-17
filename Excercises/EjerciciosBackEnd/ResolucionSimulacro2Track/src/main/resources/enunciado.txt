@@ -1,0 +1,29 @@
+Uste dispondrá del archivo Tracks_Data.txt que puede descargar haciendo click aquí. Dicho archivo es un archivo de texto separado por pipes `|` (se utilizan pipes debido a que hay columnas que tienen atributos separados por comas), dicho archivo contiene los datos del convenio de Tracks adquiridos por una radio en forma de lista de Tracks con sus datos y tiene la siguiente estructura:
+
+TRACK_ID (INT): Número de identificación del track, podría obviarse para generar una nueva clave.
+NAME(TEXT): Nobre del track.
+ALBUM(TEXT): Album al que pertenece el track.
+ARTIST_NAME(TEXT): Artitsta / Artistas intérpretes del Track, es una lista separada por comas de los artistas identificados por nombre.
+COMPOSER(TEXT): Compositor / Compositores del track, es una lista separada por comas de los compositores identificados por nombre.
+MILLISECONDS(INT): duración del track.
+GENRE(TEXT): Género del track, una cadena con la identificación de un Género asociado al track.
+MEDIA_TYPE(TEXT): tipo de codificación del track, una cadena con la identificación del tipo de codificación del track.
+Estas clases además deberían responder a los siguientes requisitos mínimos:
+
+Todas las clases debe implementar los atributos para manejar las relaciones que se presentan en el diagrama
+Todas las clases debe implementar constructores y métodos de acceso a los atributos teniendo en cuenta lo que puede o no puede cambiarse en las entidades de dominio.
+Todas las clases deben implementar algún mecanismo de comparación de acuerdo con las necesidades del modelo.
+Todas las clases deben implementar el método toString para mostrar los elementos básicos de la clase.
+Los métodos de acceso a los milisegundos en la clase track debe permitir interactuar hacia afuera de clase en términos de minutos, segundos y fracciones de segundo.
+La clase Álbum debe gestionar y mantener la duración total del album y debe exponer la misma en termino de horas, minutos, segundos y fracciones de segundo.
+Requerimientos:
+Cargar todos los datos de todos los tracks en la colección de tracks, asociando cada tracks a los objetos necesarios y teniendo en cuenta que cada uno de los objetos asociados debe existir una y solo una vez en la memoria.
+En este punto lo ideal sería utilizar varias estructuras de datos para mantener el esquema de objetos en memoria de forma tal de no repetir instancias de los objetos relacionados como autores, compositores, etc.
+Determinar e informar, la cantidad de tracks importados y la duración total en horas, minutos y segundos de la lista completa de tracks importada.
+Generar un archivo de texto, separado por comas con la lista de géneros y la cantidad de tracks de cada uno de los géneros.
+Mostrar por pantalla la lista de Albumes ordenados alfabéticamente incluyendo la cantidad de tracks y la duración total del álbum.
+Cargar todos los datos montados en memoria en una base de datos utilizando JPA
+Base de datos:
+Usted puede organizar la estructura de la base de datos según crea pertinente teniendo en cuenta que las tablas deben representar el modelo de objetos y que todos los datos importados deben estar cargados y accesibles en la base de datos.
+El modelo de datos montado debe permitir al menos las consultas de tracks, tracks por Álbum y tracks por Género.
+También debería ser posible consultar la lista de tracks interpretados o compuestos por un Artista.

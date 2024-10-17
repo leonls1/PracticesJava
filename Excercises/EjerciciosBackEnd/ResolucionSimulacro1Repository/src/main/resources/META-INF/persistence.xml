@@ -1,0 +1,19 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="simulacro1">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:simulacro1.db"/>
+            <!--<property name="hibernate.connection.url" value="jdbc:sqlite:academico.db"/>-->
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
