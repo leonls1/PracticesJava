@@ -1,6 +1,7 @@
 package ar.edu.utnfrc.sping_service_web.model.entities;
 
 
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class CarRental {
     private boolean paid;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "carRental")
+    @ArraySchema(schema = @Schema(title = "rent details", description = "details of the current rent"))
     private List<CarRentalDetail> details;
 
     @ManyToOne
