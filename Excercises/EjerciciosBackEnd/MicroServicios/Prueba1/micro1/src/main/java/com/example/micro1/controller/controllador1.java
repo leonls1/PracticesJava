@@ -15,7 +15,7 @@ public class controllador1 {
     private final WebClient webClient;
 
     public controllador1(WebClient.Builder webClientBuilder){
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8081").build();
+        this.webClient = webClientBuilder.baseUrl("http://localhost:8082").build();
     }
 
     @GetMapping("/data-from-service-2")
