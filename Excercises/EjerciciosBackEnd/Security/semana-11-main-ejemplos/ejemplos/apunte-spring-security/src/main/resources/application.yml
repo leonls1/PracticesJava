@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
+    ar:
+      edu:
+        utn:
+          bda:
+            apunte17: DEBUG
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "Ingresar aquí la URI provista por los administradores de KeyCloak"
+
