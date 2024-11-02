@@ -45,7 +45,7 @@ public class ResourceServerConfig {
 
         ).oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
         return http.build();
-    }
+    }   
 
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
