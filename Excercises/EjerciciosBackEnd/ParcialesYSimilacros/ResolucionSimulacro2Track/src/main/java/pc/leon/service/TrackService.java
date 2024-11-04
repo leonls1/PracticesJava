@@ -101,8 +101,7 @@ public class TrackService {
     // uno de los géneros.
     public void generateFileGenrePerTracks(String fileName) {
         Map<String, AtomicInteger> counter = new HashMap<>();
-        try {
-            FileWriter writer = new FileWriter(fileName);
+        try(FileWriter writer = new FileWriter(fileName)) {
             trackList.forEach(
                     track -> {
                         String genreName = track.getGenre().getName();
@@ -119,7 +118,6 @@ public class TrackService {
                         .append(entrance.getValue().toString())
                         .append("\n");
             }
-            writer.close();
         } catch (IOException e) {
             System.out.println("That is an invalid name");
             throw new RuntimeException(e);

@@ -1,4 +1,4 @@
-package Leon.ejercicions.SecurityLearn.model;
+package ar.edu.utnfrc.sping_service_web.security.user.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,6 +14,7 @@ import java.util.List;
 @Data
 public class User implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(value = EnumType.STRING)

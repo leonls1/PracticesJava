@@ -14,7 +14,6 @@ import java.util.List;
 
 
 @Entity
-@Table
 @Getter
 @Setter
 @Schema(title = "rent of a car", description = "model to represent a rent of a car")

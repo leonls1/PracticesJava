@@ -1,7 +1,9 @@
-package Leon.ejercicions.SecurityLearn.security.configuration;
+package ar.edu.utnfrc.sping_service_web.security.configuration;
 
-import Leon.ejercicions.SecurityLearn.security.jwt.JwtFilter;
-import Leon.ejercicions.SecurityLearn.security.user.UserDetailService;
+
+import ar.edu.utnfrc.sping_service_web.security.jwt.JwtFilter;
+import ar.edu.utnfrc.sping_service_web.security.user.service.UserDetailService;
+import jakarta.servlet.DispatcherType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +31,7 @@ public class SecurityConfig {
     public JwtFilter jwtFilter(){return new JwtFilter();}
 
     @Bean
-    public AuthenticationManager authProvider(AuthenticationConfiguration authenticationConfig) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfig) throws Exception {
         return authenticationConfig.getAuthenticationManager();
     }
 
@@ -46,10 +48,11 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(
-                        auth -> auth.requestMatchers("/admin-request").hasRole("ADMIN")
-                                .requestMatchers("/user-request").hasRole("USER")
-                                .anyRequest().authenticated());
-
+                        auth -> auth.requestMatchers("/api/user/**").permitAll()
+                                .requestMatchers("/api/auth/**").permitAll()
+                                .dispatcherTypeMatchers(DispatcherType.ERROR, DispatcherType.FORWARD).permitAll()
+                                .requestMatchers("/admin-request").hasRole("ADMIN")
+                                .requestMatchers("/user-request").hasRole("USER"));
 
         http.authenticationProvider(daoAuthenticationProvider())
                 .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);

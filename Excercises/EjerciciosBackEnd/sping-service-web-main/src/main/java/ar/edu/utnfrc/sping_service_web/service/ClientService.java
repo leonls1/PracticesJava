@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ClientService extends ServiceImp<Client, Long> {
+
     private final ClientRepository repository;
 
     @Override
