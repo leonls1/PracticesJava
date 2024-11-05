@@ -7,12 +7,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,20 +24,31 @@ public class AuthController {
     private final UserDetailService userDetailService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> logIn(LoginRequest loginRequest) {
+    public ResponseEntity<?> logIn(@RequestBody LoginRequest loginRequest) {
+        System.out.println(loginRequest.password() + " " +  loginRequest.username());
         try {
             //try to authenticate the user from the login
             Authentication authentication = authManager.authenticate(new
                     UsernamePasswordAuthenticationToken(loginRequest.username(), loginRequest.password()));
-            //look for the userDetails with the login info
-            UserDetails userDetails =  userDetailService.loadUserByUsername(loginRequest.username());
 
             //generating the token with the user
-            String jwt = jwtUtils.generateJwtForUser(userDetails);
+            String jwt = jwtUtils.generateJwtForUser((UserDetails) authentication.getPrincipal());
 
             return ResponseEntity.ok(jwt);
-        }catch (Exception ex){
-            return new ResponseEntity<>("invalid credentials", HttpStatus.FORBIDDEN);
+        }catch (BadCredentialsException ex){
+            return new ResponseEntity<>("invalid credentials", HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @GetMapping("/testing-user")
+    public String testing(){
+        UserDetails user =userDetailService.loadUserByUsername("usuario1");
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        String passwordFromRequest = "1234";
+        String storedHashedPassword = "$2a$10$yFEXY44GeZUC1f3.kZngi.Ng4scl1iTItNs6bw8QxUXiRgvELUiom";
+
+        boolean matches = encoder.matches(passwordFromRequest, storedHashedPassword);
+        System.out.println("La contraseña coincide: " + matches);
+        return user.getPassword() + " " + user.getUsername() + " " + user.getAuthorities();
     }
 }

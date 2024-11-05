@@ -48,11 +48,14 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(
-                        auth -> auth.requestMatchers("/api/user/**").permitAll()
-                                .requestMatchers("/api/auth/**").permitAll()
-                                .dispatcherTypeMatchers(DispatcherType.ERROR, DispatcherType.FORWARD).permitAll()
-                                .requestMatchers("/admin-request").hasRole("ADMIN")
-                                .requestMatchers("/user-request").hasRole("USER"));
+                        auth -> auth.dispatcherTypeMatchers(DispatcherType.ERROR, DispatcherType.FORWARD).permitAll()
+                                .requestMatchers("/api/user/**", "/api/auth/**").permitAll()
+                                .requestMatchers("/api/v1/car-rental/**").hasAuthority("USER")
+                                .requestMatchers("/api/v1/vehicle/**").hasAuthority("ADMIN")
+                                .requestMatchers("/admin-request").hasAuthority("ADMIN")//avoid ROLE_....
+                                .requestMatchers("/user-request").hasAuthority("USER")
+                                .anyRequest().authenticated())
+                ;
 
         http.authenticationProvider(daoAuthenticationProvider())
                 .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
